@@ -1,14 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Caar from "@/app/(Image)/car.jpg";
 
 interface Product {
   id: string;
   name: string;
   partNumber: string;
   price: number;
-  discount?: number;
+  discount: number;
   images: string[];
   description: string;
   compatibility: string;
@@ -20,9 +19,15 @@ const product: Product = {
   partNumber: "BP-1234",
   price: 4999,
   discount: 10,
-  images: [Caar, Caar, Caar, Caar], // Replace with actual different images
+  images: [
+    "https://via.placeholder.com/400x400?text=Brake+Pad+1", // Example URLs
+    "https://via.placeholder.com/400x400?text=Brake+Pad+2",
+    "https://via.placeholder.com/400x400?text=Brake+Pad+3",
+    "https://via.placeholder.com/400x400?text=Brake+Pad+4",
+  ],
   description: "High-performance brake pads compatible with most sedans.",
-  compatibility: "Compatible with Honda City, Maruti Suzuki Ciaz, Hyundai Verna."
+  compatibility:
+    "Compatible with Honda City, Maruti Suzuki Ciaz, Hyundai Verna.",
 };
 
 const ProductReviewPage: React.FC = () => {
@@ -32,9 +37,9 @@ const ProductReviewPage: React.FC = () => {
   const [showZoomModal, setShowZoomModal] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
 
-  const hasDiscount = typeof product.discount === 'number';
+  const hasDiscount = typeof product.discount === "number";
   const discountedPrice = hasDiscount
-    ? (product.price * (100 - product.discount) / 100).toFixed(2)
+    ? ((product.price * (100 - product.discount)) / 100).toFixed(2)
     : product.price.toFixed(2);
 
   const checkPincode = () => {
@@ -46,7 +51,8 @@ const ProductReviewPage: React.FC = () => {
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - left) / width) * 100;
     const y = ((e.clientY - top) / height) * 100;
     setZoomPosition({ x, y });
@@ -58,37 +64,37 @@ const ProductReviewPage: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 p-6">
           {/* Image Gallery */}
           <div className="sm:col-span-2 flex flex-col space-y-4">
-            <div 
+            <div
               className="relative w-full aspect-square overflow-hidden rounded-lg cursor-zoom-in"
               onClick={() => setShowZoomModal(true)}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => setZoomPosition({ x: 0, y: 0 })}
             >
-              <Image 
-                src={selectedImage} 
-                alt={product.name} 
-                fill 
+              <Image
+                src={selectedImage}
+                alt={product.name}
+                fill
                 className="object-cover transition-transform duration-300 ease-in-out"
                 style={{
                   transform: `scale(${zoomPosition.x ? 1.5 : 1})`,
-                  transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`
+                  transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
                 }}
               />
             </div>
-            
+
             <div className="flex space-x-2 overflow-x-auto pb-2">
               {product.images.map((img, idx) => (
-                <div 
-                  key={idx} 
-                  onClick={() => setSelectedImage(img)} 
+                <div
+                  key={idx}
+                  onClick={() => setSelectedImage(img)}
                   className={`relative flex-shrink-0 w-16 h-16 border-2 rounded cursor-pointer transition-all ${
-                    selectedImage === img ? 'border-primary' : 'border-gray-200'
+                    selectedImage === img ? "border-primary" : "border-gray-200"
                   }`}
                 >
-                  <Image 
-                    src={img} 
-                    alt={`thumb-${idx}`} 
-                    fill 
+                  <Image
+                    src={img}
+                    alt={`thumb-${idx}`}
+                    fill
                     className="object-cover rounded"
                   />
                 </div>
@@ -98,29 +104,41 @@ const ProductReviewPage: React.FC = () => {
 
           {/* Product Details */}
           <div className="sm:col-span-3">
-            <h1 className="text-3xl font-heading text-primary mb-2">{product.name}</h1>
-            <p className="text-sm text-gray-500 mb-2">Part #: {product.partNumber}</p>
-            
+            <h1 className="text-3xl font-heading text-primary mb-2">
+              {product.name}
+            </h1>
+            <p className="text-sm text-gray-500 mb-2">
+              Part #: {product.partNumber}
+            </p>
+
             <div className="flex items-baseline space-x-3 mb-4">
-              <span className="text-3xl font-bold text-secondary">₹{discountedPrice}</span>
+              <span className="text-3xl font-bold text-secondary">
+                ₹{discountedPrice}
+              </span>
               {hasDiscount && (
-                <span className="text-sm text-gray-500 line-through">₹{product.price.toFixed(2)}</span>
+                <span className="text-sm text-gray-500 line-through">
+                  ₹{product.price.toFixed(2)}
+                </span>
               )}
             </div>
 
             <div className="space-y-4">
               <div>
-                <h3 className="font-medium text-gray-700 mb-1">Compatibility</h3>
+                <h3 className="font-medium text-gray-700 mb-1">
+                  Compatibility
+                </h3>
                 <p className="text-gray-600">{product.compatibility}</p>
               </div>
-              
+
               <div>
                 <h3 className="font-medium text-gray-700 mb-1">Description</h3>
                 <p className="text-gray-600">{product.description}</p>
               </div>
 
               <div>
-                <h3 className="font-medium text-gray-700 mb-2">Check Delivery Availability</h3>
+                <h3 className="font-medium text-gray-700 mb-2">
+                  Check Delivery Availability
+                </h3>
                 <div className="flex items-center gap-2">
                   <input
                     type="text"
@@ -138,7 +156,9 @@ const ProductReviewPage: React.FC = () => {
                   </button>
                 </div>
                 {deliveryMessage && (
-                  <p className="mt-2 text-sm text-green-600">{deliveryMessage}</p>
+                  <p className="mt-2 text-sm text-green-600">
+                    {deliveryMessage}
+                  </p>
                 )}
               </div>
             </div>
@@ -146,21 +166,25 @@ const ProductReviewPage: React.FC = () => {
             {/* Action Buttons */}
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <a
-                href={`mailto:sales@partspoint.com?subject=Inquiry%20for%20${encodeURIComponent(product.name)}`}
+                href={`mailto:sales@partspoint.com?subject=Inquiry%20for%20${encodeURIComponent(
+                  product.name
+                )}`}
                 className="block text-center px-4 py-3 bg-primary text-white font-medium rounded hover:bg-secondary transition"
               >
                 Send Inquiry
               </a>
-              
+
               <a
-                href={`https://wa.me/1234567890?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}`}
+                href={`https://wa.me/1234567890?text=I'm%20interested%20in%20${encodeURIComponent(
+                  product.name
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center px-4 py-3 border border-green-600 text-green-600 font-medium rounded hover:bg-green-600 hover:text-white transition"
               >
                 WhatsApp
               </a>
-              
+
               <a
                 href="tel:+911234567890"
                 className="block text-center px-4 py-3 border border-blue-600 text-blue-600 font-medium rounded hover:bg-blue-600 hover:text-white transition"
@@ -174,7 +198,7 @@ const ProductReviewPage: React.FC = () => {
 
       {/* Zoom Modal */}
       {showZoomModal && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
           onClick={() => setShowZoomModal(false)}
         >

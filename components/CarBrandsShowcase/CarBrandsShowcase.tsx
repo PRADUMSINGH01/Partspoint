@@ -13,7 +13,7 @@ import {
   SiMercedes,
   SiAudi,
 } from "react-icons/si";
-import { FaCarAlt, FaMotorcycle } from "react-icons/fa"; // Added FaMotorcycle
+import { FaMotorcycle } from "react-icons/fa"; // Added FaMotorcycle
 import { IconType } from "react-icons";
 
 interface Brand {
@@ -137,7 +137,7 @@ export default function CarBrandsShowcase() {
               Featured Indian Brands
             </h3>
             <p className="text-gray-600">
-              Proudly showcasing India's automotive excellence
+              Proudly showcasing India&apos;s automotive excellence
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">

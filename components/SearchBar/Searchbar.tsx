@@ -13,6 +13,8 @@ interface SearchResult {
   compatibleModels: string[];
 }
 
+type RecentSearch = { query: string; timestamp: number };
+
 export default function CarPartsSearch() {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +29,7 @@ export default function CarPartsSearch() {
     const item = localStorage.getItem("recentCarPartSearches");
     if (item) {
       try {
-        const arr = JSON.parse(item) as { query: string; timestamp: number }[];
+        const arr = JSON.parse(item) as RecentSearch[];
         const valid = arr.filter(
           (s) => Date.now() - s.timestamp < RECENT_SEARCH_EXPIRY_DAYS * 86400000
         );
@@ -56,14 +58,14 @@ export default function CarPartsSearch() {
   const saveRecent = (q: string) => {
     if (!q.trim()) return;
     const item = localStorage.getItem("recentCarPartSearches");
-    const arr = item ? JSON.parse(item) : [];
+    const arr: RecentSearch[] = item ? JSON.parse(item) : [];
     const filtered = arr.filter(
-      (s: any) => s.query.toLowerCase() !== q.toLowerCase()
+      (s: RecentSearch) => s.query.toLowerCase() !== q.toLowerCase()
     );
     filtered.unshift({ query: q, timestamp: Date.now() });
     const sliced = filtered.slice(0, MAX_RECENT_SEARCHES);
     localStorage.setItem("recentCarPartSearches", JSON.stringify(sliced));
-    setRecent(sliced.map((s: any) => s.query));
+    setRecent(sliced.map((s: RecentSearch) => s.query));
   };
 
   const handleSearch = async (e: React.FormEvent) => {
