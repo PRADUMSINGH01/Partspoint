@@ -1,0 +1,255 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+import { FiSearch, FiX, FiClock } from "react-icons/fi";
+
+const MAX_RECENT_SEARCHES = 5;
+const RECENT_SEARCH_EXPIRY_DAYS = 7;
+
+interface SearchResult {
+  id: string;
+  partNumber: string;
+  name: string;
+  price: number;
+  compatibleModels: string[];
+}
+
+export default function CarPartsSearch() {
+  const [query, setQuery] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState(false);
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [recent, setRecent] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Load recent searches
+  useEffect(() => {
+    const item = localStorage.getItem("recentCarPartSearches");
+    if (item) {
+      try {
+        const arr = JSON.parse(item) as { query: string; timestamp: number }[];
+        const valid = arr.filter(
+          (s) => Date.now() - s.timestamp < RECENT_SEARCH_EXPIRY_DAYS * 86400000
+        );
+        setRecent(valid.map((s) => s.query));
+      } catch {
+        localStorage.removeItem("recentCarPartSearches");
+      }
+    }
+  }, []);
+
+  // Close on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
+        setIsOpen(false);
+        setMobileExpanded(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  const saveRecent = (q: string) => {
+    if (!q.trim()) return;
+    const item = localStorage.getItem("recentCarPartSearches");
+    const arr = item ? JSON.parse(item) : [];
+    const filtered = arr.filter(
+      (s: any) => s.query.toLowerCase() !== q.toLowerCase()
+    );
+    filtered.unshift({ query: q, timestamp: Date.now() });
+    const sliced = filtered.slice(0, MAX_RECENT_SEARCHES);
+    localStorage.setItem("recentCarPartSearches", JSON.stringify(sliced));
+    setRecent(sliced.map((s: any) => s.query));
+  };
+
+  const handleSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!query.trim()) return;
+    setLoading(true);
+    saveRecent(query);
+    try {
+      // TODO: replace with actual fetch logic
+      // const data = await fetch(`/api/parts?search=${encodeURIComponent(query)}`);
+      // const json = await data.json();
+      // setResults(json as SearchResult[]);
+      console.log("Searching for", query);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const clear = () => {
+    setQuery("");
+    setResults([]);
+  };
+
+  return (
+    <div ref={containerRef} className="relative w-full max-w-xl mx-auto">
+      {/* Desktop Search */}
+      <form
+        onSubmit={handleSearch}
+        className="hidden md:flex items-center w-full"
+      >
+        <div className="relative w-full">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => setIsOpen(true)}
+            placeholder="Search by part # or name..."
+            className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={clear}
+              className="absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary"
+            >
+              <FiX />
+            </button>
+          )}
+          <button
+            type="submit"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-primary"
+          >
+            <FiSearch />
+          </button>
+        </div>
+      </form>
+
+      {/* Mobile Trigger */}
+      <button
+        className="md:hidden text-gray-600 p-2"
+        onClick={() => {
+          setMobileExpanded((prev) => !prev);
+          setIsOpen((prev) => !prev);
+        }}
+        aria-label="Toggle search"
+      >
+        <FiSearch size={24} />
+      </button>
+
+      {/* Mobile Expanded */}
+      {mobileExpanded && (
+        <form
+          onSubmit={handleSearch}
+          className="absolute top-full left-0 w-full bg-white p-4 shadow-lg z-50 flex items-center space-x-2"
+        >
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            autoFocus
+            placeholder="Search car parts..."
+            className="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-accent focus:border-transparent transition"
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={clear}
+              className="text-gray-400 hover:text-primary p-2"
+            >
+              <FiX />
+            </button>
+          )}
+          <button
+            type="submit"
+            className="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-primary-dark transition"
+          >
+            <FiSearch />
+          </button>
+        </form>
+      )}
+
+      {/* Results Dropdown */}
+      {(isOpen || mobileExpanded) && (
+        <div
+          className={`absolute ${
+            mobileExpanded ? "top-[100%]" : "top-12"
+          } left-0 w-full md:w-full bg-white shadow-lg rounded-lg border border-gray-200 overflow-hidden z-40`}
+        >
+          {/* Recent */}
+          {query === "" && recent.length > 0 && (
+            <div className="py-2 border-b border-gray-200">
+              <h4 className="px-4 py-1 text-xs font-semibold text-gray-500 uppercase">
+                Recent Searches
+              </h4>
+              {recent.map((q, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    setQuery(q);
+                    setIsOpen(true);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center space-x-2"
+                >
+                  <FiClock />
+                  <span>{q}</span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Results */}
+          {query && (
+            <div className="max-h-64 overflow-y-auto">
+              {loading ? (
+                <div className="p-4 text-center text-gray-500">
+                  Searching...
+                </div>
+              ) : results.length > 0 ? (
+                <ul>
+                  {results.map((r) => (
+                    <li key={r.id} className="border-b last:border-b-0">
+                      <a
+                        href={`/parts/${r.id}`}
+                        className="flex justify-between items-start px-4 py-3 hover:bg-gray-50 transition"
+                      >
+                        <div>
+                          <h5 className="font-medium text-gray-800">
+                            {r.name}
+                          </h5>
+                          <p className="text-sm text-gray-500">
+                            {r.partNumber}
+                          </p>
+                          <div className="mt-1 flex flex-wrap gap-1">
+                            {r.compatibleModels.slice(0, 3).map((m) => (
+                              <span
+                                key={m}
+                                className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
+                              >
+                                {m}
+                              </span>
+                            ))}
+                            {r.compatibleModels.length > 3 && (
+                              <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                                +{r.compatibleModels.length - 3} more
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <span className="ml-4 font-medium text-primary">
+                          ${r.price.toFixed(2)}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="p-4 text-center text-gray-500">
+                  No parts found.
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
