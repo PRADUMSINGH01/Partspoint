@@ -45,7 +45,7 @@ export default async function Home() {
         <PartsCategories />
       </div>
 
-      <div className=" Brand bg-light py-12">
+      <div className=" Brand bg-light py-12" id="Brands">
         <CarBrandsShowcase />
       </div>
 

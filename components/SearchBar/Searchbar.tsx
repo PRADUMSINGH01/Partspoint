@@ -182,7 +182,7 @@ export default function CarPartsSearch() {
           {/* Recent */}
           {query === "" && recent.length > 0 && (
             <div className="py-2 border-b border-gray-200">
-              <h4 className="px-4 py-1 text-xs font-semibold text-gray-500 uppercase">
+              <h4 className="w-full px-4 py-1 text-xs font-semibold text-gray-500 uppercase">
                 Recent Searches
               </h4>
               {recent.map((q, i) => (
@@ -203,7 +203,7 @@ export default function CarPartsSearch() {
 
           {/* Results */}
           {query && (
-            <div className="max-h-64 overflow-y-auto">
+            <div className="max-h-64 w-full flex">
               {loading ? (
                 <div className="p-4 text-center text-gray-500">
                   Searching...
@@ -211,10 +211,10 @@ export default function CarPartsSearch() {
               ) : results.length > 0 ? (
                 <ul>
                   {results.map((r) => (
-                    <li key={r.id} className="border-b last:border-b-0">
+                    <li key={r.id} className="border-b last:border-b-0 w-full">
                       <a
                         href={`/parts/${r.id}`}
-                        className="flex justify-between items-start px-4 py-3 hover:bg-gray-50 transition"
+                        className="flex justify-between w-full items-start px-4 py-3 hover:bg-gray-50 transition"
                       >
                         <div>
                           <h5 className="font-medium text-gray-800">
@@ -247,7 +247,7 @@ export default function CarPartsSearch() {
                   ))}
                 </ul>
               ) : (
-                <div className="p-4 text-center text-gray-500">
+                <div className="absolute top-12 p-4 text-center text-gray-500">
                   No parts found.
                 </div>
               )}

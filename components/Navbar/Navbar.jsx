@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
-import { FiSearch, FiShoppingCart, FiUser, FiMenu, FiX } from "react-icons/fi";
+import { FiShoppingCart, FiUser, FiMenu, FiX } from "react-icons/fi";
 import CarPartsSearch from "../SearchBar/Searchbar";
-
+import Image from "next/image";
+import logo from "@/app/(Image)/logo.png";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -19,9 +20,14 @@ export default function Navbar() {
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
 
-          <h1 className="text-xl font-heading font-bold text-primary">
-            Parts point
-          </h1>
+          <Image
+            src={logo.src}
+            alt="logo"
+            width={70}
+            height={5}
+            priority
+            className=" hover:border border-primary cursor-pointer"
+          ></Image>
 
           <div className="relative">
             <CarPartsSearch />
@@ -33,9 +39,14 @@ export default function Navbar() {
 
         {/* Desktop Header */}
         <div className="hidden md:flex items-center justify-between h-20">
-          <h1 className="text-2xl font-heading font-bold text-primary">
-            Parts point
-          </h1>
+          <Image
+            src={logo.src}
+            alt="logo"
+            width={100}
+            height={10}
+            priority
+            className="text-2xl font-heading font-bold text-primary cursor-pointer "
+          ></Image>
 
           <div className="flex items-center space-x-8 flex-1 max-w-2xl mx-8">
             <div className="relative w-full">

@@ -13,6 +13,7 @@ import {
   SiMercedes,
   SiAudi,
 } from "react-icons/si";
+import { FaCarSide } from "react-icons/fa"; // generic car icon
 import { FaMotorcycle } from "react-icons/fa"; // Added FaMotorcycle
 import { IconType } from "react-icons";
 
@@ -32,10 +33,10 @@ export default function CarBrandsShowcase() {
     // Indian Brands
     { name: "Tata", icon: SiTata, isIndian: true },
     { name: "Mahindra", icon: SiMahindra, isIndian: true },
-    { name: "Maruti Suzuki", icon: SiMahindra, isIndian: true },
+    { name: "Maruti Suzuki", icon: FaCarSide, isIndian: true },
     { name: "Hyundai India", icon: SiHyundai, isIndian: true },
     { name: "Kia India", icon: SiKia, isIndian: true },
-    { name: "Hindustan Motors", icon: SiMahindra, isIndian: true },
+    { name: "Hindustan Motors", icon: FaCarSide, isIndian: true },
     { name: "Force Motors", icon: SiMahindra, isIndian: true },
     { name: "Bajaj Auto", icon: FaMotorcycle, isIndian: true }, // Using FaMotorcycle for Bajaj
 
