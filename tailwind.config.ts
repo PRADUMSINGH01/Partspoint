@@ -21,6 +21,17 @@ export default {
         heading: "var(--font-rubik)",
         body: "var(--font-open-sans)",
       },
+      boxShadow: {
+        subtle:
+          "0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05)",
+        panel:
+          "0 4px 12px 0 rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05)",
+      },
+      borderRadius: {
+        md: "0.375rem", // default
+        lg: "0.5rem",
+        xl: "0.75rem",
+      },
     },
     variants: {
       extend: {

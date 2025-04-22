@@ -54,7 +54,7 @@ const products: Product[] = [
 ];
 
 const ProductCatalogPage: React.FC = () => (
-  <div className="bg-light py-12 px-4 sm:px-6 lg:px-8 font-body">
+  <div className="bg-light py-12 px-4 sm:px-6 lg:px-8 font-body md:mt-10">
     <div className="max-w-7xl mx-auto">
       <h1 className="text-4xl font-heading text-primary mb-8 text-center">
         Parts Point Product Catalog

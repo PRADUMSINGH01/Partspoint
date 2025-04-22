@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import {
   FiTool,
   FiWind,
@@ -29,43 +30,163 @@ import {
 } from "react-icons/fi";
 
 const categories = [
-  { id: 1, name: "Maintenance Service Parts", icon: FiTool, count: 342 },
-  { id: 2, name: "Air Conditioning", icon: FiWind, count: 215 },
-  { id: 3, name: "Belts Chains and Rollers", icon: FiLink, count: 178 },
-  { id: 4, name: "Bearings", icon: FiCircle, count: 302 },
-  { id: 5, name: "Body", icon: FiTruck, count: 456 },
-  { id: 6, name: "Control Cables", icon: FiSliders, count: 89 },
-  { id: 7, name: "Brake System", icon: FiShield, count: 567 },
-  { id: 8, name: "Car Accessories", icon: FiStar, count: 678 },
-  { id: 9, name: "Clutch System", icon: FiZap, count: 123 },
-  { id: 10, name: "Electric Components", icon: FiZap, count: 432 },
-  { id: 11, name: "Engine", icon: FiSettings, count: 789 },
-  { id: 12, name: "Engine Cooling System", icon: FiThermometer, count: 234 },
-  { id: 13, name: "Exhaust System", icon: FiAnchor, count: 156 },
-  { id: 14, name: "Filters", icon: FiFilter, count: 654 },
-  { id: 15, name: "Fuel Supply System", icon: FiDroplet, count: 321 },
-  { id: 16, name: "Gaskets and Sealing Rings", icon: FiBox, count: 189 },
-  { id: 17, name: "Ignition and Glowplug System", icon: FiRadio, count: 276 },
-  { id: 18, name: "Interior and comfort", icon: FiNavigation, count: 498 },
-  { id: 19, name: "Lighting", icon: FiCrosshair, count: 582 },
-  { id: 20, name: "Oils and Fluids", icon: FiDroplet, count: 765 },
-  { id: 21, name: "Pipes and Hoses", icon: FiPackage, count: 143 },
-  { id: 22, name: "Repair Kits", icon: FiWatch, count: 87 },
+  {
+    id: 1,
+    name: "Maintenance Service Parts",
+    icon: FiTool,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 2,
+    name: "Air Conditioning",
+    icon: FiWind,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 3,
+    name: "Belts Chains and Rollers",
+    icon: FiLink,
+    url: "Maintenance-Service-Parts",
+  },
+  { id: 4, name: "Bearings", icon: FiCircle, url: "Maintenance-Service-Parts" },
+  { id: 5, name: "Body", icon: FiTruck, url: "Maintenance-Service-Parts" },
+  {
+    id: 6,
+    name: "Control Cables",
+    icon: FiSliders,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 7,
+    name: "Brake System",
+    icon: FiShield,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 8,
+    name: "Car Accessories",
+    icon: FiStar,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 9,
+    name: "Clutch System",
+    icon: FiZap,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 10,
+    name: "Electric Components",
+    icon: FiZap,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 11,
+    name: "Engine",
+    icon: FiSettings,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 12,
+    name: "Engine Cooling System",
+    icon: FiThermometer,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 13,
+    name: "Exhaust System",
+    icon: FiAnchor,
+    url: "Maintenance-Service-Parts",
+  },
+  { id: 14, name: "Filters", icon: FiFilter, url: "Maintenance-Service-Parts" },
+  {
+    id: 15,
+    name: "Fuel Supply System",
+    icon: FiDroplet,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 16,
+    name: "Gaskets and Sealing Rings",
+    icon: FiBox,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 17,
+    name: "Ignition and Glowplug System",
+    icon: FiRadio,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 18,
+    name: "Interior and comfort",
+    icon: FiNavigation,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 19,
+    name: "Lighting",
+    icon: FiCrosshair,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 20,
+    name: "Oils and Fluids",
+    icon: FiDroplet,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 21,
+    name: "Pipes and Hoses",
+    icon: FiPackage,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 22,
+    name: "Repair Kits",
+    icon: FiWatch,
+    url: "Maintenance-Service-Parts",
+  },
   {
     id: 23,
     name: "Sensors Relays and Control units",
     icon: FiUmbrella,
-    count: 378,
+    url: "Maintenance-Service-Parts",
   },
-  { id: 24, name: "Steering", icon: FiDisc, count: 219 },
-  { id: 25, name: "Suspension and Arms", icon: FiAlertCircle, count: 431 },
-  { id: 26, name: "Towbar Parts", icon: FiWifi, count: 65 },
-  { id: 27, name: "Transmission", icon: FiDollarSign, count: 329 },
-  { id: 28, name: "Trims", icon: FiTool, count: 182 },
-  { id: 29, name: "Tyres and Alloys", icon: FiCircle, count: 726 },
-  { id: 30, name: "Universal", icon: FiStar, count: 54 },
-  { id: 31, name: "Wheels", icon: FiDisc, count: 612 },
-  { id: 32, name: "Windscreen Cleaning System", icon: FiWind, count: 129 },
+  { id: 24, name: "Steering", icon: FiDisc, url: "Maintenance-Service-Parts" },
+  {
+    id: 25,
+    name: "Suspension and Arms",
+    icon: FiAlertCircle,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 26,
+    name: "Towbar Parts",
+    icon: FiWifi,
+    url: "Maintenance-Service-Parts",
+  },
+  {
+    id: 27,
+    name: "Transmission",
+    icon: FiDollarSign,
+    url: "Maintenance-Service-Parts",
+  },
+  { id: 28, name: "Trims", icon: FiTool, url: "Maintenance-Service-Parts" },
+  {
+    id: 29,
+    name: "Tyres and Alloys",
+    icon: FiCircle,
+    url: "Maintenance-Service-Parts",
+  },
+  { id: 30, name: "Universal", icon: FiStar, url: "Maintenance-Service-Parts" },
+  { id: 31, name: "Wheels", icon: FiDisc, url: "Maintenance-Service-Parts" },
+  {
+    id: 32,
+    name: "Windscreen Cleaning System",
+    icon: FiWind,
+    url: "Maintenance-Service-Parts",
+  },
 ];
 
 export default function PartsCategories() {
@@ -90,16 +211,18 @@ export default function PartsCategories() {
                 key={category.id}
                 className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:border-primary transition-all group"
               >
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary/20 transition">
-                    <Icon className="w-6 h-6" />
+                <Link href={`Catalog/${category.url}`} className="hover">
+                  <div className="flex items-center gap-4 overflow-hidden">
+                    <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary/20 transition">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-neutral">
+                        {category.name}
+                      </h3>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-neutral">
-                      {category.name}
-                    </h3>
-                  </div>
-                </div>
+                </Link>
               </div>
             );
           })}
