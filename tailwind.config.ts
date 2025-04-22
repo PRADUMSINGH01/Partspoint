@@ -8,6 +8,7 @@ export default {
   ],
   theme: {
     extend: {
+      scrollBehavior: ["responsive"],
       colors: {
         primary: "black",
         secondary: "#10b981", // Turquoise
@@ -19,6 +20,11 @@ export default {
       fontFamily: {
         heading: "var(--font-rubik)",
         body: "var(--font-open-sans)",
+      },
+    },
+    variants: {
+      extend: {
+        scrollBehavior: ["hover", "focus"],
       },
     },
   },

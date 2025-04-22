@@ -9,7 +9,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-
+import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-stone-900  py-10 md:py-12 text-white">
@@ -31,12 +31,13 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <FaMapMarkerAlt className="w-4 h-4 text-secondary" />
                 <span className="leading-relaxed">
-                  123 Main Street, Anytown, USA
+                  Plot-9 Shyam Nagar, Tonk Rd, opp. Lal bagh, Bilwa, Jaipur,
+                  Rajasthan 302022
                 </span>
               </li>
               <li className="flex items-center gap-2">
                 <FaPhone className="w-4 h-4 text-secondary" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 9468929392</span>
               </li>
               <li className="flex items-center gap-2">
                 <FaEnvelope className="w-4 h-4 text-secondary" />
@@ -50,16 +51,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white">Quick Links</h3>
             <ul className="text-sm">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/"
                   className="hover:text-secondary transition-colors duration-200"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#parts"
                   className="hover:text-secondary transition-colors duration-200"
                 >
                   Parts
@@ -67,7 +68,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/About-Us"
                   className="hover:text-secondary transition-colors duration-200"
                 >
                   About Us
@@ -75,7 +76,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/Customer-Support"
                   className="hover:text-secondary transition-colors duration-200"
                 >
                   Contact
@@ -127,14 +128,14 @@ const Footer = () => {
           </p>
           <p>
             <a
-              href="#"
+              href="/Policy"
               className="text-secondary hover:underline transition-colors duration-200"
             >
               Privacy Policy
             </a>{" "}
             |{" "}
             <a
-              href="#"
+              href="/Term-and-Conditions"
               className="text-secondary hover:underline transition-colors duration-200"
             >
               Terms of Service

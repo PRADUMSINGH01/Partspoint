@@ -57,17 +57,32 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className={`${isOpen ? "block" : "hidden"} md:block`}>
           <div className="md:flex items-center justify-center gap-8 py-4">
-            {["Shop Parts", "Categories", "Brands", "Deals", "Support"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="block text-neutral hover:text-primary px-4 py-2 rounded-lg font-heading hover:bg-gray-50 md:hover:bg-transparent"
-                >
-                  {item}
-                </a>
-              )
-            )}
+            {[
+              {
+                label: "Brands",
+                url: "#Brands",
+              },
+              {
+                label: "Categories",
+                url: "#Categories",
+              },
+              {
+                label: "Car Mechanic",
+                url: "/car-mechanic",
+              },
+              {
+                label: "Customer Support",
+                url: "/Customer-Support",
+              },
+            ].map((item, index) => (
+              <a
+                key={index}
+                href={item.url}
+                className="block text-neutral hover:text-primary px-4 py-2 rounded-lg font-heading hover:bg-gray-50 md:hover:bg-transparent"
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>

@@ -141,31 +141,34 @@ export default function CarPartsSearch() {
       {mobileExpanded && (
         <form
           onSubmit={handleSearch}
-          className="absolute top-full left-0 w-full bg-white p-4 shadow-lg z-50 flex items-center space-x-2"
+          className="fixed top-0 left-0 right-0 w-full bg-white p-4 shadow-lg z-50 flex items-center justify-center space-x-2"
+          style={{ transform: "translateY(0)" }}
         >
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            autoFocus
-            placeholder="Search car parts..."
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-accent focus:border-transparent transition"
-          />
-          {query && (
+          <div className="w-full max-w-xl flex items-center">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              autoFocus
+              placeholder="Search car parts..."
+              className="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-accent focus:border-transparent transition"
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={clear}
+                className="text-gray-400 hover:text-primary p-2 border-y border-r border-gray-300"
+              >
+                <FiX />
+              </button>
+            )}
             <button
-              type="button"
-              onClick={clear}
-              className="text-gray-400 hover:text-primary p-2"
+              type="submit"
+              className="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-primary-dark transition border border-primary"
             >
-              <FiX />
+              <FiSearch />
             </button>
-          )}
-          <button
-            type="submit"
-            className="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-primary-dark transition"
-          >
-            <FiSearch />
-          </button>
+          </div>
         </form>
       )}
 

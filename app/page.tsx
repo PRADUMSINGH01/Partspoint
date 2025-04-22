@@ -41,9 +41,11 @@ export default async function Home() {
           <CarPartSearch />
         </div>
       </div>
-      <PartsCategories />
+      <div className="Category" id="Categories">
+        <PartsCategories />
+      </div>
 
-      <div className="bg-light py-12">
+      <div className=" Brand bg-light py-12">
         <CarBrandsShowcase />
       </div>
 

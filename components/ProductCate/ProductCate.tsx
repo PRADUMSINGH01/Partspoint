@@ -90,7 +90,7 @@ export default function PartsCategories() {
                 key={category.id}
                 className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:border-primary transition-all group"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary/20 transition">
                     <Icon className="w-6 h-6" />
                   </div>
@@ -98,9 +98,6 @@ export default function PartsCategories() {
                     <h3 className="font-medium text-neutral">
                       {category.name}
                     </h3>
-                    <p className="text-sm text-gray-500 mt-1">
-                      {category.count}+ Components
-                    </p>
                   </div>
                 </div>
               </div>
