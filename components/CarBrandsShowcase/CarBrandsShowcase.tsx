@@ -16,11 +16,13 @@ import {
 import { FaCarSide } from "react-icons/fa"; // generic car icon
 import { FaMotorcycle } from "react-icons/fa"; // Added FaMotorcycle
 import { IconType } from "react-icons";
+import Link from "next/link";
 
 interface Brand {
   name: string;
   icon: IconType;
   isIndian: boolean;
+  url: string;
 }
 
 export default function CarBrandsShowcase() {
@@ -31,24 +33,49 @@ export default function CarBrandsShowcase() {
   // Brand data with React Icons
   const brands: Brand[] = [
     // Indian Brands
-    { name: "Tata", icon: SiTata, isIndian: true },
-    { name: "Mahindra", icon: SiMahindra, isIndian: true },
-    { name: "Maruti Suzuki", icon: FaCarSide, isIndian: true },
-    { name: "Hyundai India", icon: SiHyundai, isIndian: true },
-    { name: "Kia India", icon: SiKia, isIndian: true },
-    { name: "Hindustan Motors", icon: FaCarSide, isIndian: true },
-    { name: "Force Motors", icon: SiMahindra, isIndian: true },
-    { name: "Bajaj Auto", icon: FaMotorcycle, isIndian: true }, // Using FaMotorcycle for Bajaj
+    { name: "Tata", icon: SiTata, isIndian: true, url: "TATA" },
+    { name: "Mahindra", icon: SiMahindra, isIndian: true, url: "MAHINDRA" },
+    { name: "Maruti Suzuki", icon: FaCarSide, isIndian: true, url: "MARUTI " },
+    { name: "Hyundai India", icon: SiHyundai, isIndian: true, url: "HYUNDAI " },
+    { name: "Kia India", icon: SiKia, isIndian: true, url: "KIA" },
+    {
+      name: "Hindustan Motors",
+      icon: FaCarSide,
+      isIndian: true,
+      url: "HINDUSTAN-MOTOR ",
+    },
+    {
+      name: "Force Motors",
+      icon: SiMahindra,
+      isIndian: true,
+      url: "FORCE-MOTOR",
+    },
+    {
+      name: "Bajaj Auto",
+      icon: FaMotorcycle,
+      isIndian: true,
+      url: "BAJAJ-AUTO",
+    }, // Using FaMotorcycle for Bajaj
 
     // International Brands
-    { name: "Toyota", icon: SiToyota, isIndian: false },
-    { name: "Honda", icon: SiHonda, isIndian: false },
-    { name: "Ford", icon: SiFord, isIndian: false },
-    { name: "Volkswagen", icon: SiVolkswagen, isIndian: false },
-    { name: "BMW", icon: SiBmw, isIndian: false },
-    { name: "Mercedes-Benz", icon: SiMercedes, isIndian: false },
-    { name: "Audi", icon: SiAudi, isIndian: false },
-    { name: "Hyundai", icon: SiHyundai, isIndian: false }, // Assuming global Hyundai uses the same icon
+    { name: "Toyota", icon: SiToyota, isIndian: false, url: "TOYOTA" },
+    { name: "Honda", icon: SiHonda, isIndian: false, url: " HONDA" },
+    { name: "Ford", icon: SiFord, isIndian: false, url: "FORD " },
+    {
+      name: "Volkswagen",
+      icon: SiVolkswagen,
+      isIndian: false,
+      url: "VOLKSWAGEN",
+    },
+    { name: "BMW", icon: SiBmw, isIndian: false, url: " BMW" },
+    {
+      name: "Mercedes-Benz",
+      icon: SiMercedes,
+      isIndian: false,
+      url: "MERCEDES-BENZ ",
+    },
+    { name: "Audi", icon: SiAudi, isIndian: false, url: "AUDI" },
+    { name: "Hyundai", icon: SiHyundai, isIndian: false, url: "HYUNDAI" }, // Assuming global Hyundai uses the same icon
   ];
 
   // Filter brands based on active tab
@@ -115,17 +142,19 @@ export default function CarBrandsShowcase() {
         {filteredBrands.map((brand, index) => {
           const Icon = brand.icon;
           return (
-            <div
-              key={index}
-              className="bg-white p-4 rounded-lg shadow-sm border border-border hover:shadow-md transition-all flex flex-col items-center"
-            >
-              <div className="text-4xl text-primary mb-3">
-                <Icon />
+            <Link href={`/Car/${brand.url}`} key={index}>
+              <div
+                key={index}
+                className="bg-white p-4 rounded-lg shadow-sm border border-border hover:shadow-md transition-all flex flex-col items-center"
+              >
+                <div className="text-4xl text-primary mb-3">
+                  <Icon />
+                </div>
+                <h3 className="text-center font-medium text-neutral">
+                  {brand.name}
+                </h3>
               </div>
-              <h3 className="text-center font-medium text-neutral">
-                {brand.name}
-              </h3>
-            </div>
+            </Link>
           );
         })}
       </div>
