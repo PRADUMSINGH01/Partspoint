@@ -39,7 +39,7 @@ export default function ProductFilter({
     children: React.ReactNode;
   }) => (
     // Use theme border color
-    <div className="border-b border-border py-4 last:border-b-0">
+    <div className="border-b border-border py-4 last:border-b-0 z-50">
       <button
         type="button" // Good practice for accessibility
         className="flex justify-between items-center w-full cursor-pointer group" // Added group for potential hover effects on children
@@ -114,11 +114,11 @@ export default function ProductFilter({
 
   return (
     // Use body font defined globally or in tailwind.config.js
-    <div className="font-body">
+    <div className="font-body md:mt-20">
       {/* Mobile Trigger Button - Use secondary color */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden fixed bottom-6 right-6 bg-secondary text-white p-4 rounded-full shadow-lg z-20 hover:bg-accent transition-colors flex items-center justify-center"
+        className="z-50 md:hidden fixed bottom-6 right-6 bg-secondary text-white p-4 rounded-full shadow-lg z-20 hover:bg-accent transition-colors flex items-center justify-center"
         aria-label="Open Filters" // Accessibility
       >
         <FiFilter size={20} />
@@ -133,7 +133,9 @@ export default function ProductFilter({
       {/* Filter Overlay */}
       <div
         className={`${
-          isOpen ? "fixed inset-0 bg-black/50 z-30 backdrop-blur-sm" : "hidden" // Slightly darker overlay with blur
+          isOpen
+            ? " z-50 md:z-10 fixed inset-0 bg-black/50 z-30 backdrop-blur-sm"
+            : "hidden" // Slightly darker overlay with blur
         } md:block md:relative md:bg-transparent md:backdrop-blur-none`}
         onClick={() => setIsOpen(false)}
       >

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ProductFilter, { FilterState } from "@/components/Filter/Filter";
 import { use } from "react";
+import ProductCatalogPage from "@/components/ProductCatalog/ProductCatalog";
 
 const DUMMY_CATEGORIES: string[] = [
   "Engine Parts",
@@ -47,7 +48,7 @@ export default function CarPartsPage({
     maxPrice: DUMMY_PRICE_RANGE[1],
   });
   const [productCount, setProductCount] = useState<number>(125);
-  console.log(category);
+
   const handleFilterChange = (newFilters: FilterState) => {
     setActiveFilters(newFilters);
     // Placeholder count logic (keep as is or replace with real logic)
@@ -61,85 +62,21 @@ export default function CarPartsPage({
   };
 
   // No need for the <style jsx global> block if using global CSS / tailwind.config.js
-
+  console.log(activeFilters);
   return (
-    // Apply body font, set background to light theme color
-    <div className="font-body bg-light min-h-screen">
-      <div className="container mx-auto p-4 py-6 md:p-8">
-        {/* Heading font, primary (black) color */}
-        <h1 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-primary">
-          Shop Car Parts
-        </h1>
+    <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-start px-4 md:px-8 py-6">
+      {/* Filter Sidebar */}
+      <ProductFilter
+        categories={DUMMY_CATEGORIES}
+        brands={DUMMY_BRANDS}
+        priceRange={DUMMY_PRICE_RANGE}
+        onFilter={handleFilterChange}
+        filteredProductsCount={productCount}
+      />
 
-        <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
-          {/* Filter Component Column */}
-          {/* Adjusted width for desktop */}
-          <div className="w-full md:w-64 lg:w-72 flex-shrink-0">
-            <ProductFilter
-              categories={DUMMY_CATEGORIES}
-              brands={DUMMY_BRANDS}
-              priceRange={DUMMY_PRICE_RANGE}
-              onFilter={handleFilterChange}
-              filteredProductsCount={productCount}
-            />
-          </div>
-
-          {/* Main Content Area */}
-          <div className="flex-grow">
-            {/* Use white background, border, and subtle shadow for the content card */}
-            <div className="bg-white p-6 rounded-lg shadow-subtle border border-border">
-              <h2 className="text-xl font-heading font-medium mb-4 text-primary">
-                Currently Applied Filters
-              </h2>
-              {/* Use neutral text colors */}
-              <div className="space-y-2 text-neutral text-sm">
-                <div>
-                  <strong className="font-semibold">Categories:</strong>{" "}
-                  {activeFilters.categories.length > 0 ? (
-                    activeFilters.categories.join(", ")
-                  ) : (
-                    <span className="text-neutral-light italic">None</span>
-                  )}
-                </div>
-                <div>
-                  <strong className="font-semibold">Brands:</strong>{" "}
-                  {activeFilters.brands.length > 0 ? (
-                    activeFilters.brands.join(", ")
-                  ) : (
-                    <span className="text-neutral-light italic">None</span>
-                  )}
-                </div>
-                <div>
-                  <strong className="font-semibold">Max Price:</strong> ₹
-                  {activeFilters.maxPrice}{" "}
-                  {activeFilters.maxPrice === DUMMY_PRICE_RANGE[1] ? (
-                    <span className="text-neutral-light italic">(Any)</span>
-                  ) : (
-                    ""
-                  )}
-                </div>
-                {/* Display count clearly */}
-                <div className="pt-2">
-                  <strong className="font-semibold">Products Found:</strong>{" "}
-                  {productCount}
-                </div>
-              </div>
-
-              {/* Placeholder for Product Display */}
-              <div className="mt-6 border-t border-border pt-6">
-                <h3 className="text-lg font-heading font-medium mb-4 text-primary">
-                  Product Display Area
-                </h3>
-                <div className="text-center py-10 border border-dashed border-border rounded-lg bg-light">
-                  <p className="text-neutral-light">
-                    (Products matching filters will appear here)
-                  </p>
-                </div>
-                {/* TODO: Add Product Grid/List component here */}
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* Product Catalog Area */}
+      <div className="flex-1 w-full   md:mt-10 z-10">
+        <ProductCatalogPage />
       </div>
     </div>
   );
