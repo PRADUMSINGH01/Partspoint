@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 
 const CustomerSupportPage = () => {
+  const WHATSAPP_NUMBER = "9468929392";
   return (
     <div className="bg-light min-h-screen py-12 mt-10">
       <div className="container mx-auto px-4">
@@ -41,7 +42,7 @@ const CustomerSupportPage = () => {
               Find quick answers to common questions.
             </p>
             <a
-              href="/faq"
+              href="/#faq"
               className="inline-block mt-4 text-secondary hover:underline"
             >
               Browse FAQs
@@ -60,7 +61,9 @@ const CustomerSupportPage = () => {
               Need to talk to a real person? We're here to help.
             </p>
             <a
-              href="/contact"
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                `Hello Part point I need help `
+              )}`}
               className="inline-block mt-4 text-secondary hover:underline"
             >
               Contact Us

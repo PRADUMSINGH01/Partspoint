@@ -51,7 +51,9 @@ export default async function Home() {
 
       <ExampleReviewsPage />
 
-      <FaqSection />
+      <div className="" id="faq">
+        <FaqSection />
+      </div>
     </>
   );
 }

@@ -40,123 +40,405 @@ export default function VehicleSearch() {
   const carData: CarData = {
     Maruti: [
       {
-        name: "Swift",
-        carr_life_span: [2024, 2025],
-        engine: ["1.2L Z12E Petrol"],
+        name: "1000",
+        carr_life_span: [
+          1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
+        ],
+        engine: ["0.97L F8B Petrol"],
       },
       {
-        name: "Dzire",
-        carr_life_span: [2024, 2025],
-        engine: ["1.2L Z12E Petrol/CNG"],
+        name: "800",
+        carr_life_span: [
+          1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993,
+          1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
+          2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
+        ],
+        engine: ["0.8L F8B Petrol"],
       },
       {
-        name: "Wagon R",
-        carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
-        engine: ["1.0L K10C Petrol/CNG", "1.2L K12N Petrol"],
+        name: "A-STAR",
+        carr_life_span: [
+          2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+        ],
+        engine: ["1.0L K10B Petrol"],
       },
       {
-        name: "Alto K10",
-        carr_life_span: [2022, 2023, 2024, 2025],
-        engine: ["1.0L K10C Petrol/CNG"],
+        name: "ALTO",
+        carr_life_span: [
+          2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+          2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
+          2022, 2023, 2024, 2025,
+        ],
+        engine: ["0.8L R06A Petrol", "1.0L R06A Petrol"],
       },
       {
-        name: "Ertiga",
+        name: "ALTO 800",
         carr_life_span: [
           2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
           2023, 2024, 2025,
         ],
-        engine: ["1.5L K15C Petrol/CNG"],
+        engine: ["0.8L R06A Petrol"],
       },
       {
-        name: "Brezza",
-        carr_life_span: [2022, 2023, 2024, 2025],
-        engine: ["1.5L K15C Petrol/CNG"],
+        name: "ALTO K10",
+        carr_life_span: [
+          2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
+          2021, 2022, 2023, 2024, 2025,
+        ],
+        engine: ["1.0L K10B Petrol"],
       },
       {
-        name: "Baleno",
+        name: "BALENO",
         carr_life_span: [
           2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
         ],
-        engine: ["1.2L K12N Petrol/CNG"],
+        engine: ["1.2L K12M Dualjet Petrol"],
       },
       {
-        name: "Grand Vitara",
-        carr_life_span: [2022, 2023, 2024, 2025],
-        engine: [
-          "1.5L K15C Petrol Mild-Hybrid/CNG",
-          "1.5L Toyota Strong Hybrid",
+        name: "BREZZA",
+        carr_life_span: [
+          2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
         ],
+        engine: ["1.3L DDiS Diesel", "1.5L K15B Petrol"],
       },
       {
-        name: "Fronx",
-        carr_life_span: [2023, 2024, 2025],
-        engine: ["1.2L K12N Petrol/CNG", "1.0L Boosterjet Turbo Petrol"],
+        name: "CELERIO",
+        carr_life_span: [
+          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
+          2025,
+        ],
+        engine: ["1.0L K10B Petrol"],
       },
       {
-        name: "Jimny",
+        name: "CIAZ",
+        carr_life_span: [
+          2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
+          2025,
+        ],
+        engine: ["1.4L K14B Petrol", "1.3L DDiS Diesel"],
+      },
+      {
+        name: "EECO",
+        carr_life_span: [
+          2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
+          2021, 2022, 2023, 2024, 2025,
+        ],
+        engine: ["1.2L K12M Petrol"],
+      },
+      {
+        name: "ERTIGA",
+        carr_life_span: [
+          2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+          2023, 2024, 2025,
+        ],
+        engine: ["1.4L K14B Petrol", "1.3L DDiS Diesel"],
+      },
+      {
+        name: "ESTEEM",
+        carr_life_span: [
+          1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
+          2005, 2006, 2007, 2008,
+        ],
+        engine: ["1.3L G13BB Petrol", "1.5L TUD5 Diesel"],
+      },
+      {
+        name: "FRONX",
         carr_life_span: [2023, 2024, 2025],
+        engine: ["1.0L Boosterjet Turbo Petrol", "1.2L K12N Petrol"],
+      },
+      {
+        name: "GRAND VITARA",
+        carr_life_span: [2022, 2023, 2024, 2025],
+        engine: ["1.5L K15C Petrol", "1.5L Turbo Mild Hybrid"],
+      },
+      {
+        name: "GRAND VITARA XL7",
+        carr_life_span: [2020, 2021, 2022, 2023, 2024, 2025],
+        engine: ["1.5L K15B Petrol", "1.5L Turbo Mild Hybrid"],
+      },
+      {
+        name: "GYPSY",
+        carr_life_span: [
+          1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995,
+          1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
+          2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+          2018,
+        ],
+        engine: ["1.3L G13BB Petrol"],
+      },
+      {
+        name: "IGNIS",
+        carr_life_span: [
+          2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
+        ],
+        engine: ["1.2L K12M Petrol", "1.2L Dual Jet Mild Hybrid"],
+      },
+      {
+        name: "INVICTO",
+        carr_life_span: [2023, 2024, 2025],
+        engine: ["1.987L 4-cyl Hybrid (1987 cc)"],
+      },
+      {
+        name: "JIMNY",
+        carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
         engine: ["1.5L K15B Petrol"],
+      },
+      {
+        name: "KIZASHI",
+        carr_life_span: [2009, 2010, 2011, 2012, 2013, 2014],
+        engine: ["2.4L J24B Petrol"],
+      },
+      {
+        name: "OMNI",
+        carr_life_span: [
+          1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994,
+          1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005,
+          2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
+          2017, 2018, 2019,
+        ],
+        engine: ["0.8L F8B Petrol"],
+      },
+      {
+        name: "RITZ",
+        carr_life_span: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+        engine: ["1.2L K12M Petrol"],
+      },
+      {
+        name: "S-CROSS",
+        carr_life_span: [
+          2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023,
+          2024, 2025,
+        ],
+        engine: ["1.6L D16A Diesel", "1.5L K15B Petrol"],
+      },
+      {
+        name: "S-PRESSO",
+        carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engine: ["1.0L K10B Petrol"],
+      },
+      {
+        name: "STMINGRAY",
+        carr_life_span: [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+        engine: ["1.2L K12B Petrol"],
+      },
+      {
+        name: "SUPER CARRY",
+        carr_life_span: [
+          2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023,
+          2024, 2025,
+        ],
+        engine: ["0.8L F8C Petrol"],
+      },
+      {
+        name: "SWIFT",
+        carr_life_span: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engine: ["1.2L Z12E Petrol"],
+      },
+      {
+        name: "SWIFT DZIRE",
+        carr_life_span: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engine: ["1.2L K12B Petrol", "1.3L DDiS Diesel"],
+      },
+      {
+        name: "SX4",
+        carr_life_span: [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+        engine: ["1.6L M16A Petrol", "2.0L J20A Petrol"],
+      },
+      {
+        name: "VERSA",
+        carr_life_span: [2012, 2013, 2014],
+        engine: ["1.5L K15A Petrol"],
+      },
+      {
+        name: "WAGON R",
+        carr_life_span: [
+          1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+          2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
+          2021, 2022, 2023, 2024, 2025,
+        ],
+        engine: ["1.0L K10B Petrol", "1.2L K12B Petrol"],
       },
       {
         name: "XL6",
         carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
-        engine: ["1.5L K15C Petrol/CNG"],
+        engine: ["1.5L K15B Petrol", "1.5L Turbo Mild Hybrid"],
+      },
+      {
+        name: "ZEN",
+        carr_life_span: [
+          1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
+          2004, 2005, 2006,
+        ],
+        engine: ["1.0L G10A Petrol"],
+      },
+      {
+        name: "ZEN ESTILO",
+        carr_life_span: [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014],
+        engine: ["1.0L F10D Petrol", "1.1L F10A Petrol"],
       },
     ],
+
     "Tata-Motors": [
       {
-        name: "Tiago",
-        carr_life_span: [
-          2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
-        ],
-        engine: ["1.2 L Revotron I3 petrol/CNG", "1.05 L Revotorq I3 diesel"],
-      },
-      {
-        name: "Tigor",
-        carr_life_span: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
-        engine: [
-          "1.2 L Revotron I3 petrol/CNG",
-          "1.2 L Revotron Turbo I3 petrol",
-          "1.05 L Revotorq I3 diesel",
-        ],
-      },
-      {
-        name: "Altroz",
-        carr_life_span: [2020, 2021, 2022, 2023, 2024, 2025],
-        engine: [
-          "1.2 L Revotron I3 petrol/CNG",
-          "1.2 L Revotron turbo petrol",
-          "1.5 L Revotorq I4 diesel",
-        ],
-      },
-      {
-        name: "Punch",
-        carr_life_span: [2021, 2022, 2023, 2024, 2025],
-        engine: ["1.2 L Revotron I3 petrol/CNG"],
-      },
-      {
-        name: "Nexon",
-        carr_life_span: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
-        engine: [
-          "1.2 L Revotron Turbo Petrol",
-          "1.5 L Revotorq I4 diesel",
-          "Electric (EV variants)",
-        ],
-      },
-      {
-        name: "Harrier",
+        name: "ALTROZ",
         carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
         engine: [
-          "2.0 L Kryotec four-cylinder turbo-diesel",
-          "1.5L Turbo Petrol (Expected)",
+          "1.2 L Revotron I3 MPi petrol",
+          "1.2 L Revotron I3 Turbo T-GDi petrol",
+          "1.5 L Revotorq I4 CRDi diesel",
         ],
       },
       {
-        name: "Safari",
+        name: "ARIA",
+        carr_life_span: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017],
+        engine: ["2.2 L Dicor I4 turbodiesel (150 PS, 320 Nm)"],
+      },
+      {
+        name: "BOLT",
+        carr_life_span: [2014, 2015, 2016, 2017, 2018, 2019],
+        engine: [
+          "1.2 L Revotron I3 Turbo MPFi petrol (90 PS, 140 Nm)",
+          "1.3 L Fiat Multijet I4 CRDi diesel (75 PS, 190 Nm)",
+        ],
+      },
+      {
+        name: "CURVV",
+        carr_life_span: [2023, 2024, 2025],
+        engine: [
+          "1.2 L Hyperion I3 Turbo GDi petrol (120 PS, 225 Nm)",
+          "1.2 L Hyperion GDi I3 Turbo petrol (125 PS)",
+          "1.5 L Revotorq I4 Turbo diesel (118 PS, 260 Nm)",
+          "Permanent magnet synchronous electric motor (110 kW)",
+        ],
+      },
+      {
+        name: "ESTATE",
+        carr_life_span: [1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000],
+        engine: ["1.9 L Peugeot XD88 I4 diesel (68 PS, 118 Nm)"],
+      },
+      {
+        name: "HARRIER",
+        carr_life_span: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engine: ["2.0 L Multijet/Kryotec I4 turbo diesel (140 PS, 350 Nm)"],
+      },
+      {
+        name: "HEXA",
+        carr_life_span: [2016, 2017, 2018, 2019, 2020],
+        engine: ["2.2 L DW12 Varicor I4 turbo diesel"],
+      },
+      {
+        name: "INDICA",
+        carr_life_span: [
+          1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
+          2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+        ],
+        engine: [
+          "1.2 L Safire MPFi I4 petrol",
+          "1.4 L TDi I4 turbo diesel",
+          "1.3 L Quadrajet I4 CRDi diesel",
+        ],
+      },
+      {
+        name: "INDICA VISTA",
+        carr_life_span: [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+        engine: [
+          "1.2 L Safire I4 MPFi petrol",
+          "1.4 L Safire I4 MPFi petrol (90 PS)",
+          "1.4 L TDi I4 turbo diesel (71 PS)",
+          "1.3 L Multijet I4 CRDi diesel (75 PS)",
+        ],
+      },
+      {
+        name: "INDIGO",
+        carr_life_span: [
+          2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012,
+          2013, 2014, 2015,
+        ],
+        engine: [
+          "1.2 L MPFi I4 petrol (68 PS)",
+          "1.4 L Dicor TDi I4 turbo diesel (70 PS, 140 Nm)",
+          "1.4 L MPFi I4 petrol (101 PS)",
+        ],
+      },
+      {
+        name: "INDIGO MANZA",
+        carr_life_span: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+        engine: [
+          "1.4 L FIRE I4 petrol (90 PS, 116 Nm)",
+          "1.3 L Multijet I4 CRDi diesel (90 PS, 190 Nm)",
+        ],
+      },
+      {
+        name: "INDIGO MARINA",
+        carr_life_span: [2004, 2005, 2006, 2007, 2008, 2009],
+        engine: [
+          "1.4 L MPFi I4 petrol (85 PS, 120 Nm)",
+          "1.4 L Turbocharged I4 diesel (70 PS, 132 Nm)",
+        ],
+      },
+      {
+        name: "MOVUS",
+        carr_life_span: [2014, 2015, 2016],
+        engine: [
+          "2.2 L Dicor I4 turbo diesel (120 PS, 250 Nm)",
+          "2.2 L Varicor I4 turbo diesel (118 PS)",
+        ],
+      },
+      {
+        name: "NANO",
+        carr_life_span: [
+          2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+        ],
+        engine: ["624 cc I2 SOHC MPI petrol (33 PS, 51 Nm)"],
+      },
+      {
+        name: "NEXON",
+        carr_life_span: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engine: [
+          "1.2 L Revotron I3 turbo petrol",
+          "1.5 L Revotorq I4 turbo diesel",
+          "3-phase permanent magnet synchronous electric motor",
+        ],
+      },
+      {
+        name: "PUNCH",
         carr_life_span: [2021, 2022, 2023, 2024, 2025],
         engine: [
-          "2.0 L Kryotec four-cylinder turbo-diesel",
-          "1.5L Turbo Petrol (Expected)",
+          "1.2 L Revotron I3 petrol",
+          "1.2 L Revotron I3 CNG bi-fuel",
+          "Permanent magnet synchronous electric motor (60 kW)",
+        ],
+      },
+      {
+        name: "SAFARI",
+        carr_life_span: [
+          1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
+          2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+        ],
+        engine: [
+          "2.0 L XD88 I4 turbo diesel (87 PS)",
+          "2.2 L DiCOR I4 CRDi diesel (140 PS, 320 Nm)",
+          "2.0 L petrol I4 (99 kW)",
+        ],
+      },
+      {
+        name: "SIERRA",
+        carr_life_span: [
+          1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001,
+          2002, 2003,
+        ],
+        engine: ["2.0 L 483 DL/DLTC I4 petrol"],
+      },
+      {
+        name: "SUMO",
+        carr_life_span: [
+          1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
+          2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
+          2016, 2017, 2018, 2019,
+        ],
+        engine: [
+          "2.0 L XD88 I4 turbo diesel (87 PS)",
+          "2.2 L Dicor I4 common-rail diesel (120 PS, 250 Nm)",
         ],
       },
     ],

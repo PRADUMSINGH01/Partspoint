@@ -42,6 +42,7 @@ export default function Navbar() {
             height={5}
             priority
             className=" hover:border border-primary cursor-pointer"
+            onClick={() => (window.location.href = "/")}
           ></Image>
 
           <div className="relative">
@@ -61,6 +62,7 @@ export default function Navbar() {
             height={10}
             priority
             className="text-2xl font-heading font-bold text-primary cursor-pointer "
+            onClick={() => (window.location.href = "/")}
           ></Image>
 
           <div className="flex items-center space-x-8 flex-1 max-w-2xl mx-8">
@@ -107,11 +109,11 @@ export default function Navbar() {
             {[
               {
                 label: "Brands",
-                url: "#Brands",
+                url: "/#Brands",
               },
               {
                 label: "Categories",
-                url: "#Categories",
+                url: "/#Categories",
               },
               {
                 label: "Car Mechanic",
