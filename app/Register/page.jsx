@@ -14,7 +14,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-light p-4">
+    <div className="min-h-screen flex items-center justify-center bg-light p-4 w-full absolute top-0 z-50">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
         <div className="bg-primary p-6">
           <h2 className="text-2xl font-heading font-bold text-light text-center">
