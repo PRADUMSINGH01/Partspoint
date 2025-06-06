@@ -1,9 +1,10 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { FiShoppingCart, FiUser, FiMenu, FiX } from "react-icons/fi";
+import { FiBell, FiUser, FiMenu, FiX } from "react-icons/fi";
 import CarPartsSearch from "../SearchBar/Searchbar";
 import Image from "next/image";
 import logo from "@/app/(Image)/logo.png";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,9 @@ export default function Navbar() {
             <CarPartsSearch />
           </div>
           <div className="flex items-center gap-4">
-            <FiShoppingCart className="text-neutral hover:text-primary text-xl" />
+            <Link href={"/Notification"}>
+              <FiBell className="text-neutral hover:text-primary text-xl" />
+            </Link>
           </div>
         </div>
 
@@ -79,26 +82,27 @@ export default function Navbar() {
               />
               {showUserPopup && (
                 <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50 border border-gray-100">
-                  <button
+                  <Link
+                    href={"/Login"}
                     className="block w-full px-4 py-2 text-neutral hover:bg-gray-50 text-left"
                     onClick={() => setShowUserPopup(false)}
                   >
                     Login
-                  </button>
-                  <button
+                  </Link>
+                  <Link
+                    href={"/Register"}
                     className="block w-full px-4 py-2 text-neutral hover:bg-gray-50 text-left"
                     onClick={() => setShowUserPopup(false)}
                   >
                     Register
-                  </button>
+                  </Link>
                 </div>
               )}
             </div>
             <div className="relative">
-              <FiShoppingCart className="text-neutral hover:text-primary text-xl cursor-pointer" />
-              <span className="absolute -top-2 -right-2 bg-accent text-xs text-white rounded-full h-5 w-5 flex items-center justify-center">
-                3
-              </span>
+              <Link href={"/Notification"}>
+                <FiBell className="text-neutral hover:text-primary text-xl" />
+              </Link>
             </div>
           </div>
         </div>
