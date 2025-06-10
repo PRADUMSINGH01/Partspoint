@@ -10,7 +10,8 @@ import {
 } from "react-icons/fa"; // Using FaEnvelope for Inquiry button
 
 // Assuming Caar is used elsewhere or is a fallback, otherwise it can be removed if not needed.
-import Caar from "@/app/(Image)/car.jpg";
+import Caar from "@/app/(Image)/light.png";
+
 import Link from "next/link";
 
 // Define the Product interface
@@ -28,41 +29,15 @@ interface Product {
 const products: Product[] = [
   {
     id: "1",
-    name: "Brake Pad Set",
-    partNumber: "BP-1234",
-    price: 499900, // Example: 4999.00 INR
-    discount: 10,
+    name: "MARUTI IGNIS LHS TAIL LIGHT    ",
+    partNumber: "35750M66R00",
+    price: 95000.0, // Example: 4999.00 INR
+    discount: 0,
     // Make sure these paths are correct relative to your `public` directory
     // or use a full URL if images are hosted elsewhere.
     imageUrl: "/images/brake-pad.jpg",
-    description: "High-performance brake pads compatible with most sedans.",
-  },
-  {
-    id: "2",
-    name: "Air Filter",
-    partNumber: "AF-5678",
-    price: 199900, // Example: 1999.00 INR
-    discount: 15,
-    imageUrl: "/images/air-filter.jpg",
     description:
-      "Durable air filter for cleaner intake and improved efficiency.",
-  },
-  {
-    id: "3",
-    name: "Spark Plug",
-    partNumber: "SP-9101",
-    price: 99900, // Example: 999.00 INR
-    imageUrl: "/images/spark-plug.jpg",
-    description: "Long-life spark plug to ensure smooth engine performance.",
-  },
-  {
-    id: "4",
-    name: "Oil Filter",
-    partNumber: "OF-1121",
-    price: 149900, // Example: 1499.00 INR
-    discount: 5,
-    imageUrl: "/images/oil-filter.jpg",
-    description: "Premium oil filter for cleaner oil circulation.",
+      "Tail Light for MARUTI IGNIS 1ST GEN, IGNIS 1ST GEN F/L - 3575...6R00 - MARUTI SUZUKI",
   },
 ];
 
@@ -188,116 +163,121 @@ const ProductCatalogPage: React.FC = () => {
             const inquiryMade = hasExistingInquiry(product.id);
 
             return (
-              <div
+              <Link
+                href={`/Catalog/Fullview/${product.partNumber}`}
                 key={product.id}
-                // Softer shadow, subtle hover effect, slightly larger rounding
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
               >
-                {/* Image Container */}
-                <div className="aspect-square relative group">
-                  <Image
-                    src={Caar.src} // Ensure this path is correct relative to /public
-                    alt={product.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105 z-20"
-                    // Optional: Placeholder for better loading experience
-                    // placeholder="blur"
-                    // blurDataURL={`/_next/image?url=${encodeURIComponent(product.imageUrl)}&w=16&q=1`} // Low quality image placeholder
-                    onError={(e) => {
-                      // Fallback image
-                      e.currentTarget.srcset = "/images/placeholder.png"; // Path to your placeholder
-                      e.currentTarget.src = "/images/placeholder.png";
-                    }}
-                  />
-                  {/* Details Link - More subtle, appears on hover */}
-                  <Link
-                    href={`/products/${product.id}`} // Ensure this route exists
-                    className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100"
-                    aria-label="View product details"
-                  >
-                    <FaInfoCircle className="text-base" />
-                  </Link>
-                  {/* Discount Badge */}
-                  {hasDiscount && (
-                    <span className="absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
-                      {product.discount}% OFF
-                    </span>
-                  )}
-                </div>
-
-                {/* Content Area */}
-                <div className="p-5 flex flex-col flex-grow">
-                  {" "}
-                  {/* Added flex-grow */}
-                  {/* Product Name & Part Number */}
-                  <div>
-                    <h3
-                      className="text-base font-semibold text-slate-800 leading-snug mb-1 truncate"
-                      title={product.name}
+                <div
+                  key={product.id}
+                  // Softer shadow, subtle hover effect, slightly larger rounding
+                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
+                >
+                  {/* Image Container */}
+                  <div className="aspect-square relative group">
+                    <Image
+                      src={Caar.src} // Ensure this path is correct relative to /public
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105 z-20"
+                      // Optional: Placeholder for better loading experience
+                      // placeholder="blur"
+                      // blurDataURL={`/_next/image?url=${encodeURIComponent(product.imageUrl)}&w=16&q=1`} // Low quality image placeholder
+                      onError={(e) => {
+                        // Fallback image
+                        e.currentTarget.srcset = "/images/placeholder.png"; // Path to your placeholder
+                        e.currentTarget.src = "/images/placeholder.png";
+                      }}
+                    />
+                    {/* Details Link - More subtle, appears on hover */}
+                    <Link
+                      href={`/products/${product.id}`} // Ensure this route exists
+                      className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100"
+                      aria-label="View product details"
                     >
-                      {" "}
-                      {/* Added truncate */}
-                      {product.name}
-                    </h3>
-                    <p className="text-xs text-slate-500 mb-3">
-                      Part #: {product.partNumber}
-                    </p>
-                  </div>
-                  {/* Price */}
-                  <div className="mb-3">
-                    <span className="text-lg font-bold text-indigo-600 mr-2">
-                      {formatPrice(discountedPrice)}
-                    </span>
+                      <FaInfoCircle className="text-base" />
+                    </Link>
+                    {/* Discount Badge */}
                     {hasDiscount && (
-                      <span className="text-sm text-slate-400 line-through">
-                        {formatPrice(product.price)}
+                      <span className="absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
+                        {product.discount}% OFF
                       </span>
                     )}
                   </div>
-                  {/* Description - Takes remaining space */}
-                  <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-grow">
+
+                  {/* Content Area */}
+                  <div className="p-5 flex flex-col flex-grow">
                     {" "}
                     {/* Added flex-grow */}
-                    {product.description}
-                  </p>
-                  {/* Action Area - Pushed to bottom */}
-                  <div className="mt-auto pt-4 border-t border-slate-100">
-                    {" "}
-                    {/* Added mt-auto and top border */}
-                    {inquiryMade ? (
-                      <div className="flex items-center justify-center gap-2 text-sm text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">
-                        <FaCheckCircle />
-                        <span>Inquiry Sent</span>
-                      </div>
-                    ) : (
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        {/* Inquiry Button - Primary */}
-                        <button
-                          onClick={() => handleInquiry(product)}
-                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-md shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-                        >
-                          <FaEnvelope /> {/* Changed Icon */}
-                          Inquire
-                        </button>
-                        {/* WhatsApp Button - Secondary (Green) */}
-                        <a
-                          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                            `I'm interested in: ${product.name} (Part #: ${product.partNumber})`
-                          )}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
-                        >
-                          <FaWhatsapp className="text-base" />{" "}
-                          {/* Adjusted icon size */}
-                          WhatsApp
-                        </a>
-                      </div>
-                    )}
+                    {/* Product Name & Part Number */}
+                    <div>
+                      <h3
+                        className="text-base font-semibold text-slate-800 leading-snug mb-1 truncate"
+                        title={product.name}
+                      >
+                        {" "}
+                        {/* Added truncate */}
+                        {product.name}
+                      </h3>
+                      <p className="text-xs text-slate-500 mb-3">
+                        Part #: {product.partNumber}
+                      </p>
+                    </div>
+                    {/* Price */}
+                    <div className="mb-3">
+                      <span className="text-lg font-bold text-indigo-600 mr-2">
+                        {formatPrice(discountedPrice)}
+                      </span>
+                      {hasDiscount && (
+                        <span className="text-sm text-slate-400 line-through">
+                          {formatPrice(product.price)}
+                        </span>
+                      )}
+                    </div>
+                    {/* Description - Takes remaining space */}
+                    <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-grow">
+                      {" "}
+                      {/* Added flex-grow */}
+                      {product.description}
+                    </p>
+                    {/* Action Area - Pushed to bottom */}
+                    <div className="mt-auto pt-4 border-t border-slate-100">
+                      {" "}
+                      {/* Added mt-auto and top border */}
+                      {inquiryMade ? (
+                        <div className="flex items-center justify-center gap-2 text-sm text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">
+                          <FaCheckCircle />
+                          <span>Inquiry Sent</span>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col sm:flex-row gap-3">
+                          {/* Inquiry Button - Primary */}
+                          <button
+                            onClick={() => handleInquiry(product)}
+                            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-md shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                          >
+                            <FaEnvelope /> {/* Changed Icon */}
+                            Inquire
+                          </button>
+                          {/* WhatsApp Button - Secondary (Green) */}
+                          <a
+                            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                              `I'm interested in: ${product.name} (Part #: ${product.partNumber})`
+                            )}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                          >
+                            <FaWhatsapp className="text-base" />{" "}
+                            {/* Adjusted icon size */}
+                            WhatsApp
+                          </a>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

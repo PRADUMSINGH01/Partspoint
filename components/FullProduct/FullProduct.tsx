@@ -1,31 +1,35 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
-
+import Image, { StaticImageData } from "next/image";
+import images from "@/app/(Image)/light.png";
+import car from "@/app/(Image)/light.jpg";
+import light from "@/app/(Image)/light1.jpg";
+import CompatibilityTable from "@/components/CompatibilityTable/CompatibilityTable";
 interface Product {
   id: string;
   name: string;
   partNumber: string;
   price: number;
   discount: number;
-  images: string[];
+  images: StaticImageData[];
   description: string;
   compatibility: string;
 }
 
 const product: Product = {
   id: "1",
-  name: "Brake Pad Set",
-  partNumber: "BP-1234",
-  price: 4999,
-  discount: 10,
+  name: "MARUTI IGNIS LHS TAIL LIGHT    ",
+  partNumber: "35750M66R00",
+  price: 950.0, // Example: 4999.00 INR
+  discount: 0,
   images: [
-    "https://via.placeholder.com/400x400?text=Brake+Pad+1", // Example URLs
-    "https://via.placeholder.com/400x400?text=Brake+Pad+2",
-    "https://via.placeholder.com/400x400?text=Brake+Pad+3",
-    "https://via.placeholder.com/400x400?text=Brake+Pad+4",
+    images, // Example URLs
+    car,
+    light,
+    images,
   ],
-  description: "High-performance brake pads compatible with most sedans.",
+  description:
+    "Tail Light for MARUTI IGNIS 1ST GEN, IGNIS 1ST GEN F/L - 3575...6R00 - MARUTI SUZUKI",
   compatibility:
     "Compatible with Honda City, Maruti Suzuki Ciaz, Hyundai Verna.",
 };
@@ -124,13 +128,6 @@ const ProductReviewPage: React.FC = () => {
 
             <div className="space-y-4">
               <div>
-                <h3 className="font-medium text-gray-700 mb-1">
-                  Compatibility
-                </h3>
-                <p className="text-gray-600">{product.compatibility}</p>
-              </div>
-
-              <div>
                 <h3 className="font-medium text-gray-700 mb-1">Description</h3>
                 <p className="text-gray-600">{product.description}</p>
               </div>
@@ -184,13 +181,6 @@ const ProductReviewPage: React.FC = () => {
               >
                 WhatsApp
               </a>
-
-              <a
-                href="tel:+911234567890"
-                className="block text-center px-4 py-3 border border-blue-600 text-blue-600 font-medium rounded hover:bg-blue-600 hover:text-white transition"
-              >
-                Call Now
-              </a>
             </div>
           </div>
         </div>
@@ -219,6 +209,8 @@ const ProductReviewPage: React.FC = () => {
           </div>
         </div>
       )}
+
+      <CompatibilityTable />
     </div>
   );
 };
