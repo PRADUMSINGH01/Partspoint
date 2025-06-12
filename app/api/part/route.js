@@ -1,6 +1,3 @@
-import { NextResponse } from "next/server";
-import { firestore } from "@/lib/firebaseAdmin";
-
 export async function GET() {
   // try {
   //   const { searchParams } = new URL(request.url);
