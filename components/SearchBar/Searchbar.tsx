@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { FiSearch, FiX, FiClock } from "react-icons/fi";
-
+import { fetchParts } from "@/lib/partsById";
 const MAX_RECENT_SEARCHES = 5;
 const RECENT_SEARCH_EXPIRY_DAYS = 7;
 
@@ -72,22 +72,16 @@ export default function CarPartsSearch() {
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    const trimmedQuery = query.trim();
+    const trimmedQuery: string = query.trim();
     if (!trimmedQuery) return;
 
     setLoading(true);
     saveRecent(trimmedQuery);
 
     try {
-      const response = await fetch(
-        `/api/parts?search=${encodeURIComponent(trimmedQuery)}`
-      );
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
-      }
+      const response = await fetchParts();
 
-      const data = await response.json();
-      setResults(Array.isArray(data) ? data : [data]);
+      setResults(Array.isArray(response) ? response : [response]);
     } catch (err) {
       console.error("Search error:", err);
       setResults([]);
