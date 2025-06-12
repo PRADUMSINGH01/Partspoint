@@ -6,7 +6,7 @@ import car from "@/app/(Image)/light.jpg";
 import light from "@/app/(Image)/light1.jpg";
 import CompatibilityTable from "@/components/CompatibilityTable/CompatibilityTable";
 import { FaWhatsapp } from "react-icons/fa"; // Using FaEnvelope for Inquiry button
-
+import { fetchParts } from "@/lib/partsById";
 interface Product {
   id: string;
   name: string;
@@ -67,13 +67,9 @@ const ProductReviewPage: React.FC = (Id) => {
 
   useEffect(() => {
     async function fetchdataById() {
-      const response = await fetch(`/api/parts?search=${Id}`);
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
-      }
+      const response = await fetchParts();
 
-      const data = await response.json();
-      setData(Array.isArray(data) ? data : [data]);
+      setData(Array.isArray(response) ? response : [response]);
       setloading(false);
     }
 
