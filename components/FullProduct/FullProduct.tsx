@@ -13,7 +13,7 @@ interface Product {
   discount: number;
   galleryImages: { src: string }[];
   description: string;
-  compatibility: string;
+  Compatibility: [];
   sku: string;
 }
 
@@ -65,8 +65,6 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
 
     if (Id) fetchDataById();
   }, [Id]);
-
-  console.log(data);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -276,7 +274,13 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
         </div>
       </div>
 
-      <CompatibilityTable />
+      {data.Compatibility?.length > 0 ? (
+        <CompatibilityTable data={data.Compatibility} />
+      ) : (
+        <p className="text-center text-gray-500 mt-8">
+          No compatibility information available.
+        </p>
+      )}
     </div>
   );
 };

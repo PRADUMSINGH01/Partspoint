@@ -1,4 +1,5 @@
 "use client";
+import { fetchData } from "@/lib/fetchall";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
@@ -15,31 +16,22 @@ import Caar from "@/app/(Image)/light.png";
 import Link from "next/link";
 
 // Define the Product interface
-interface Product {
-  id: string;
-  name: string;
-  partNumber: string;
-  price: number; // Price in smallest currency unit (e.g., paisa for INR)
-  discount?: number; // Discount percentage
-  imageUrl: string; // Path to the product image
-  description: string;
-}
 
 // Sample product data with discounts
-const products: Product[] = [
-  {
-    id: "1",
-    name: "MARUTI IGNIS LHS TAIL LIGHT    ",
-    partNumber: "35750M66R00",
-    price: 95000.0, // Example: 4999.00 INR
-    discount: 0,
-    // Make sure these paths are correct relative to your `public` directory
-    // or use a full URL if images are hosted elsewhere.
-    imageUrl: "/images/brake-pad.jpg",
-    description:
-      "Tail Light for MARUTI IGNIS 1ST GEN, IGNIS 1ST GEN F/L - 3575...6R00 - MARUTI SUZUKI",
-  },
-];
+// const products = [
+//   {
+//     id: "1",
+//     name: "MARUTI IGNIS LHS TAIL LIGHT    ",
+//     partNumber: "35750M66R00",
+//     price: 95000.0, // Example: 4999.00 INR
+//     discount: 0,
+//     // Make sure these paths are correct relative to your `public` directory
+//     // or use a full URL if images are hosted elsewhere.
+//     imageUrl: "/images/brake-pad.jpg",
+//     description:
+//       "Tail Light for MARUTI IGNIS 1ST GEN, IGNIS 1ST GEN F/L - 3575...6R00 - MARUTI SUZUKI",
+//   },
+// ];
 
 // Define a key for localStorage
 const INQUIRY_STORAGE_KEY = "productInquiries";
@@ -47,21 +39,28 @@ const INQUIRY_STORAGE_KEY = "productInquiries";
 // Define the WhatsApp number (replace with your actual number or environment variable)
 const WHATSAPP_NUMBER = "9468929392"; // Example format with country code
 
-const ProductCatalogPage: React.FC = () => {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+const ProductCatalogPage = () => {
+  const [products, setdata] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [formData, setFormData] = useState({ name: "", phone: "" });
   const [showForm, setShowForm] = useState(false);
-  const [inquiredProducts, setInquiredProducts] = useState<Set<string>>(
-    new Set()
-  );
+  const [inquiredProducts, setInquiredProducts] = useState(new Set());
 
+  useEffect(() => {
+    async function FETCH() {
+      const res = await fetchData();
+      return setdata(res);
+    }
+
+    FETCH();
+  }, []);
   // Load inquired products from localStorage on component mount
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedInquiries = localStorage.getItem(INQUIRY_STORAGE_KEY);
       if (storedInquiries) {
         try {
-          const parsedInquiries: string[] = JSON.parse(storedInquiries);
+          const parsedInquiries = JSON.parse(storedInquiries);
           setInquiredProducts(new Set(parsedInquiries));
         } catch (error) {
           console.error("Failed to parse inquiries from localStorage:", error);
@@ -72,12 +71,12 @@ const ProductCatalogPage: React.FC = () => {
   }, []);
 
   // Function to check if an inquiry exists for a product ID
-  const hasExistingInquiry = (productId: string): boolean => {
+  const hasExistingInquiry = (productId) => {
     return inquiredProducts.has(productId);
   };
 
   // Function to handle opening the inquiry form
-  const handleInquiry = (product: Product) => {
+  const handleInquiry = (product) => {
     setSelectedProduct(product);
     // Reset form data when opening for a new product (optional)
     setFormData({ name: "", phone: "" });
@@ -85,7 +84,7 @@ const ProductCatalogPage: React.FC = () => {
   };
 
   // Function to handle form input changes
-  const handleFormDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFormDataChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -94,7 +93,7 @@ const ProductCatalogPage: React.FC = () => {
   };
 
   // Function to handle form submission
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!selectedProduct) return;
 
@@ -134,7 +133,7 @@ const ProductCatalogPage: React.FC = () => {
   };
 
   // Helper function to format price (handles potential floating point issues)
-  const formatPrice = (priceInSmallestUnit: number): string => {
+  const formatPrice = (priceInSmallestUnit) => {
     const price = priceInSmallestUnit / 100; // Convert from paisa/cents to rupees/dollars
     return price.toLocaleString("en-IN", {
       style: "currency",
@@ -155,13 +154,6 @@ const ProductCatalogPage: React.FC = () => {
           {" "}
           {/* Added xl breakpoint */}
           {products.map((product) => {
-            const hasDiscount =
-              typeof product.discount === "number" && product.discount > 0;
-            const discountedPrice = hasDiscount
-              ? product.price * (1 - product.discount! / 100)
-              : product.price;
-            const inquiryMade = hasExistingInquiry(product.id);
-
             return (
               <div
                 key={product.id}
@@ -169,7 +161,7 @@ const ProductCatalogPage: React.FC = () => {
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
               >
                 <Link
-                  href={`/Catalog/Fullview/${product.partNumber}`}
+                  href={`/Catalog/Fullview/${product.sku}`}
                   key={product.id}
                 >
                   {/* Image Container */}
@@ -191,18 +183,12 @@ const ProductCatalogPage: React.FC = () => {
                     />
                     {/* Details Link - More subtle, appears on hover */}
                     <Link
-                      href={`/products/${product.id}`} // Ensure this route exists
+                      href={`/products/${product.sku}`} // Ensure this route exists
                       className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100"
                       aria-label="View product details"
                     >
                       <FaInfoCircle className="text-base" />
                     </Link>
-                    {/* Discount Badge */}
-                    {hasDiscount && (
-                      <span className="absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
-                        {product.discount}% OFF
-                      </span>
-                    )}
                   </div>
                 </Link>
                 {/* Content Area */}
@@ -220,19 +206,15 @@ const ProductCatalogPage: React.FC = () => {
                       {product.name}
                     </h3>
                     <p className="text-xs text-slate-500 mb-3">
-                      Part #: {product.partNumber}
+                      Part #: {product.sku}
                     </p>
                   </div>
                   {/* Price */}
                   <div className="mb-3">
                     <span className="text-lg font-bold text-indigo-600 mr-2">
-                      {formatPrice(discountedPrice)}
+                      {" "}
+                      ₹ {product.price}
                     </span>
-                    {hasDiscount && (
-                      <span className="text-sm text-slate-400 line-through">
-                        {formatPrice(product.price)}
-                      </span>
-                    )}
                   </div>
                   {/* Description - Takes remaining space */}
                   <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-grow">
@@ -244,36 +226,29 @@ const ProductCatalogPage: React.FC = () => {
                   <div className="mt-auto pt-4 border-t border-slate-100">
                     {" "}
                     {/* Added mt-auto and top border */}
-                    {inquiryMade ? (
-                      <div className="flex items-center justify-center gap-2 text-sm text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">
-                        <FaCheckCircle />
-                        <span>Inquiry Sent</span>
-                      </div>
-                    ) : (
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        {/* Inquiry Button - Primary */}
-                        <button
-                          onClick={() => handleInquiry(product)}
-                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-md shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-                        >
-                          <FaEnvelope /> {/* Changed Icon */}
-                          Inquire
-                        </button>
-                        {/* WhatsApp Button - Secondary (Green) */}
-                        <a
-                          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                            `I'm interested in: ${product.name} (Part #: ${product.partNumber})`
-                          )}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
-                        >
-                          <FaWhatsapp className="text-base" />{" "}
-                          {/* Adjusted icon size */}
-                          WhatsApp
-                        </a>
-                      </div>
-                    )}
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      {/* Inquiry Button - Primary */}
+                      <button
+                        onClick={() => handleInquiry(product)}
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-md shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                      >
+                        <FaEnvelope /> {/* Changed Icon */}
+                        Inquire
+                      </button>
+                      {/* WhatsApp Button - Secondary (Green) */}
+                      <a
+                        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                          `I'm interested in: ${product.name} (Part #: ${product.partNumber})`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                      >
+                        <FaWhatsapp className="text-base" />{" "}
+                        {/* Adjusted icon size */}
+                        WhatsApp
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

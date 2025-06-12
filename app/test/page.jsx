@@ -69,7 +69,7 @@
 
 // export default addProduct;
 
-const page = () => {
+const page = async () => {
   return <></>;
 };
 
