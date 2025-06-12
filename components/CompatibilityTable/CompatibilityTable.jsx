@@ -220,9 +220,6 @@ const CompatibilityTable = () => {
               >
                 Engine Type
               </th>
-              <th scope="col" className="px-6 py-3 font-heading text-center">
-                Action
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -240,14 +237,6 @@ const CompatibilityTable = () => {
                 <td className="px-6 py-4">{item.power}</td>
                 <td className="px-6 py-4">{item.fuel}</td>
                 <td className="px-6 py-4">{item.engineType}</td>
-                <td className="px-6 py-4 text-center">
-                  <button
-                    onClick={() => handleSelectVehicle(item)}
-                    className="font-bold text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-secondary/50 rounded-lg text-xs px-4 py-2 transition-all duration-200"
-                  >
-                    Choose
-                  </button>
-                </td>
               </tr>
             ))}
           </tbody>

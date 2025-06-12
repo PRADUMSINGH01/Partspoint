@@ -16,10 +16,12 @@ interface Product {
   images: StaticImageData[];
   description: string;
   compatibility: string;
+  sku: string;
 }
 
 const product: Product = {
   id: "1",
+  sku: "",
   name: "MARUTI IGNIS LHS TAIL LIGHT    ",
   partNumber: "35750M66R00",
   price: 950.0,
@@ -122,7 +124,7 @@ const ProductReviewPage: React.FC = (Id) => {
   const WHATSAPP_NUMBER = "9468929392"; // Example format with country code
 
   return (
-    <div className="bg-light min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-body">
+    <div className="bg-light min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-body md:mt-10">
       <div className="w-full mx-auto bg-white rounded-lg shadow">
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 p-6">
           <div className="sm:col-span-2">
@@ -176,11 +178,15 @@ const ProductReviewPage: React.FC = (Id) => {
 
           <div className="sm:col-span-3">
             <h1 className="text-3xl font-heading text-primary mb-2">
-              {data[0].name}
+              {data[0].name}{" "}
             </h1>
-            <p className="text-sm text-gray-500 mb-2">
-              Part #: {data[0].partNumber}
-            </p>
+            <div className="text-gray-500">
+              Part type :
+              <span className=" bg-secondary text-white p-1 m-2 rounded">
+                New
+              </span>
+            </div>
+            <p className="text-sm text-gray-500 mb-2">Part #: {data[0].sku}</p>
 
             <div className="flex items-baseline space-x-3 mb-4">
               <span className="text-3xl font-bold text-secondary">
