@@ -1,40 +1,25 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import Image, { StaticImageData } from "next/image";
-import images from "@/app/(Image)/light.png";
-import car from "@/app/(Image)/light.jpg";
-import light from "@/app/(Image)/light1.jpg";
+import Image from "next/image";
 import CompatibilityTable from "@/components/CompatibilityTable/CompatibilityTable";
-import { FaWhatsapp } from "react-icons/fa"; // Using FaEnvelope for Inquiry button
+import { FaWhatsapp } from "react-icons/fa";
 import { fetchParts } from "@/lib/partsById";
+
 interface Product {
   id: string;
   name: string;
   partNumber: string;
   price: number;
   discount: number;
-  images: StaticImageData[];
+  galleryImages: { src: string }[];
   description: string;
   compatibility: string;
   sku: string;
 }
 
-const product: Product = {
-  id: "1",
-  sku: "",
-  name: "MARUTI IGNIS LHS TAIL LIGHT    ",
-  partNumber: "35750M66R00",
-  price: 950.0,
-  discount: 0,
-  images: [images, car, light, images],
-  description:
-    "Tail Light for MARUTI IGNIS 1ST GEN, IGNIS 1ST GEN F/L - 3575...6R00 - MARUTI SUZUKI",
-  compatibility:
-    "Compatible with Honda City, Maruti Suzuki Ciaz, Hyundai Verna.",
-};
-
-const ProductReviewPage: React.FC = (Id) => {
-  const [selectedImage, setSelectedImage] = useState(product.images[0]);
+const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
+  const [data, setData] = useState<Product>();
+  const [selectedImage, setSelectedImage] = useState<string>("");
   const [pincode, setPincode] = useState("");
   const [deliveryMessage, setDeliveryMessage] = useState("");
   const [showZoomPreview, setShowZoomPreview] = useState(false);
@@ -45,17 +30,15 @@ const ProductReviewPage: React.FC = (Id) => {
   });
   const containerRef = useRef<HTMLDivElement>(null);
   const zoomRef = useRef<HTMLDivElement>(null);
-
-  const [data, setData] = useState<Product[]>([]);
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [customerName, setCustomerName] = useState("");
   const [customerNumber, setCustomerNumber] = useState("");
 
-  const hasDiscount = typeof product.discount === "number";
+  const hasDiscount = typeof data?.discount === "number";
   const discountedPrice = hasDiscount
-    ? ((product.price * (100 - product.discount)) / 100).toFixed(2)
-    : product.price.toFixed(2);
+    ? ((data!.price * (100 - data!.discount)) / 100).toFixed(2)
+    : data?.price.toFixed(2);
 
   const checkPincode = () => {
     if (pincode.length === 6) {
@@ -66,15 +49,24 @@ const ProductReviewPage: React.FC = (Id) => {
   };
 
   useEffect(() => {
-    async function fetchdataById() {
-      const response = await fetchParts(Id);
+    const fetchDataById = async () => {
+      try {
+        const response = await fetchParts(Id);
+        if (Array.isArray(response) && response.length > 0) {
+          setData(response[0]);
+          setSelectedImage(response[0].galleryImages[0]?.src || "");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      setData(Array.isArray(response) ? response : [response]);
-      setloading(false);
-    }
-
-    fetchdataById();
+    if (Id) fetchDataById();
   }, [Id]);
+
+  console.log(data);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -107,17 +99,15 @@ const ProductReviewPage: React.FC = (Id) => {
   const handleFormSubmit = () => {
     console.log("Customer Name:", customerName);
     console.log("Customer Number:", customerNumber);
-    console.log("Product SKU:", product.partNumber);
-    console.log("Product Name:", product.name);
+    console.log("Product SKU:", data?.partNumber);
+    console.log("Product Name:", data?.name);
     setShowForm(false);
   };
 
-  if (loading) {
-    return <>Loading</>;
-  }
+  if (loading) return <>Loading...</>;
+  if (!data) return <>No data found</>;
 
-  // Define the WhatsApp number (replace with your actual number or environment variable)
-  const WHATSAPP_NUMBER = "9468929392"; // Example format with country code
+  const WHATSAPP_NUMBER = "9468929392";
 
   return (
     <div className="bg-light min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-body md:mt-10">
@@ -134,7 +124,7 @@ const ProductReviewPage: React.FC = (Id) => {
               >
                 <Image
                   src={selectedImage}
-                  alt={product.name}
+                  alt={data.name}
                   fill
                   className="object-cover cursor-pointer"
                 />
@@ -144,7 +134,7 @@ const ProductReviewPage: React.FC = (Id) => {
                   ref={zoomRef}
                   className="absolute w-[50rem] h-[40rem] top-10 right-20 rounded-lg overflow-hidden shadow-lg"
                   style={{
-                    backgroundImage: `url(${selectedImage.src})`,
+                    backgroundImage: `url(${selectedImage})`,
                     backgroundRepeat: "no-repeat",
                     ...zoomStyle,
                   }}
@@ -153,16 +143,18 @@ const ProductReviewPage: React.FC = (Id) => {
             </div>
 
             <div className="flex space-x-2 overflow-x-auto pb-2">
-              {product.images.map((img, idx) => (
+              {data.galleryImages.map((img, idx) => (
                 <div
                   key={idx}
-                  onClick={() => setSelectedImage(img)}
+                  onClick={() => setSelectedImage(img.src)}
                   className={`relative flex-shrink-0 w-16 h-20 border-2 rounded cursor-pointer transition-all ${
-                    selectedImage === img ? "border-primary" : "border-gray-200"
+                    selectedImage === img.src
+                      ? "border-primary"
+                      : "border-gray-200"
                   }`}
                 >
                   <Image
-                    src={img}
+                    src={img.src}
                     alt={`thumb-${idx}`}
                     fill
                     className="object-cover rounded"
@@ -174,7 +166,7 @@ const ProductReviewPage: React.FC = (Id) => {
 
           <div className="sm:col-span-3">
             <h1 className="text-3xl font-heading text-primary mb-2">
-              {data[0].name}{" "}
+              {data.name}
             </h1>
             <div className="text-gray-500">
               Part type :
@@ -182,7 +174,7 @@ const ProductReviewPage: React.FC = (Id) => {
                 New
               </span>
             </div>
-            <p className="text-sm text-gray-500 mb-2">Part #: {data[0].sku}</p>
+            <p className="text-sm text-gray-500 mb-2">Part #: {data.sku}</p>
 
             <div className="flex items-baseline space-x-3 mb-4">
               <span className="text-3xl font-bold text-secondary">
@@ -190,7 +182,7 @@ const ProductReviewPage: React.FC = (Id) => {
               </span>
               {hasDiscount && (
                 <span className="text-sm text-gray-500 line-through">
-                  ₹{data[0].price.toFixed(2)}
+                  ₹{data.price.toFixed(2)}
                 </span>
               )}
             </div>
@@ -198,7 +190,7 @@ const ProductReviewPage: React.FC = (Id) => {
             <div className="space-y-4">
               <div>
                 <h3 className="font-medium text-gray-700 mb-1">Description</h3>
-                <p className="text-gray-600">{data[0].description}</p>
+                <p className="text-gray-600">{data.description}</p>
               </div>
 
               <div>
@@ -239,19 +231,19 @@ const ProductReviewPage: React.FC = (Id) => {
 
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                  `I'm interested in: ${product.name} (Part #: ${product.partNumber})`
+                  `I'm interested in: ${data.name} (Part #: ${data.partNumber})`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
               >
-                <FaWhatsapp className="text-base" /> {/* Adjusted icon size */}
+                <FaWhatsapp className="text-base" />
                 WhatsApp
               </a>
             </div>
 
             {showForm && (
-              <div className="mt-6 space-y-4 border border-gray-500  p-4 rounded absolute   bg-white shadow-lg">
+              <div className="mt-6 space-y-4 border border-gray-500 p-4 rounded absolute bg-white shadow-lg">
                 <button
                   className="flex justify-center items-center bg-black text-white hover:bg-secondary p-2 rounded-lg"
                   onClick={() => setShowForm(false)}
