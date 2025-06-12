@@ -15,6 +15,7 @@ interface Product {
   description: string;
   Compatibility: [];
   sku: string;
+  New: boolean;
 }
 
 const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
@@ -168,9 +169,20 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
             </h1>
             <div className="text-gray-500">
               Part type :
-              <span className=" bg-secondary text-white p-1 m-2 rounded">
-                New
-              </span>
+              {data?.New ? (
+                <>
+                  {" "}
+                  <span className=" bg-secondary text-white p-1 m-2 rounded">
+                    New
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className=" bg-red-500 text-white p-1 m-2 rounded">
+                    Refurb
+                  </span>
+                </>
+              )}
             </div>
             <p className="text-sm text-gray-500 mb-2">Part #: {data.sku}</p>
 
