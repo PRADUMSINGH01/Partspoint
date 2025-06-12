@@ -1,7 +1,14 @@
 import { NextResponse } from "next/server";
 import { firestore } from "@/lib/firebaseAdmin";
+import { Part } from "@/lib/types"; // Assuming you have a Part type defined
 
-export async function GET(request) {
+// interface PartQueryParams {
+//   sku?: string;
+//   name?: string;
+//   brand?: string;
+// }
+
+export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("sku");
@@ -10,6 +17,7 @@ export async function GET(request) {
 
     const partsRef = firestore.collection("Part");
 
+    // Handle ID query
     if (id) {
       const partDoc = await partsRef.doc(id).get();
       if (!partDoc.exists) {
@@ -18,12 +26,13 @@ export async function GET(request) {
           { status: 404 }
         );
       }
-      const partData = partDoc.data();
+      const partData = partDoc.data() as Part;
       return NextResponse.json({ id: partDoc.id, ...partData });
     }
 
-    // Remove explicit type declaration to avoid namespace issues
-    let query = partsRef;
+    // Handle name and brand queries
+    let query: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> =
+      partsRef;
 
     if (name) {
       query = query.where("name", "==", name);
@@ -41,16 +50,16 @@ export async function GET(request) {
       );
     }
 
-    const parts = [];
+    const parts: (Part & { id: string })[] = [];
     snapshot.forEach((doc) => {
       parts.push({
         id: doc.id,
-        ...doc.data(),
+        ...(doc.data() as Part),
       });
     });
 
     return NextResponse.json(parts);
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Error fetching parts from Firestore:", error);
 
     if (error instanceof Error && error.message.includes("requires an index")) {
