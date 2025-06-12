@@ -79,9 +79,8 @@ export default function CarPartsSearch() {
     saveRecent(trimmedQuery);
 
     try {
-      const response = await fetchParts();
-
-      setResults(Array.isArray(response) ? response : [response]);
+      const response = await fetchParts(trimmedQuery);
+      setResults(response);
     } catch (err) {
       console.error("Search error:", err);
       setResults([]);

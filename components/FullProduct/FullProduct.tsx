@@ -67,7 +67,7 @@ const ProductReviewPage: React.FC = (Id) => {
 
   useEffect(() => {
     async function fetchdataById() {
-      const response = await fetchParts();
+      const response = await fetchParts(Id);
 
       setData(Array.isArray(response) ? response : [response]);
       setloading(false);
