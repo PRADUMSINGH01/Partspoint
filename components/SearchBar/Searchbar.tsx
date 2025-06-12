@@ -6,11 +6,13 @@ const MAX_RECENT_SEARCHES = 5;
 const RECENT_SEARCH_EXPIRY_DAYS = 7;
 
 interface SearchResult {
-  id: string;
-  partNumber: string;
-  name: string;
-  price: number;
-  compatibleModels: string[];
+  sku: string;
+  name?: string;
+  brand?: string;
+  stock?: number;
+  price?: number;
+  partNumber?: string;
+  compatibleModels?: string[];
 }
 
 type RecentSearch = { query: string; timestamp: number };
@@ -70,17 +72,25 @@ export default function CarPartsSearch() {
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) return;
+    const trimmedQuery = query.trim();
+    if (!trimmedQuery) return;
+
     setLoading(true);
-    saveRecent(query);
+    saveRecent(trimmedQuery);
+
     try {
-      // TODO: replace with actual fetch logic
-      // const data = await fetch(`/api/parts?search=${encodeURIComponent(query)}`);
-      // const json = await data.json();
-      // setResults(json as SearchResult[]);
-      console.log("Searching for", query);
+      const response = await fetch(
+        `/api/parts?search=${encodeURIComponent(trimmedQuery)}`
+      );
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      setResults(Array.isArray(data) ? data : [data]);
     } catch (err) {
-      console.error(err);
+      console.error("Search error:", err);
+      setResults([]);
     } finally {
       setLoading(false);
     }
@@ -104,7 +114,7 @@ export default function CarPartsSearch() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => setIsOpen(true)}
-            placeholder="Search by part # or name..."
+            placeholder="Search by part #, name, or brand..."
             className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
           />
           {query && (
@@ -203,7 +213,7 @@ export default function CarPartsSearch() {
 
           {/* Results */}
           {query && (
-            <div className="max-h-64 w-full flex">
+            <div className="max-h-64 overflow-y-auto w-full">
               {loading ? (
                 <div className="p-4 text-center text-gray-500">
                   Searching...
@@ -211,44 +221,72 @@ export default function CarPartsSearch() {
               ) : results.length > 0 ? (
                 <ul>
                   {results.map((r) => (
-                    <li key={r.id} className="border-b last:border-b-0 w-full">
+                    <li
+                      key={r.partNumber}
+                      className="border-b last:border-b-0 w-full"
+                    >
                       <a
-                        href={`/parts/${r.id}`}
+                        href={`/Catalog/Fullview/${r.sku}`}
                         className="flex justify-between w-full items-start px-4 py-3 hover:bg-gray-50 transition"
                       >
                         <div>
                           <h5 className="font-medium text-gray-800">
-                            {r.name}
+                            {r.name || "Unnamed Part"}
                           </h5>
-                          <p className="text-sm text-gray-500">
-                            {r.partNumber}
-                          </p>
-                          <div className="mt-1 flex flex-wrap gap-1">
-                            {r.compatibleModels.slice(0, 3).map((m) => (
-                              <span
-                                key={m}
-                                className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
-                              >
-                                {m}
-                              </span>
-                            ))}
-                            {r.compatibleModels.length > 3 && (
-                              <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
-                                +{r.compatibleModels.length - 3} more
-                              </span>
+                          {r.partNumber && (
+                            <p className="text-sm text-gray-500">
+                              Part #: {r.partNumber}
+                            </p>
+                          )}
+                          {r.brand && (
+                            <p className="text-sm text-gray-500">
+                              Brand: {r.brand}
+                            </p>
+                          )}
+                          {r.compatibleModels &&
+                            r.compatibleModels.length > 0 && (
+                              <div className="mt-1 flex flex-wrap gap-1">
+                                {r.compatibleModels.slice(0, 3).map((m) => (
+                                  <span
+                                    key={m}
+                                    className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
+                                  >
+                                    {m}
+                                  </span>
+                                ))}
+                                {r.compatibleModels.length > 3 && (
+                                  <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                                    +{r.compatibleModels.length - 3} more
+                                  </span>
+                                )}
+                              </div>
                             )}
-                          </div>
                         </div>
-                        <span className="ml-4 font-medium text-primary">
-                          ${r.price.toFixed(2)}
-                        </span>
+                        <div className="ml-4 text-right">
+                          {r.price !== undefined && (
+                            <span className="block font-medium text-primary">
+                              ${r.price.toFixed(2)}
+                            </span>
+                          )}
+                          {r.stock !== undefined && (
+                            <span
+                              className={`block text-xs mt-1 ${
+                                r.stock > 0 ? "text-green-600" : "text-red-600"
+                              }`}
+                            >
+                              {r.stock > 0
+                                ? `In stock (${r.stock})`
+                                : "Out of stock"}
+                            </span>
+                          )}
+                        </div>
                       </a>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <div className="absolute top-12 p-4 text-center text-gray-500">
-                  No parts found.
+                <div className="p-4 text-center text-gray-500">
+                  {!loading && "No parts found matching your search."}
                 </div>
               )}
             </div>

@@ -1,8 +1,9 @@
 // components/CompatibilityTable.jsx
 
+import React, { useState } from "react"; // Import useState
 import { FaCarSide } from "react-icons/fa";
 
-// Updated data with the specific Maruti Suzuki Ignis models you provided.
+// Data remains the same
 const compatibilityData = [
   {
     model: "IGNIS 1ST GEN 1.2L SIGMA",
@@ -167,16 +168,20 @@ const compatibilityData = [
 ];
 
 const CompatibilityTable = () => {
-  // This is an example function to handle the button click.
-  // You can customize it to do whatever you need, like adding the item to a cart.
+  // State to manage the number of visible items, starts at 10
+  const [visibleCount, setVisibleCount] = useState(10);
+
   const handleSelectVehicle = (vehicle) => {
     alert(`You have selected: ${vehicle.model}`);
-    // Add your logic here, e.g., router.push('/checkout') or add to state.
+  };
+
+  // Function to show all remaining items
+  const loadMoreItems = () => {
+    setVisibleCount(compatibilityData.length);
   };
 
   return (
-    <div className="font-body bg-light p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-6xl mx-auto my-8">
-      {/* Header with heading font and theme colors */}
+    <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full">
       <div className="flex items-center gap-3 mb-4">
         <FaCarSide className="text-2xl text-secondary" />
         <h2 className="font-heading text-xl sm:text-2xl font-bold text-neutral">
@@ -184,10 +189,8 @@ const CompatibilityTable = () => {
         </h2>
       </div>
 
-      {/* Responsive Table Wrapper */}
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-neutral">
-          {/* Table header with theme colors */}
           <thead className="text-xs uppercase bg-light border-b-2 border-border">
             <tr>
               <th scope="col" className="px-6 py-3 font-heading">
@@ -223,12 +226,12 @@ const CompatibilityTable = () => {
             </tr>
           </thead>
           <tbody>
-            {compatibilityData.map((item, index) => (
+            {/* Use .slice() to show only the visible items */}
+            {compatibilityData.slice(0, visibleCount).map((item, index) => (
               <tr
                 key={index}
-                className="bg-light border-b border-border hover:bg-slate-100 transition-colors"
+                className="bg-white border-b border-border hover:bg-slate-100 transition-colors"
               >
-                {/* Model uses primary color for emphasis */}
                 <td className="px-6 py-4 font-medium text-primary whitespace-nowrap">
                   {item.model}
                 </td>
@@ -238,7 +241,6 @@ const CompatibilityTable = () => {
                 <td className="px-6 py-4">{item.fuel}</td>
                 <td className="px-6 py-4">{item.engineType}</td>
                 <td className="px-6 py-4 text-center">
-                  {/* Button styled with secondary and accent colors */}
                   <button
                     onClick={() => handleSelectVehicle(item)}
                     className="font-bold text-white bg-secondary hover:bg-accent focus:ring-4 focus:ring-secondary/50 rounded-lg text-xs px-4 py-2 transition-all duration-200"
@@ -251,7 +253,19 @@ const CompatibilityTable = () => {
           </tbody>
         </table>
       </div>
-      {/* Mobile Notice */}
+
+      {/* Conditionally render the "Load More" button */}
+      {visibleCount < compatibilityData.length && (
+        <div className="mt-6 text-center">
+          <button
+            onClick={loadMoreItems}
+            className="px-6 py-2 border-2 border-secondary text-secondary font-bold rounded-lg hover:bg-secondary hover:text-white transition-colors duration-200"
+          >
+            Load More ({compatibilityData.length - visibleCount} remaining)
+          </button>
+        </div>
+      )}
+
       <p className="md:hidden text-xs text-center text-neutral/70 mt-4">
         Scroll horizontally to see all details
       </p>

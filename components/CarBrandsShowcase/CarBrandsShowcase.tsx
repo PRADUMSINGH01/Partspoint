@@ -142,7 +142,7 @@ export default function CarBrandsShowcase() {
         {filteredBrands.map((brand, index) => {
           const Icon = brand.icon;
           return (
-            <Link href={`/Car/${brand.url}`} key={index}>
+            <Link href={`/Catalog/${brand.url}`} key={index}>
               <div
                 key={index}
                 className="bg-white p-4 rounded-lg shadow-sm border border-border hover:shadow-md transition-all flex flex-col items-center"

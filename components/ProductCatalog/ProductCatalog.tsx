@@ -163,14 +163,14 @@ const ProductCatalogPage: React.FC = () => {
             const inquiryMade = hasExistingInquiry(product.id);
 
             return (
-              <Link
-                href={`/Catalog/Fullview/${product.partNumber}`}
+              <div
                 key={product.id}
+                // Softer shadow, subtle hover effect, slightly larger rounding
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
               >
-                <div
+                <Link
+                  href={`/Catalog/Fullview/${product.partNumber}`}
                   key={product.id}
-                  // Softer shadow, subtle hover effect, slightly larger rounding
-                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
                 >
                   {/* Image Container */}
                   <div className="aspect-square relative group">
@@ -204,80 +204,79 @@ const ProductCatalogPage: React.FC = () => {
                       </span>
                     )}
                   </div>
-
-                  {/* Content Area */}
-                  <div className="p-5 flex flex-col flex-grow">
+                </Link>
+                {/* Content Area */}
+                <div className="p-5 flex flex-col flex-grow">
+                  {" "}
+                  {/* Added flex-grow */}
+                  {/* Product Name & Part Number */}
+                  <div>
+                    <h3
+                      className="text-base font-semibold text-slate-800 leading-snug mb-1 truncate"
+                      title={product.name}
+                    >
+                      {" "}
+                      {/* Added truncate */}
+                      {product.name}
+                    </h3>
+                    <p className="text-xs text-slate-500 mb-3">
+                      Part #: {product.partNumber}
+                    </p>
+                  </div>
+                  {/* Price */}
+                  <div className="mb-3">
+                    <span className="text-lg font-bold text-indigo-600 mr-2">
+                      {formatPrice(discountedPrice)}
+                    </span>
+                    {hasDiscount && (
+                      <span className="text-sm text-slate-400 line-through">
+                        {formatPrice(product.price)}
+                      </span>
+                    )}
+                  </div>
+                  {/* Description - Takes remaining space */}
+                  <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-grow">
                     {" "}
                     {/* Added flex-grow */}
-                    {/* Product Name & Part Number */}
-                    <div>
-                      <h3
-                        className="text-base font-semibold text-slate-800 leading-snug mb-1 truncate"
-                        title={product.name}
-                      >
-                        {" "}
-                        {/* Added truncate */}
-                        {product.name}
-                      </h3>
-                      <p className="text-xs text-slate-500 mb-3">
-                        Part #: {product.partNumber}
-                      </p>
-                    </div>
-                    {/* Price */}
-                    <div className="mb-3">
-                      <span className="text-lg font-bold text-indigo-600 mr-2">
-                        {formatPrice(discountedPrice)}
-                      </span>
-                      {hasDiscount && (
-                        <span className="text-sm text-slate-400 line-through">
-                          {formatPrice(product.price)}
-                        </span>
-                      )}
-                    </div>
-                    {/* Description - Takes remaining space */}
-                    <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-grow">
-                      {" "}
-                      {/* Added flex-grow */}
-                      {product.description}
-                    </p>
-                    {/* Action Area - Pushed to bottom */}
-                    <div className="mt-auto pt-4 border-t border-slate-100">
-                      {" "}
-                      {/* Added mt-auto and top border */}
-                      {inquiryMade ? (
-                        <div className="flex items-center justify-center gap-2 text-sm text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">
-                          <FaCheckCircle />
-                          <span>Inquiry Sent</span>
-                        </div>
-                      ) : (
-                        <div className="flex flex-col sm:flex-row gap-3">
-                          {/* Inquiry Button - Primary */}
-                          <button
-                            onClick={() => handleInquiry(product)}
-                            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-md shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-                          >
-                            <FaEnvelope /> {/* Changed Icon */}
-                            Inquire
-                          </button>
-                          {/* WhatsApp Button - Secondary (Green) */}
-                          <a
-                            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                              `I'm interested in: ${product.name} (Part #: ${product.partNumber})`
-                            )}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
-                          >
-                            <FaWhatsapp className="text-base" />{" "}
-                            {/* Adjusted icon size */}
-                            WhatsApp
-                          </a>
-                        </div>
-                      )}
-                    </div>
+                    {product.description}
+                  </p>
+                  {/* Action Area - Pushed to bottom */}
+                  <div className="mt-auto pt-4 border-t border-slate-100">
+                    {" "}
+                    {/* Added mt-auto and top border */}
+                    {inquiryMade ? (
+                      <div className="flex items-center justify-center gap-2 text-sm text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">
+                        <FaCheckCircle />
+                        <span>Inquiry Sent</span>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        {/* Inquiry Button - Primary */}
+                        <button
+                          onClick={() => handleInquiry(product)}
+                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-md shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                        >
+                          <FaEnvelope /> {/* Changed Icon */}
+                          Inquire
+                        </button>
+                        {/* WhatsApp Button - Secondary (Green) */}
+                        <a
+                          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                            `I'm interested in: ${product.name} (Part #: ${product.partNumber})`
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                        >
+                          <FaWhatsapp className="text-base" />{" "}
+                          {/* Adjusted icon size */}
+                          WhatsApp
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
