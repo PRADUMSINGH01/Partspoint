@@ -98,7 +98,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
   const handleFormSubmit = () => {
     console.log("Customer Name:", customerName);
     console.log("Customer Number:", customerNumber);
-    console.log("Product SKU:", data?.partNumber);
+    console.log("Product SKU:", data?.sku);
     console.log("Product Name:", data?.name);
     setShowForm(false);
   };
@@ -241,7 +241,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
 
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                  `I'm interested in: ${data.name} (Part #: ${data.partNumber})`
+                  `I'm interested in: ${data.name} (Part #: ${data.sku})`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -251,35 +251,40 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
                 WhatsApp
               </a>
             </div>
-
             {showForm && (
-              <div className="mt-6 space-y-4 border border-gray-500 p-4 rounded absolute bg-white shadow-lg">
-                <button
-                  className="flex justify-center items-center bg-black text-white hover:bg-secondary p-2 rounded-lg"
-                  onClick={() => setShowForm(false)}
-                >
-                  close
-                </button>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={customerName}
-                  onChange={(e) => setCustomerName(e.target.value)}
-                  className="w-full border border-gray-300 rounded px-3 py-2"
-                />
-                <input
-                  type="text"
-                  placeholder="Your Number"
-                  value={customerNumber}
-                  onChange={(e) => setCustomerNumber(e.target.value)}
-                  className="w-full border border-gray-300 rounded px-3 py-2"
-                />
-                <button
-                  onClick={handleFormSubmit}
-                  className="w-full bg-primary text-white py-2 rounded hover:bg-secondary transition"
-                >
-                  Submit Inquiry
-                </button>
+              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                <div className="w-full max-w-sm bg-white rounded-xl shadow-2xl p-6 relative">
+                  <button
+                    onClick={() => setShowForm(false)}
+                    className="absolute top-3 right-3 text-gray-500 hover:text-black"
+                  >
+                    ✕
+                  </button>
+                  <h2 className="text-xl font-semibold mb-4 text-center text-gray-800">
+                    Submit Your Inquiry
+                  </h2>
+
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
+                    className="w-full border border-gray-300 rounded px-3 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Your Number"
+                    value={customerNumber}
+                    onChange={(e) => setCustomerNumber(e.target.value)}
+                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  <button
+                    onClick={handleFormSubmit}
+                    className="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition"
+                  >
+                    Submit Inquiry
+                  </button>
+                </div>
               </div>
             )}
           </div>
