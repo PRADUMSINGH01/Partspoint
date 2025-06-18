@@ -11,7 +11,7 @@ interface Product {
   partNumber: string;
   price: number;
   discount: number;
-  galleryImages: { src: string }[];
+  galleryImages: string[];
   description: string;
   Compatibility: [];
   sku: string;
@@ -48,14 +48,17 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
       setDeliveryMessage("Please enter a valid 6-digit pincode.");
     }
   };
-
   useEffect(() => {
     const fetchDataById = async () => {
       try {
         const response = await fetchParts(Id);
         if (Array.isArray(response) && response.length > 0) {
-          setData(response[0]);
-          setSelectedImage(response[0].galleryImages[0]?.src || "");
+          const prod = response[0];
+          setData(prod);
+          // Initialize selectedImage properly
+          if (prod.galleryImages && prod.galleryImages.length > 0) {
+            setSelectedImage(prod.galleryImages[0]);
+          }
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -66,7 +69,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
 
     if (Id) fetchDataById();
   }, [Id]);
-
+  console.log(data);
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
 
@@ -145,15 +148,13 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
               {data.galleryImages.map((img, idx) => (
                 <div
                   key={idx}
-                  onClick={() => setSelectedImage(img.src)}
+                  onClick={() => setSelectedImage(img)}
                   className={`relative flex-shrink-0 w-16 h-20 border-2 rounded cursor-pointer transition-all ${
-                    selectedImage === img.src
-                      ? "border-primary"
-                      : "border-gray-200"
+                    selectedImage === img ? "border-primary" : "border-gray-200"
                   }`}
                 >
                   <Image
-                    src={img.src}
+                    src={img}
                     alt={`thumb-${idx}`}
                     fill
                     className="object-cover rounded"
