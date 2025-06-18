@@ -186,18 +186,21 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
               )}
             </div>
             <p className="text-sm text-gray-500 mb-2">Part #: {data.sku}</p>
-
             <div className="flex items-baseline space-x-3 mb-4">
               <span className="text-3xl font-bold text-secondary">
                 ₹{discountedPrice}
               </span>
               {hasDiscount && (
-                <span className="text-sm text-gray-500 line-through">
-                  ₹{data.price.toFixed(2)}
-                </span>
+                <>
+                  <span className="text-sm text-gray-500 line-through">
+                    MRP ₹{data.price.toFixed(2)}
+                  </span>
+                  <span className="text-sm text-green-600 font-medium">
+                    Save {data.discount}%
+                  </span>
+                </>
               )}
             </div>
-
             <div className="space-y-4">
               <div>
                 <h3 className="font-medium text-gray-700 mb-1">Description</h3>
@@ -231,7 +234,6 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
                 )}
               </div>
             </div>
-
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <button
                 onClick={() => setShowForm(true)}
