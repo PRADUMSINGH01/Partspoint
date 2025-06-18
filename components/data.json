@@ -1,45 +1,39 @@
-name: "Maruti Suzuki Genuine Rear Combination Lamp Assembly (Left)",
-      sku: "35750M66M00",
-      brand: "Maruti Suzuki Genuine Parts",
+name: "DUCT-FILTER AIR IN",
+      sku: "165563978R",
+      brand: "NISSAN",
       description:
-        "Official OEM Rear Left (LH) Combination Tail Light Assembly. Ensures perfect fit, functionality, and safety compliance for specified models. Includes housing and lens.",
-      price: 950.0,
+        "Hose for DATSUN REDI GO 1ST GEN, RENAULT KWID  - Nissan / Renault",
+      price: 376,
+      percent:10,
       stockQuantity: 85,
-      mainImageUrl:
-        "https://images.example.com/parts/maruti/35750M66M00_main.jpg",
       galleryImages: [
         "https://images.example.com/parts/maruti/35750M66M00_angle1.jpg",
         "https://images.example.com/parts/maruti/35750M66M00_angle2.jpg",
       ],
-      category: "Lighting & Electrical",
-      subcategory: "Tail Lights",
+      New:true,
+      category: "Engine",
+      subcategory: "Air Supply",
       searchTags: [
-        "maruti",
-        "suzuki",
-        "genuine",
-        "parts",
-        "35750m66m00",
-        "taillight",
-        "tail",
-        "lamp",
-        "rear",
-        "combination",
-        "left",
-        "lh",
-        "alto",
+       "NISSAN","nissan","Renault ","Air filter","filter"
       ],
-      specifications: {
-        position: "Rear Left",
-        includesBulbs: true,
-        voltage: "12V",
-        lensMaterial: "Polycarbonate",
-      },
-      vehicleFitment: [
-        { make: "Maruti Suzuki", model: "Alto", year: 2010 },
-        { make: "Maruti Suzuki", model: "Alto", year: 2011 },
-        { make: "Maruti Suzuki", model: "Alto", year: 2012 },
-      ],
-      isActive: true,
-      createdAt: "Timestamp(seconds=1749553380, nanoseconds=0)",
-      updatedAt: "Timestamp(seconds=1749553380, nanoseconds=0)",
-    }; //
+    
+     
+      Compatibility:[
+        {
+          "Model": "KWID 0.8L BWMA MT",
+          "Year": "02.2015 - 09.2020",
+          "Engine": "0.8 L",
+          "Power (hp)": "54 h.p.",
+          "Fuel type": "Petrol",
+          "Engine type": "B4A"
+        },
+        {
+          "Model": "KWID 1.0L BWMB MT",
+          "Year": "02.2015 - 09.2020",
+          "Engine": "1 L",
+          "Power (hp)": "63 h.p.",
+          "Fuel type": "Petrol",
+          "Engine type": "B4D"
+        }
+      ]
+      

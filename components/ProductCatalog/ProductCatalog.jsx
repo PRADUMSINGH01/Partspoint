@@ -167,7 +167,7 @@ const ProductCatalogPage = () => {
                   {/* Image Container */}
                   <div className="aspect-square relative group">
                     <Image
-                      src={Caar.src} // Ensure this path is correct relative to /public
+                      src={product.galleryImages[0]} // Ensure this path is correct relative to /public
                       alt={product.name}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
