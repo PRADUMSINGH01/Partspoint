@@ -258,7 +258,7 @@ export default function CarPartsSearch() {
                         <div className="ml-4 text-right">
                           {r.price !== undefined && (
                             <span className="block font-medium text-primary">
-                              ${r.price.toFixed(2)}
+                              MRP:{r.price.toFixed(2)}
                             </span>
                           )}
                           {r.stock !== undefined && (

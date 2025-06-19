@@ -11,25 +11,12 @@ const INQUIRY_STORAGE_KEY = "productInquiries";
 // Define the WhatsApp number (replace with your actual number or environment variable)
 const WHATSAPP_NUMBER = "9468929392";
 
-const ProductCatalogPage = () => {
-  const [products, setProducts] = useState([]);
+const ProductCatalogPage = ({ products }) => {
+  console.log(products, "products from props");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [formData, setFormData] = useState({ name: "", phone: "" });
   const [showForm, setShowForm] = useState(false);
   const [inquiredProducts, setInquiredProducts] = useState(new Set());
-
-  // Fetch products on mount
-  useEffect(() => {
-    async function FETCH() {
-      try {
-        const res = await fetchData();
-        setProducts(res || []);
-      } catch (err) {
-        console.error("Error fetching products:", err);
-      }
-    }
-    FETCH();
-  }, []);
 
   // Load inquired products from localStorage on mount
   useEffect(() => {

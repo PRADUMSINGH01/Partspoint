@@ -1,39 +1,168 @@
-name: "DUCT-FILTER AIR IN",
-      sku: "165563978R",
-      brand: "NISSAN",
+name: "BADGE ASSY THAR",
+      sku: "2302GW500171N",
+      brand: "Mahindra",
       description:
-        "Hose for DATSUN REDI GO 1ST GEN, RENAULT KWID  - Nissan / Renault",
-      price: 376,
-      percent:10,
+        "Emblem for MAHINDRA THAR 2ND GEN, THAR EARTH EDITION",
+      price: 640,
+      percent:9,
       stockQuantity: 85,
       galleryImages: [
-        "https://images.example.com/parts/maruti/35750M66M00_angle1.jpg",
-        "https://images.example.com/parts/maruti/35750M66M00_angle2.jpg",
+        "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9406_6_11zon.jpg?alt=media&token=c0eb0ff7-5a47-4a9a-a1d1-e30f49d0c876",
+        "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9407_4_11zon.jpg?alt=media&token=d9eab5b7-4c8a-48c3-aa5c-33fd55abd86e",
       ],
       New:true,
-      category: "Engine",
-      subcategory: "Air Supply",
+      category: "Body",
+      subcategory: "Emblem",
       searchTags: [
-       "NISSAN","nissan","Renault ","Air filter","filter"
+       "Thar ",Mahindra
       ],
     
      
       Compatibility:[
         {
-          "Model": "KWID 0.8L BWMA MT",
-          "Year": "02.2015 - 09.2020",
-          "Engine": "0.8 L",
-          "Power (hp)": "54 h.p.",
-          "Fuel type": "Petrol",
-          "Engine type": "B4A"
+          "model": "THAR 2ND GEN 2.0L AX 4S CT 4WD MT",
+          "year": "08.2020 - now",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
         },
         {
-          "Model": "KWID 1.0L BWMB MT",
-          "Year": "02.2015 - 09.2020",
-          "Engine": "1 L",
-          "Power (hp)": "63 h.p.",
-          "Fuel type": "Petrol",
-          "Engine type": "B4D"
+          "model": "THAR 2ND GEN 2.0L AX 6S ST 4WD MT",
+          "year": "08.2020 - now",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
+        },
+        {
+          "model": "THAR 2ND GEN 2.0L LX 4S CT 4WD AT",
+          "year": "08.2020 - now",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
+        },
+        {
+          "model": "THAR 2ND GEN 2.0L LX 4S HT 4WD AT",
+          "year": "08.2020 - now",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
+        },
+        {
+          "model": "THAR 2ND GEN 2.0L LX 4S HT 4WD MT",
+          "year": "08.2020 - now",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
+        },
+        {
+          "model": "THAR 2ND GEN 2.2L AX 4S CT 4WD MT",
+          "year": "08.2020 - now",
+          "engine": "2.2 L",
+          "power_hp": 130,
+          "fuel_type": "Diesel",
+          "engine_type": "mHawk 130"
+        },
+        {
+          "model": "THAR 2ND GEN 2.2L AX 6S ST 4WD MT",
+          "year": "08.2020 - 12.2021",
+          "engine": "2.2 L",
+          "power_hp": 130,
+          "fuel_type": "Diesel",
+          "engine_type": "mHawk 130"
+        },
+        {
+          "model": "THAR 2ND GEN 2.2L LX 4S CT 4WD AT",
+          "year": "08.2020 - now",
+          "engine": "2.2 L",
+          "power_hp": 130,
+          "fuel_type": "Diesel",
+          "engine_type": "mHawk 130"
+        },
+        {
+          "model": "THAR 2ND GEN 2.2L LX 4S HT 4WD AT",
+          "year": "08.2020 - now",
+          "engine": "2.2 L",
+          "power_hp": 130,
+          "fuel_type": "Diesel",
+          "engine_type": "mHawk 130"
+        },
+        {
+          "model": "THAR 2ND GEN 2.2L LX 4S HT 4WD MT",
+          "year": "08.2020 - now",
+          "engine": "2.2 L",
+          "power_hp": 130,
+          "fuel_type": "Diesel",
+          "engine_type": "mHawk 130"
+        },
+        {
+          "model": "THAR 2ND GEN 2.2L AX 4S HT 4WD MT",
+          "year": "08.2020 - now",
+          "engine": "2.2 L",
+          "power_hp": 130,
+          "fuel_type": "Diesel",
+          "engine_type": "mHawk 130"
+        },
+        {
+          "model": "THAR 2ND GEN 2.2L LX 4S CT 4WD MT",
+          "year": "08.2020 - now",
+          "engine": "2.2 L",
+          "power_hp": 130,
+          "fuel_type": "Diesel",
+          "engine_type": "mHawk 130"
+        },
+        {
+          "model": "THAR 2ND GEN 2.0L AX 6S ST(O) 4WD MT",
+          "year": "08.2020 - 12.2021",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
+        },
+        {
+          "model": "THAR 2ND GEN 2.0L AX 4S CT(O) 4WD MT",
+          "year": "08.2020 - now",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
+        },
+        {
+          "model": "THAR 2ND GEN 1.5L AX 4S HT RWD MT",
+          "year": "01.2023 - now",
+          "engine": "1.5 L",
+          "power_hp": 116,
+          "fuel_type": "Diesel",
+          "engine_type": "D117 CRDe"
+        },
+        {
+          "model": "THAR 2ND GEN 2.0L LX 4S HT RWD AT",
+          "year": "01.2023 - now",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
+        },
+        {
+          "model": "THAR 2ND GEN 1.5L LX 4S HT MT",
+          "year": "01.2023 - now",
+          "engine": "1.5 L",
+          "power_hp": 116,
+          "fuel_type": "Diesel",
+          "engine_type": "D117 CRDe"
+        },
+        {
+          "model": "THAR EARTH EDITION 2.0L LX HT 4WD MT",
+          "year": "02.2024 - now",
+          "engine": "2 L",
+          "power_hp": 150,
+          "fuel_type": "Petrol",
+          "engine_type": "mStallion 150 TGDi"
         }
       ]
       
+     
