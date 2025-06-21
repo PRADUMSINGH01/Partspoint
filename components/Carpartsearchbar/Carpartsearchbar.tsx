@@ -1740,7 +1740,7 @@ export default function VehicleSearch() {
   // Initialize makers on component mount
   useEffect(() => {
     setMakers(Object.keys(carData));
-  }, [carData]);
+  }, []);
 
   // Update models when maker changes
   useEffect(() => {
