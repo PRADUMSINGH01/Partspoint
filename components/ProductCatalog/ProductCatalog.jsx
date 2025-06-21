@@ -1,40 +1,43 @@
+// File: /components/ProductCatalogPage.jsx
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaWhatsapp, FaEnvelope, FaTimes, FaInfoCircle } from "react-icons/fa";
 import Link from "next/link";
+import { addInquiryToFirestore } from "@/lib/MakeQ";
 
-// Define a key for localStorage
+// Key for localStorage
 const INQUIRY_STORAGE_KEY = "productInquiries";
+// WhatsApp number: prefer env var
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "9468929392";
 
-// Define the WhatsApp number (replace with your actual number or environment variable)
-const WHATSAPP_NUMBER = "9468929392";
+const INITIAL_COUNT = 9;
+const INCREMENT = 10;
 
 const ProductCatalogPage = ({ products }) => {
-  console.log(products, "products from props");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [formData, setFormData] = useState({ name: "", phone: "" });
   const [showForm, setShowForm] = useState(false);
   const [inquiredProducts, setInquiredProducts] = useState(new Set());
-
-  // For “Load More” functionality
-  const INITIAL_COUNT = 9;
-  const INCREMENT = 10;
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+  const [submitting, setSubmitting] = useState(false);
 
-  // If products prop changes (e.g., new data), reset visibleCount
+  // Reset visibleCount when products prop changes
   useEffect(() => {
     setVisibleCount(INITIAL_COUNT);
   }, [products]);
 
-  // Load inquired products from localStorage on mount
+  // Load inquired products from localStorage
   useEffect(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem(INQUIRY_STORAGE_KEY);
       if (stored) {
         try {
           const parsed = JSON.parse(stored);
-          setInquiredProducts(new Set(parsed));
+          if (Array.isArray(parsed)) {
+            setInquiredProducts(new Set(parsed));
+          }
         } catch (error) {
           console.error("Failed to parse inquiries from localStorage:", error);
           localStorage.removeItem(INQUIRY_STORAGE_KEY);
@@ -57,45 +60,52 @@ const ProductCatalogPage = ({ products }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedProduct) return;
-
-    if (!formData.name.trim() || !formData.phone.trim()) {
-      alert("Please fill in both name and phone number.");
+    const nameTrim = formData.name.trim();
+    const phoneTrim = formData.phone.trim();
+    if (!nameTrim || !phoneTrim) {
+      alert("Please enter your name and phone number.");
       return;
     }
 
-    console.log("Inquiry Submitted:");
-    console.log(
-      "Product:",
-      selectedProduct.name,
-      `(ID: ${selectedProduct.id})`
-    );
-    console.log("User Name:", formData.name);
-    console.log("User Phone:", formData.phone);
+    setSubmitting(true);
+    try {
+      // Firestore write: pass selectedProduct and an object with name & phone
+      await addInquiryToFirestore(selectedProduct, {
+        name: nameTrim,
+        phone: phoneTrim,
+      });
 
-    // TODO: send inquiry data to backend
+      // Update local state & localStorage
+      const updatedSet = new Set(inquiredProducts);
+      updatedSet.add(selectedProduct.id);
+      setInquiredProducts(updatedSet);
+      if (typeof window !== "undefined") {
+        localStorage.setItem(
+          INQUIRY_STORAGE_KEY,
+          JSON.stringify(Array.from(updatedSet))
+        );
+      }
 
-    const updated = new Set(inquiredProducts);
-    updated.add(selectedProduct.id);
-    setInquiredProducts(updated);
+      // Reset & close
+      setFormData({ name: "", phone: "" });
+      setSelectedProduct(null);
+      setShowForm(false);
 
-    if (typeof window !== "undefined") {
-      localStorage.setItem(
-        INQUIRY_STORAGE_KEY,
-        JSON.stringify(Array.from(updated))
-      );
+      alert("Inquiry submitted successfully!");
+    } catch (error) {
+      console.error("Inquiry submit error:", error);
+      alert("Failed to submit inquiry. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
-
-    setShowForm(false);
-    setSelectedProduct(null);
-    alert("Inquiry submitted successfully!");
   };
 
-  // Format price: expects priceInSmallestUnit (e.g., paise)
+  // Format price: expects price in smallest unit (e.g., paise)
   const formatPrice = (priceInSmallestUnit) => {
-    const price = priceInSmallestUnit;
+    const price = Number(priceInSmallestUnit) || 0;
     return price.toLocaleString("en-IN", {
       style: "currency",
       currency: "INR",
@@ -104,18 +114,19 @@ const ProductCatalogPage = ({ products }) => {
     });
   };
 
-  // Determine which products to show
+  // Subset of products to display
   const visibleProducts = Array.isArray(products)
     ? products.slice(0, visibleCount)
     : [];
 
-  // Handler for “More” button
   const handleLoadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + INCREMENT, products.length));
+    if (Array.isArray(products)) {
+      setVisibleCount((prev) => Math.min(prev + INCREMENT, products.length));
+    }
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8 font-sans z-10">
+    <div className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-10 text-center">
           Product Catalog
@@ -123,42 +134,47 @@ const ProductCatalogPage = ({ products }) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8">
           {visibleProducts.map((product) => {
-            // Expect product.price in smallest unit (e.g., paise), product.discount as percentage number
             const discount = Number(product.discount) || 0;
             const hasDiscount = discount > 0;
+            // Round discounted price
             const discountedPriceInSmallest = hasDiscount
-              ? (product.price * (100 - discount)) / 100
+              ? Math.round((product.price * (100 - discount)) / 100)
               : product.price;
+
+            const alreadyInquired = inquiredProducts.has(product.id);
+
+            // Determine image URL or placeholder
+            const imageUrl =
+              product.galleryImages && product.galleryImages.length > 0
+                ? product.galleryImages[0]
+                : "/images/placeholder.png"; // ensure this exists in /public/images/
 
             return (
               <div
                 key={product.id}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
               >
-                <Link href={`/Catalog/Fullview/${product.sku || product.id}`}>
-                  <div className="aspect-square relative group">
+                {/* Image wrapper with relative + aspect ratio */}
+                <Link href={`/products/${product.sku || product.id}`}>
+                  <div className="relative w-full aspect-square bg-gray-100">
                     <Image
-                      src={
-                        product.galleryImages &&
-                        product.galleryImages.length > 0
-                          ? product.galleryImages[0]
-                          : "/images/placeholder.png"
-                      }
-                      alt={product.name}
+                      src={imageUrl}
+                      alt={product.name || "Product image"}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105 z-20"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        // Fallback if image fails to load
+                        e.currentTarget.src = "/images/placeholder.png";
+                      }}
                     />
-                    <Link
-                      href={`/products/${product.sku || product.id}`}
-                      className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100"
-                      aria-label="View product details"
-                    >
+                    <span className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100">
                       <FaInfoCircle className="text-base" />
-                    </Link>
+                    </span>
                   </div>
                 </Link>
 
+                {/* Details */}
                 <div className="p-5 flex flex-col flex-grow">
                   <div>
                     <h3
@@ -172,7 +188,7 @@ const ProductCatalogPage = ({ products }) => {
                     </p>
                   </div>
 
-                  {/* Price */}
+                  {/* Price & discount */}
                   <div className="mb-3 flex items-baseline space-x-2">
                     {hasDiscount ? (
                       <>
@@ -197,14 +213,20 @@ const ProductCatalogPage = ({ products }) => {
                     {product.description}
                   </p>
 
+                  {/* Actions */}
                   <div className="mt-auto pt-4 border-t border-slate-100">
                     <div className="flex flex-col sm:flex-row gap-3">
                       <button
                         onClick={() => handleInquiry(product)}
-                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-md shadow-sm hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                        disabled={alreadyInquired}
+                        className={`flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 ${
+                          alreadyInquired
+                            ? "bg-gray-400 cursor-not-allowed"
+                            : "bg-primary text-white hover:bg-stone-800"
+                        } text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors`}
                       >
                         <FaEnvelope />
-                        Inquire
+                        {alreadyInquired ? "Inquired" : "Inquire"}
                       </button>
                       <a
                         href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -214,7 +236,7 @@ const ProductCatalogPage = ({ products }) => {
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
                       >
                         <FaWhatsapp className="text-base" />
                         WhatsApp
@@ -227,8 +249,8 @@ const ProductCatalogPage = ({ products }) => {
           })}
         </div>
 
-        {/* “More” Button */}
-        {visibleCount < products.length && (
+        {/* “Load More” */}
+        {Array.isArray(products) && visibleCount < products.length && (
           <div className="flex justify-center mt-8">
             <button
               onClick={handleLoadMore}
@@ -244,7 +266,12 @@ const ProductCatalogPage = ({ products }) => {
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
             <div className="bg-white rounded-lg max-w-md w-full p-6 sm:p-8 relative shadow-xl m-4">
               <button
-                onClick={() => setShowForm(false)}
+                onClick={() => {
+                  if (!submitting) {
+                    setShowForm(false);
+                    setSelectedProduct(null);
+                  }
+                }}
                 className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors p-1 rounded-full hover:bg-slate-100"
                 aria-label="Close inquiry form"
               >
@@ -278,7 +305,8 @@ const ProductCatalogPage = ({ products }) => {
                     value={formData.name}
                     onChange={handleFormDataChange}
                     required
-                    className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition sm:text-sm"
+                    disabled={submitting}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition sm:text-sm disabled:opacity-50"
                     placeholder="e.g., John Doe"
                   />
                 </div>
@@ -297,16 +325,22 @@ const ProductCatalogPage = ({ products }) => {
                     value={formData.phone}
                     onChange={handleFormDataChange}
                     required
-                    className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition sm:text-sm"
+                    disabled={submitting}
+                    className="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition sm:text-sm disabled:opacity-50"
                     placeholder="e.g., 9876543210"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex justify-center py-2.5 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                  disabled={submitting}
+                  className={`w-full inline-flex justify-center py-2.5 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white ${
+                    submitting
+                      ? "bg-indigo-400 cursor-not-allowed"
+                      : "bg-indigo-600 hover:bg-indigo-700"
+                  } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors`}
                 >
-                  Submit Inquiry
+                  {submitting ? "Submitting..." : "Submit Inquiry"}
                 </button>
               </form>
             </div>
@@ -314,7 +348,7 @@ const ProductCatalogPage = ({ products }) => {
         )}
       </div>
 
-      {/* Optional: fade-in animation */}
+      {/* Fade-in animation */}
       <style jsx global>{`
         @keyframes fadeIn {
           from {
