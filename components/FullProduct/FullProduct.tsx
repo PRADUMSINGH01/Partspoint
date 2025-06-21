@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import CompatibilityTable from "@/components/CompatibilityTable/CompatibilityTable";
 import { FaWhatsapp } from "react-icons/fa";
-import { fetchParts } from "@/lib/partsById";
+import { fetchPartsBySKU } from "@/lib/FetchBYSku";
 
 interface Product {
   brand: string;
@@ -52,7 +52,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
   useEffect(() => {
     const fetchDataById = async () => {
       try {
-        const response = await fetchParts(Id);
+        const response = await fetchPartsBySKU(Id);
         if (Array.isArray(response) && response.length > 0) {
           const prod = response[0];
           setData(prod);
