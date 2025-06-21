@@ -97,7 +97,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
       backgroundPosition: `${zoomPosition.x * 100}% ${zoomPosition.y * 100}%`,
       backgroundSize: zoomStyle.backgroundSize,
     });
-  }, [selectedImage]);
+  }, [selectedImage, zoomPosition.x, zoomPosition.y, zoomStyle.backgroundSize]);
 
   const handleFormSubmit = () => {
     console.log("Customer Name:", customerName);
@@ -158,7 +158,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
                     src={img}
                     alt={`thumb-${idx}`}
                     fill
-                    className="object-cover rounded"
+                    className="object-contain rounded"
                   />
                 </div>
               ))}

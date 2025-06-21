@@ -1,9 +1,8 @@
 import CarPartSearch from "@/components/Carpartsearchbar/Carpartsearchbar";
-import CarBrandsShowcase from "@/components/CarBrandsShowcase/CarBrandsShowcase";
 import ExampleReviewsPage from "@/components/Review/Review";
 import FaqSection from "@/components/FANDQ/FANDQ";
 import PartsCategories from "@/components/ProductCate/ProductCate";
-
+import ProductSlider from "@/components/ProductSlider /ProductSlider";
 export default async function Home() {
   return (
     <>
@@ -45,9 +44,11 @@ export default async function Home() {
         <PartsCategories />
       </div>
 
-      <div className=" Brand bg-light py-12" id="Brands">
+      {/* <div className=" Brand bg-light py-12" id="Brands">
         <CarBrandsShowcase />
-      </div>
+      </div> */}
+
+      <ProductSlider />
 
       <ExampleReviewsPage />
 

@@ -1,5 +1,4 @@
 "use client";
-import { fetchData } from "@/lib/fetchall";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaWhatsapp, FaEnvelope, FaTimes, FaInfoCircle } from "react-icons/fa";
@@ -17,6 +16,16 @@ const ProductCatalogPage = ({ products }) => {
   const [formData, setFormData] = useState({ name: "", phone: "" });
   const [showForm, setShowForm] = useState(false);
   const [inquiredProducts, setInquiredProducts] = useState(new Set());
+
+  // For “Load More” functionality
+  const INITIAL_COUNT = 9;
+  const INCREMENT = 10;
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+
+  // If products prop changes (e.g., new data), reset visibleCount
+  useEffect(() => {
+    setVisibleCount(INITIAL_COUNT);
+  }, [products]);
 
   // Load inquired products from localStorage on mount
   useEffect(() => {
@@ -95,6 +104,16 @@ const ProductCatalogPage = ({ products }) => {
     });
   };
 
+  // Determine which products to show
+  const visibleProducts = Array.isArray(products)
+    ? products.slice(0, visibleCount)
+    : [];
+
+  // Handler for “More” button
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + INCREMENT, products.length));
+  };
+
   return (
     <div className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8 font-sans z-10">
       <div className="max-w-7xl mx-auto">
@@ -103,7 +122,7 @@ const ProductCatalogPage = ({ products }) => {
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8">
-          {products.map((product) => {
+          {visibleProducts.map((product) => {
             // Expect product.price in smallest unit (e.g., paise), product.discount as percentage number
             const discount = Number(product.discount) || 0;
             const hasDiscount = discount > 0;
@@ -207,6 +226,18 @@ const ProductCatalogPage = ({ products }) => {
             );
           })}
         </div>
+
+        {/* “More” Button */}
+        {visibleCount < products.length && (
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={handleLoadMore}
+              className="inline-flex items-center justify-center gap-2 px-6 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+            >
+              More
+            </button>
+          </div>
+        )}
 
         {/* Inquiry Modal */}
         {showForm && selectedProduct && (
