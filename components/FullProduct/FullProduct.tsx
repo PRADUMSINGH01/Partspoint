@@ -6,6 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { fetchParts } from "@/lib/partsById";
 
 interface Product {
+  brand: string;
   id: string;
   name: string;
   partNumber: string;
@@ -165,6 +166,9 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
           </div>
 
           <div className="sm:col-span-3">
+            <h1 className="text-xl font-heading text-secondary mb-2">
+              {data.brand}
+            </h1>
             <h1 className="text-3xl font-heading text-primary mb-2">
               {data.name}
             </h1>

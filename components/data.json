@@ -1,168 +1,2542 @@
-name: "BADGE ASSY THAR",
-      sku: "2302GW500171N",
-      brand: "Mahindra",
-      description:
-        "Emblem for MAHINDRA THAR 2ND GEN, THAR EARTH EDITION",
-      price: 640,
-      percent:9,
-      stockQuantity: 85,
-      galleryImages: [
-        "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9406_6_11zon.jpg?alt=media&token=c0eb0ff7-5a47-4a9a-a1d1-e30f49d0c876",
-        "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9407_4_11zon.jpg?alt=media&token=d9eab5b7-4c8a-48c3-aa5c-33fd55abd86e",
-      ],
-      New:true,
-      category: "Body",
-      subcategory: "Emblem",
-      searchTags: [
-       "Thar ",Mahindra
-      ],
+
+    {name: "Front Brake Pad Set",
+  sku: "29932596",
+  brand: "TVS",
+  description:
+    "Brake Pad Set for MARUTI CIAZ, RITZ, SWIFT, SWIFT DZIRE ",
+  price: 1222,
+  percent:14,
+  stockQuantity: 85,
+  galleryImages: [
+    "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9432.jpg?alt=media&token=2fbd58f8-a88b-4127-bef0-231ecd4db262",
+    "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9431.jpg?alt=media&token=502c63b0-143a-4657-b330-757106b77785",
+  ],
+  New:true,
+  category: "Brake System",
+  subcategory: "
+  Brake Pads",
+  searchTags: [
+    "Bumper Bracket","Maruti "
+  ],
+
+  
+  Compatibility:[
+    {
+      "model": "CIAZ 1ST GEN 1.3L VDI MT",
+      "year": "07.2014 - 07.2016",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L VXI MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L VXI AT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L ZDI MT",
+      "year": "07.2014 - 07.2016",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L ZXI AT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L ZXI MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L RS MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L VDI MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L ZDI MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L RS MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    }
+  ]
+  
+
+  
+    }
+,
     
-     
-      Compatibility:[
-        {
-          "model": "THAR 2ND GEN 2.0L AX 4S CT 4WD MT",
-          "year": "08.2020 - now",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        },
-        {
-          "model": "THAR 2ND GEN 2.0L AX 6S ST 4WD MT",
-          "year": "08.2020 - now",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        },
-        {
-          "model": "THAR 2ND GEN 2.0L LX 4S CT 4WD AT",
-          "year": "08.2020 - now",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        },
-        {
-          "model": "THAR 2ND GEN 2.0L LX 4S HT 4WD AT",
-          "year": "08.2020 - now",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        },
-        {
-          "model": "THAR 2ND GEN 2.0L LX 4S HT 4WD MT",
-          "year": "08.2020 - now",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        },
-        {
-          "model": "THAR 2ND GEN 2.2L AX 4S CT 4WD MT",
-          "year": "08.2020 - now",
-          "engine": "2.2 L",
-          "power_hp": 130,
-          "fuel_type": "Diesel",
-          "engine_type": "mHawk 130"
-        },
-        {
-          "model": "THAR 2ND GEN 2.2L AX 6S ST 4WD MT",
-          "year": "08.2020 - 12.2021",
-          "engine": "2.2 L",
-          "power_hp": 130,
-          "fuel_type": "Diesel",
-          "engine_type": "mHawk 130"
-        },
-        {
-          "model": "THAR 2ND GEN 2.2L LX 4S CT 4WD AT",
-          "year": "08.2020 - now",
-          "engine": "2.2 L",
-          "power_hp": 130,
-          "fuel_type": "Diesel",
-          "engine_type": "mHawk 130"
-        },
-        {
-          "model": "THAR 2ND GEN 2.2L LX 4S HT 4WD AT",
-          "year": "08.2020 - now",
-          "engine": "2.2 L",
-          "power_hp": 130,
-          "fuel_type": "Diesel",
-          "engine_type": "mHawk 130"
-        },
-        {
-          "model": "THAR 2ND GEN 2.2L LX 4S HT 4WD MT",
-          "year": "08.2020 - now",
-          "engine": "2.2 L",
-          "power_hp": 130,
-          "fuel_type": "Diesel",
-          "engine_type": "mHawk 130"
-        },
-        {
-          "model": "THAR 2ND GEN 2.2L AX 4S HT 4WD MT",
-          "year": "08.2020 - now",
-          "engine": "2.2 L",
-          "power_hp": 130,
-          "fuel_type": "Diesel",
-          "engine_type": "mHawk 130"
-        },
-        {
-          "model": "THAR 2ND GEN 2.2L LX 4S CT 4WD MT",
-          "year": "08.2020 - now",
-          "engine": "2.2 L",
-          "power_hp": 130,
-          "fuel_type": "Diesel",
-          "engine_type": "mHawk 130"
-        },
-        {
-          "model": "THAR 2ND GEN 2.0L AX 6S ST(O) 4WD MT",
-          "year": "08.2020 - 12.2021",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        },
-        {
-          "model": "THAR 2ND GEN 2.0L AX 4S CT(O) 4WD MT",
-          "year": "08.2020 - now",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        },
-        {
-          "model": "THAR 2ND GEN 1.5L AX 4S HT RWD MT",
-          "year": "01.2023 - now",
-          "engine": "1.5 L",
-          "power_hp": 116,
-          "fuel_type": "Diesel",
-          "engine_type": "D117 CRDe"
-        },
-        {
-          "model": "THAR 2ND GEN 2.0L LX 4S HT RWD AT",
-          "year": "01.2023 - now",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        },
-        {
-          "model": "THAR 2ND GEN 1.5L LX 4S HT MT",
-          "year": "01.2023 - now",
-          "engine": "1.5 L",
-          "power_hp": 116,
-          "fuel_type": "Diesel",
-          "engine_type": "D117 CRDe"
-        },
-        {
-          "model": "THAR EARTH EDITION 2.0L LX HT 4WD MT",
-          "year": "02.2024 - now",
-          "engine": "2 L",
-          "power_hp": 150,
-          "fuel_type": "Petrol",
-          "engine_type": "mStallion 150 TGDi"
-        }
-      ]
-      
-     
+    {name: " PAD SET",
+    id: "55810M50S00",
+
+  sku: "55810M50S00",
+  brand: "Maruti",
+  description:
+    "Brake Pad Set for MARUTI BALENO, FRONX, SWIFT, SWIFT DZIRE ",
+  price: 2350,
+  percent:0,
+  stockQuantity: 85,
+  galleryImages: [
+    "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9406_6_11zon.jpg?alt=media&token=c0eb0ff7-5a47-4a9a-a1d1-e30f49d0c876",
+    "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9407_4_11zon.jpg?alt=media&token=d9eab5b7-4c8a-48c3-aa5c-33fd55abd86e",
+  ],
+  New:true,
+  category: "Brake System",
+  subcategory: "
+  Brake Pads",
+  searchTags: [
+    "Bumper Bracket","Maruti "
+  ],
+
+  
+  Compatibility:[
+    {
+      "model": "CIAZ 1ST GEN 1.3L VDI MT",
+      "year": "07.2014 - 07.2016",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L VXI MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L VXI AT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L ZDI MT",
+      "year": "07.2014 - 07.2016",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L ZXI AT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L ZXI MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L RS MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L VDI MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L ZDI MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L RS MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ALPHA MT",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ALPHA AGS",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L DELTA MT",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L DELTA AGS",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L SIGMA MT",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ZETA AGS",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ZETA MT",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 75.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L DELTA MT",
+      "year": "10.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 75.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ZETA MT",
+      "year": "10.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 75.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO RS 1.0L MT",
+      "year": "12.2016 - 12.2019",
+      "engine": "1 L",
+      "power_hp": 101.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "BALENO RS F/L 1.0L MT",
+      "year": "01.2019 - 03.2021",
+      "engine": "1 L",
+      "power_hp": 101.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.2L SIGMA MT",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA MT",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA AGS",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA+ MT",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA+ AGS",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.0L DELTA+ MT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.0L ZETA MT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.0L ZETA AT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.0L ALPHA AT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.0L ALPHA MT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.2L SIGMA MT",
+      "year": "07.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 76.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA MT",
+      "year": "07.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 76.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L LXI MT",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L VXI MT",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI MT",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI+ MT",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L VXI AGS",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI AGS",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI+ AGS",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L VXI MT",
+      "year": "08.2022 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 77.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI MT",
+      "year": "08.2022 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 77.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L LXI MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L VXI AGS",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 85.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L VXI MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L VXI(O) MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L ZXI MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L ZXI+ MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L VXI(O) AGS",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 85.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L ZXI AGS",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 85.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L ZXI+ AGS",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 85.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L LXI MT",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L VXI MT",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI MT",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI+ MT",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI AGS",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI+ AGS",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L VXI AGS",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L VXI MT",
+      "year": "03.2022 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 78.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI MT",
+      "year": "03.2022 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 78.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L TOUR MT",
+      "year": "02.2023 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 78.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L LXI MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L VXI MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI+ MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L VXI AGS",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI AGS",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI+ AGS",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 69.0,
+      "fuel_type": "CNG",
+      "engine_type": "Z12E"
+    }
+  ]
+
+  
+    }
+    ,
+
+    {name: " HORN ASSY, LOW PICTHED",
+    id: "38500M74L40",
+
+  sku: "38500M74L40",
+  brand: "Maruti",
+  description:
+    "Air / Electrical Horn for MARUTI SWIFT 2ND GEN, SWIFT DZIRE 2ND GEN  ",
+  price: 350,
+  percent:0,
+  stockQuantity: 85,
+  galleryImages: [
+    "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9430.jpg?alt=media&token=fa67555b-f59e-4f33-bb6c-e770dc2b6913",
+    "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9429.jpg?alt=media&token=93c8536a-7578-4d2f-83d7-bd5b764876df",
+  ],
+  New:true,
+  category: "Electric Components",
+  subcategory: "
+  Horn",
+  searchTags: [
+    "Horn","Maruti "
+  ],
+
+  
+  Compatibility:[
+    {
+      "model": "CIAZ 1ST GEN 1.3L VDI MT",
+      "year": "07.2014 - 07.2016",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L VXI MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L VXI AT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L ZDI MT",
+      "year": "07.2014 - 07.2016",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L ZXI AT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L ZXI MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.4L RS MT",
+      "year": "07.2014 - 07.2019",
+      "engine": "1.4 L",
+      "power_hp": 91,
+      "fuel_type": "Petrol",
+      "engine_type": "K14B"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L VDI MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L ZDI MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "CIAZ 1ST GEN 1.3L RS MT",
+      "year": "07.2015 - 07.2019",
+      "engine": "1.3 L",
+      "power_hp": 88,
+      "fuel_type": "Diesel",
+      "engine_type": "D13A"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ALPHA MT",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ALPHA AGS",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L DELTA MT",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L DELTA AGS",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L SIGMA MT",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ZETA AGS",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 84.15,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ZETA MT",
+      "year": "02.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 75.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L DELTA MT",
+      "year": "10.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 75.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO 3RD GEN 1.2L ZETA MT",
+      "year": "10.2022 - now",
+      "engine": "1.2 L",
+      "power_hp": 75.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "BALENO RS 1.0L MT",
+      "year": "12.2016 - 12.2019",
+      "engine": "1 L",
+      "power_hp": 101.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "BALENO RS F/L 1.0L MT",
+      "year": "01.2019 - 03.2021",
+      "engine": "1 L",
+      "power_hp": 101.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.2L SIGMA MT",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA MT",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA AGS",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA+ MT",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA+ AGS",
+      "year": "04.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.0L DELTA+ MT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.0L ZETA MT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.0L ZETA AT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.0L ALPHA AT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.0L ALPHA MT",
+      "year": "04.2023 - now",
+      "engine": "1 L",
+      "power_hp": 98.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K10C"
+    },
+    {
+      "model": "FRONX 1.2L SIGMA MT",
+      "year": "07.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 76.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "FRONX 1.2L DELTA MT",
+      "year": "07.2023 - now",
+      "engine": "1.2 L",
+      "power_hp": 76.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L LXI MT",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L VXI MT",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI MT",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI+ MT",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L VXI AGS",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI AGS",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI+ AGS",
+      "year": "02.2021 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L VXI MT",
+      "year": "08.2022 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 77.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 3RD GEN F/L 1.2L ZXI MT",
+      "year": "08.2022 - 04.2024",
+      "engine": "1.2 L",
+      "power_hp": 77.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L LXI MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L VXI AGS",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 85.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L VXI MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L VXI(O) MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L ZXI MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L ZXI+ MT",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 82.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L VXI(O) AGS",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 85.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L ZXI AGS",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 85.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT 4TH GEN 1.2L ZXI+ AGS",
+      "year": "05.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 85.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L LXI MT",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L VXI MT",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI MT",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI+ MT",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI AGS",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI+ AGS",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L VXI AGS",
+      "year": "03.2020 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 88.0,
+      "fuel_type": "Petrol",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L VXI MT",
+      "year": "03.2022 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 78.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L ZXI MT",
+      "year": "03.2022 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 78.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 3RD GEN F/L 1.2L TOUR MT",
+      "year": "02.2023 - 11.2024",
+      "engine": "1.2 L",
+      "power_hp": 78.0,
+      "fuel_type": "CNG",
+      "engine_type": "K12N"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L LXI MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L VXI MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI+ MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L VXI AGS",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI AGS",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI+ AGS",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 81.0,
+      "fuel_type": "Petrol",
+      "engine_type": "Z12E"
+    },
+    {
+      "model": "SWIFT DZIRE 4TH GEN 1.2L ZXI MT",
+      "year": "11.2024 - now",
+      "engine": "1.2 L",
+      "power_hp": 69.0,
+      "fuel_type": "CNG",
+      "engine_type": "Z12E"
+    }
+  ]
+
+  
+    }
+,
+{name: " HORN ASSY, HIGH PITCHED",
+    id: " 38500M74K10",
+  sku: " 38500M74K10",
+  brand: "Maruti",
+  description:
+    "Air / Electrical Horn for MARUTI SWIFT 1ST GEN, SWIFT DZIRE 1ST GEN",
+  price: 330,
+  percent:0,
+  stockQuantity: 85,
+  galleryImages: [
+    "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9428.jpg?alt=media&token=69f2f682-de69-4ca3-8b47-687a1581d6b6",
+    "https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9427.jpg?alt=media&token=9afb01ab-85ea-4859-82c7-a05ff3491abc"
+  ],
+  New:true,
+  category: "Electric Components",
+  subcategory: "
+  Horn",
+  searchTags: [
+    "Horn","Maruti "
+  ],
+
+  
+  Compatibility:
+  [
+    {
+      "model": "SWIFT 1ST GEN 1.3L LDI MT (TYPE 3)",
+      "production": "01.2008 - 03.2010",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L LXI MT (TYPE 3)",
+      "production": "01.2008 - 04.2010",
+      "engine": "1.3 L",
+      "power": "87 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "G13B"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L VDI MT (TYPE 3)",
+      "production": "01.2008 - 03.2010",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L VDI MT ABS (TYPE 3)",
+      "production": "01.2008 - 03.2010",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L VXI MT (TYPE 3)",
+      "production": "01.2008 - 04.2010",
+      "engine": "1.3 L",
+      "power": "87 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "G13B"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L VXI MT ABS (TYPE 3)",
+      "production": "01.2008 - 04.2010",
+      "engine": "1.3 L",
+      "power": "87 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "G13B"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L ZXI MT (TYPE 3)",
+      "production": "01.2008 - 04.2010",
+      "engine": "1.3 L",
+      "power": "87 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "G13B"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L LDI MT (TYPE 4)",
+      "production": "04.2010 - 07.2011",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.2L LXI MT (TYPE 4)",
+      "production": "04.2010 - 07.2011",
+      "engine": "1.2 L",
+      "power": "85 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "K12M"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L VDI MT (TYPE 4)",
+      "production": "04.2010 - 07.2011",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.3L VDI MT ABS (TYPE 4)",
+      "production": "04.2010 - 07.2011",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.2L VXI MT (TYPE 4)",
+      "production": "04.2010 - 07.2011",
+      "engine": "1.2 L",
+      "power": "85 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "K12M"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.2L VXI MT ABS (TYPE 4)",
+      "production": "04.2010 - 07.2011",
+      "engine": "1.2 L",
+      "power": "85 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "K12M"
+    },
+    {
+      "model": "SWIFT 1ST GEN 1.2L ZXI MT (TYPE 4)",
+      "production": "04.2010 - 07.2011",
+      "engine": "1.2 L",
+      "power": "85 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "K12M"
+    },
+    {
+      "model": "SWIFT DZIRE 1ST GEN 1.3L LDI MT",
+      "production": "03.2008 - 01.2012",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT DZIRE 1ST GEN 1.3L VDI MT",
+      "production": "03.2008 - 01.2012",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT DZIRE 1ST GEN 1.3L ZDI MT",
+      "production": "03.2008 - 01.2012",
+      "engine": "1.3 L",
+      "power": "75 h.p.",
+      "fuel": "Diesel",
+      "engineCode": "D13A"
+    },
+    {
+      "model": "SWIFT DZIRE 1ST GEN 1.3L LXI MT",
+      "production": "03.2008 - 01.2012",
+      "engine": "1.3 L",
+      "power": "87 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "G13B"
+    },
+    {
+      "model": "SWIFT DZIRE 1ST GEN 1.3L VXI MT",
+      "production": "03.2008 - 01.2012",
+      "engine": "1.3 L",
+      "power": "87 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "G13B"
+    },
+    {
+      "model": "SWIFT DZIRE 1ST GEN 1.3L ZXI MT",
+      "production": "03.2008 - 01.2012",
+      "engine": "1.3 L",
+      "power": "87 h.p.",
+      "fuel": "Petrol",
+      "engineCode": "G13B"
+    }
+  ]
+  
+  
+    },
+
+
+    
+{name: "BEARING,CLUTCH RELEASE",
+id: " 23265M77P00",
+sku: " 23265M77P00",
+brand: "Maruti",
+description:
+"Releaser for MARUTI EECO, SUPER CARRY, VERSA",
+price: 1025,
+percent:0,
+stockQuantity: 85,
+galleryImages: [
+"https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9419.jpg?alt=media&token=23cb1b4e-7b32-4723-b951-ae2c169c0c4d",
+"https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9418.jpg?alt=media&token=e04d3948-6a52-4079-a649-40222099ce99"
+],
+New:true,
+category: "
+Clutch System",
+subcategory: "Clutch Release Bearing",
+searchTags: [
+"Clutch","Maruti "
+],
+
+
+Compatibility:
+[
+  {
+    "model": "EECO 1.2L 5S AC MT",
+    "year": "01.2010 - 12.2020",
+    "engine": "1.2 L",
+    "power_hp": 73,
+    "fuel_type": "Petrol",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "EECO 1.2L 5S STD MT",
+    "year": "01.2010 - 12.2020",
+    "engine": "1.2 L",
+    "power_hp": 73,
+    "fuel_type": "Petrol",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "EECO 1.2L 7S STD MT",
+    "year": "01.2010 - 12.2020",
+    "engine": "1.2 L",
+    "power_hp": 73,
+    "fuel_type": "Petrol",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "EECO 1.2L 5S AC MT",
+    "year": "08.2010 - 12.2020",
+    "engine": "1.2 L",
+    "power_hp": 62,
+    "fuel_type": "CNG",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "EECO 1.2L 5S STD MT",
+    "year": "08.2010 - 12.2020",
+    "engine": "1.2 L",
+    "power_hp": 62,
+    "fuel_type": "CNG",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "EECO 1.2L 7S STD MT",
+    "year": "01.2020 - 10.2023",
+    "engine": "1.2 L",
+    "power_hp": 73,
+    "fuel_type": "Petrol",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "EECO 1.2L 5S AC MT",
+    "year": "01.2020 - 10.2023",
+    "engine": "1.2 L",
+    "power_hp": 73,
+    "fuel_type": "Petrol",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "EECO 1.2L 5S AC MT",
+    "year": "01.2020 - 10.2023",
+    "engine": "1.2 L",
+    "power_hp": 62,
+    "fuel_type": "CNG",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "EECO 1.2L 5S STD MT",
+    "year": "01.2020 - 10.2023",
+    "engine": "1.2 L",
+    "power_hp": 73,
+    "fuel_type": "Petrol",
+    "engine_type": "G12B"
+  },
+  {
+    "model": "SUPER CARRY 1.2L",
+    "year": "09.2016 - 03.2021",
+    "engine": "1.2 L",
+    "power_hp": 64,
+    "fuel_type": "CNG",
+    "engine_type": "G12B BS-IV"
+  },
+  {
+    "model": "SUPER CARRY 1.2L",
+    "year": "09.2016 - 03.2021",
+    "engine": "1.2 L",
+    "power_hp": 64,
+    "fuel_type": "Petrol",
+    "engine_type": "G12B BS-IV"
+  },
+  {
+    "model": "SUPER CARRY 1.2L",
+    "year": "04.2020 - 02.2024",
+    "engine": "1.2 L",
+    "power_hp": 72,
+    "fuel_type": "CNG",
+    "engine_type": "G12B BS-VI"
+  },
+  {
+    "model": "SUPER CARRY 1.2L",
+    "year": "04.2020 - 02.2024",
+    "engine": "1.2 L",
+    "power_hp": 72,
+    "fuel_type": "Petrol",
+    "engine_type": "G12B BS-VI"
+  },
+  {
+    "model": "VERSA 1.3L DX1 MT",
+    "year": "01.2000 - 08.2011",
+    "engine": "1.3 L",
+    "power_hp": 82,
+    "fuel_type": "Petrol",
+    "engine_type": "G13B"
+  },
+  {
+    "model": "VERSA 1.3L DX2 MT",
+    "year": "01.2000 - 08.2011",
+    "engine": "1.3 L",
+    "power_hp": 82,
+    "fuel_type": "Petrol",
+    "engine_type": "G13B"
+  },
+  {
+    "model": "VERSA 1.3L SDX MT",
+    "year": "01.2000 - 08.2011",
+    "engine": "1.3 L",
+    "power_hp": 82,
+    "fuel_type": "Petrol",
+    "engine_type": "G13B"
+  },
+  {
+    "model": "VERSA 1.3L STD MT",
+    "year": "01.2000 - 08.2011",
+    "engine": "1.3 L",
+    "power_hp": 82,
+    "fuel_type": "Petrol",
+    "engine_type": "G13B"
+  }
+]
+
+
+},
+
+    
+{name: "BEARING,CLUTCH RELEASE",
+id: " 29932581",
+sku: " 29932581",
+brand: "TVS",
+description:
+"Brake Pad Set for FORD FIESTA, FIGO, FIGO ASPIRE, FREESTYLE, MARUTI ERTIGA, XL6",
+price: 1639,
+percent:4,
+stockQuantity: 85,
+galleryImages: [
+"https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9423.jpg?alt=media&token=c177770c-50c4-4f10-9eb0-f44922bd9bf3",
+"https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9422.jpg?alt=media&token=1c6b783d-ff1f-42f3-a2ba-cf0235ebe258"
+],
+New:true,
+category: "Brake System",
+subcategory: "Brake Pads",
+searchTags: [
+"Brake Pads","Brake "
+],
+
+
+Compatibility:
+[
+  {
+    "model": "ERTIGA 1ST GEN 1.3L LDI MT (TYPE 1)",
+    "year": "04.2012 - 09.2016",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L LXI MT (TYPE 1)",
+    "year": "04.2012 - 09.2016",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.3L VDI MT (TYPE 1)",
+    "year": "04.2012 - 09.2016",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L VXI MT (TYPE 1)",
+    "year": "04.2012 - 09.2016",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.3L ZDI MT (TYPE 1)",
+    "year": "04.2012 - 09.2016",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L ZXI MT (TYPE 1)",
+    "year": "04.2012 - 09.2016",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L LXI MT (TYPE 1) CNG",
+    "year": "07.2013 - 09.2016",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "CNG",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L VXI MT (TYPE 1) CNG",
+    "year": "07.2013 - 09.2016",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "CNG",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.3L LDI MT (TYPE 2)",
+    "year": "09.2015 - 04.2018",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L LXI MT (TYPE 2) CNG",
+    "year": "09.2015 - 04.2018",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "CNG",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L LXI MT (TYPE 2)",
+    "year": "09.2015 - 04.2018",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.3L VDI MT (TYPE 2)",
+    "year": "09.2015 - 04.2018",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L VXI MT (TYPE 2) CNG",
+    "year": "09.2015 - 04.2018",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "CNG",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L VXI MT (TYPE 2)",
+    "year": "09.2015 - 04.2018",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.3L ZDI MT (TYPE 2)",
+    "year": "09.2015 - 04.2018",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L ZXI MT (TYPE 2)",
+    "year": "09.2015 - 04.2018",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.3L LDI MT (TYPE 3)",
+    "year": "04.2017 - 10.2019",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L LXI MT (TYPE 3) CNG",
+    "year": "04.2017 - 10.2019",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "CNG",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L LXI MT (TYPE 3)",
+    "year": "04.2017 - 10.2019",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.3L VDI MT (TYPE 3)",
+    "year": "04.2017 - 10.2019",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L VXI MT (TYPE 3) CNG",
+    "year": "04.2017 - 10.2019",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "CNG",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L VXI MT (TYPE 3)",
+    "year": "04.2017 - 10.2019",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.3L ZDI MT (TYPE 3)",
+    "year": "04.2017 - 10.2019",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A"
+  },
+  {
+    "model": "ERTIGA 1ST GEN 1.4L ZXI MT (TYPE 3)",
+    "year": "04.2017 - 10.2019",
+    "engine": "1.4 L",
+    "power_hp": 91,
+    "fuel_type": "Petrol",
+    "engine_type": "K14B"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.3L LDI MT",
+    "year": "11.2018 - 09.2020",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.3L VDI MT",
+    "year": "11.2018 - 04.2021",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.3L ZDI MT",
+    "year": "11.2018 - 09.2020",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.3L ZDI+ MT",
+    "year": "11.2018 - 09.2020",
+    "engine": "1.3 L",
+    "power_hp": 89,
+    "fuel_type": "Diesel",
+    "engine_type": "D13A SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L LXI MT",
+    "year": "11.2018 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L VXI MT",
+    "year": "11.2018 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L VXI AT",
+    "year": "11.2018 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZXI MT",
+    "year": "11.2018 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZXI AT",
+    "year": "11.2018 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZXI+ MT",
+    "year": "11.2018 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L VDI MT",
+    "year": "11.2018 - 08.2020",
+    "engine": "1.5 L",
+    "power_hp": 94,
+    "fuel_type": "Diesel",
+    "engine_type": "E15A"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZDI MT",
+    "year": "11.2018 - 08.2020",
+    "engine": "1.5 L",
+    "power_hp": 94,
+    "fuel_type": "Diesel",
+    "engine_type": "E15A"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZDI+ MT",
+    "year": "11.2018 - 08.2020",
+    "engine": "1.5 L",
+    "power_hp": 94,
+    "fuel_type": "Diesel",
+    "engine_type": "E15A"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L VDI MT (2019)",
+    "year": "03.2019 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 94,
+    "fuel_type": "Diesel",
+    "engine_type": "E15A"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZDI MT (2019)",
+    "year": "03.2019 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 94,
+    "fuel_type": "Diesel",
+    "engine_type": "E15A"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZDI+ MT (2019)",
+    "year": "03.2019 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 94,
+    "fuel_type": "Diesel",
+    "engine_type": "E15A"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L VXI MT CNG",
+    "year": "05.2019 - 04.2021",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "CNG",
+    "engine_type": "K15B"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L LXI MT (BS-VI)",
+    "year": "04.2020 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L VXI MT (BS-VI)",
+    "year": "04.2020 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L VXI MT (BS-VI) CNG",
+    "year": "04.2020 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "CNG",
+    "engine_type": "K15B"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZXI MT (BS-VI)",
+    "year": "04.2020 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L VXI AT (BS-VI)",
+    "year": "04.2020 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZXI AT (BS-VI)",
+    "year": "04.2020 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN 1.5L ZXI+ MT (BS-VI)",
+    "year": "04.2020 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "ERTIGA 2ND GEN F/L 1.5L LXI MT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "ERTIGA 2ND GEN F/L 1.5L VXI MT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "ERTIGA 2ND GEN F/L 1.5L VXI AT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "ERTIGA 2ND GEN F/L 1.5L ZXI MT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "ERTIGA 2ND GEN F/L 1.5L ZXI AT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "ERTIGA 2ND GEN F/L 1.5L ZXI+ MT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "ERTIGA 2ND GEN F/L 1.5L ZXI+ AT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "XL6 1ST GEN 1.5L ZETA MT",
+    "year": "08.2019 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "XL6 1ST GEN 1.5L ZETA AT",
+    "year": "08.2019 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "XL6 1ST GEN 1.5L ALPHA MT",
+    "year": "08.2019 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "XL6 1ST GEN 1.5L ALPHA AT",
+    "year": "08.2019 - 03.2023",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15B SMART HYBRID"
+  },
+  {
+    "model": "XL6 1ST GEN F/L 1.5L ZETA MT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "XL6 1ST GEN F/L 1.5L ZETA AT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "XL6 1ST GEN F/L 1.5L ALPHA MT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "XL6 1ST GEN F/L 1.5L ALPHA AT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "XL6 1ST GEN F/L 1.5L ALPHA+ MT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  },
+  {
+    "model": "XL6 1ST GEN F/L 1.5L ALPHA+ AT",
+    "year": "04.2022 - now",
+    "engine": "1.5 L",
+    "power_hp": 103.2,
+    "fuel_type": "Petrol",
+    "engine_type": "K15C"
+  }
+]
+
+},
+    
+{name: "Front Brake Pad Set",
+id: " 29932695",
+sku: " 29932695",
+brand: "TVS",
+description:
+"Brake Pad Set for MARUTI ALTO, ALTO 800, ALTO K10, CELERIO, STINGRAY, WAGON R, ZEN ESTILO",
+price: 594,
+percent:19,
+stockQuantity: 85,
+galleryImages: [
+"https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9417.jpg?alt=media&token=f6eda4dd-7106-4cff-bcee-7898eba14798",
+"https://firebasestorage.googleapis.com/v0/b/partpoints.firebasestorage.app/o/IMG_9417.jpg?alt=media&token=f6eda4dd-7106-4cff-bcee-7898eba14798"
+],
+New:true,
+category: "Brake System",
+subcategory: "Brake Pads",
+searchTags: [
+"Brake Pads","Brake "
+],
+
+
+Compatibility:
+[
+  {
+    "model": "ALTO 1.1L VX MT (TYPE 1)",
+    "year": "09.2000 - 04.2003",
+    "engine": "1.1 L",
+    "power_hp": 62,
+    "fuel_type": "Petrol",
+    "engine_type": "F10D BS-II"
+  },
+  {
+    "model": "ALTO 0.8L LX MT (TYPE 1)",
+    "year": "09.2000 - 03.2006",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-II"
+  },
+  {
+    "model": "ALTO 0.8L LXI MT (TYPE 1)",
+    "year": "04.2001 - 03.2006",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-II"
+  },
+  {
+    "model": "ALTO 1.1L VXI MT (TYPE 1)",
+    "year": "04.2001 - 04.2005",
+    "engine": "1.1 L",
+    "power_hp": 62,
+    "fuel_type": "Petrol",
+    "engine_type": "F10D BS-II"
+  },
+  {
+    "model": "ALTO 0.8L STD MT (TYPE 1)",
+    "year": "04.2004 - 03.2006",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-II"
+  },
+  {
+    "model": "ALTO 0.8L LX MT (TYPE 2)",
+    "year": "03.2005 - 03.2011",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-III"
+  },
+  {
+    "model": "ALTO 0.8L LXI MT (TYPE 2)",
+    "year": "03.2005 - 03.2011",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-III"
+  },
+  {
+    "model": "ALTO 0.8L STD MT (TYPE 2)",
+    "year": "03.2005 - 03.2011",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-III"
+  },
+  {
+    "model": "ALTO 0.8L X-FUN MT (TYPE 2)",
+    "year": "03.2005 - 03.2011",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-III"
+  },
+  {
+    "model": "ALTO 0.8L LX MT (TYPE 3) CNG",
+    "year": "03.2010 - 10.2013",
+    "engine": "0.8 L",
+    "power_hp": 39,
+    "fuel_type": "CNG",
+    "engine_type": "F8D BS-IV"
+  },
+  {
+    "model": "ALTO 0.8L LXI MT (TYPE 3) CNG",
+    "year": "03.2010 - 10.2013",
+    "engine": "0.8 L",
+    "power_hp": 39,
+    "fuel_type": "CNG",
+    "engine_type": "F8D BS-IV"
+  },
+  {
+    "model": "ALTO 0.8L STD MT (TYPE 3) CNG",
+    "year": "03.2010 - 10.2013",
+    "engine": "0.8 L",
+    "power_hp": 39,
+    "fuel_type": "CNG",
+    "engine_type": "F8D BS-IV"
+  },
+  {
+    "model": "ALTO 0.8L STD MT (TYPE 3)",
+    "year": "03.2010 - 10.2013",
+    "engine": "0.8 L",
+    "power_hp": 39,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-IV"
+  },
+  {
+    "model": "ALTO 0.8L LX MT (TYPE 3)",
+    "year": "03.2010 - 10.2013",
+    "engine": "0.8 L",
+    "power_hp": 39,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-IV"
+  },
+  {
+    "model": "ALTO 0.8L LXI MT (TYPE 3)",
+    "year": "03.2010 - 10.2013",
+    "engine": "0.8 L",
+    "power_hp": 39,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D BS-IV"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L LX MT (TYPE 1)",
+    "year": "11.2012 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L LXI MT (TYPE 1) CNG",
+    "year": "11.2012 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "CNG",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L LXI MT (TYPE 1)",
+    "year": "11.2012 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L LXI AIRBAG MT (TYPE 1) CNG",
+    "year": "11.2012 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "CNG",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L LXI AIRBAG MT (TYPE 1)",
+    "year": "11.2012 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L STD MT (TYPE 1)",
+    "year": "11.2012 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L LX MT (TYPE 1) CNG",
+    "year": "11.2012 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "CNG",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L STD MT (TYPE 1) CNG",
+    "year": "11.2012 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "CNG",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L VXI MT (TYPE 1)",
+    "year": "03.2013 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN 0.8L VXI AIRBAG MT (TYPE 1)",
+    "year": "03.2013 - 04.2017",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LX MT (TYPE 2)",
+    "year": "04.2016 - 07.2020",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LXI MT (TYPE 2) CNG",
+    "year": "04.2016 - 07.2020",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "CNG",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LXI MT (TYPE 2)",
+    "year": "04.2016 - 07.2020",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LXI AIRBAG MT (TYPE 2) CNG",
+    "year": "04.2016 - 07.2020",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "CNG",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LXI AIRBAG MT (TYPE 2)",
+    "year": "04.2016 - 07.2020",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L STD MT (TYPE 2)",
+    "year": "04.2016 - 07.2020",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L VXI MT (TYPE 2)",
+    "year": "04.2016 - 07.2020",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L VXI AIRBAG MT (TYPE 2)",
+    "year": "04.2016 - 07.2020",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L STD MT (BS-VI)",
+    "year": "04.2020 - now",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LX MT (BS-VI)",
+    "year": "04.2020 - now",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LXI MT (BS-VI)",
+    "year": "04.2020 - now",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LXI AIRBAG MT (BS-VI)",
+    "year": "04.2020 - now",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L VXI MT (BS-VI)",
+    "year": "04.2020 - now",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LXI MT (BS-VI) CNG",
+    "year": "04.2020 - now",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "CNG",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L VXI AIRBAG MT (BS-VI)",
+    "year": "04.2020 - now",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "Petrol",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO 800 1ST GEN F/L 0.8L LXI AIRBAG MT (BS-VI) CNG",
+    "year": "04.2020 - now",
+    "engine": "0.8 L",
+    "power_hp": 47,
+    "fuel_type": "CNG",
+    "engine_type": "F8D"
+  },
+  {
+    "model": "ALTO K10 1ST GEN 1.0L LXI MT (TYPE 1)",
+    "year": "08.2010 - 09.2015",
+    "engine": "1 L",
+    "power_hp": 67,
+    "fuel_type": "Petrol",
+    "engine_type": "K10B"
+  },
+]
+}
+
+
+
+    
