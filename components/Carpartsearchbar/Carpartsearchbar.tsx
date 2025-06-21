@@ -1352,7 +1352,6 @@
 "use client";
 import { useState, useEffect } from "react";
 
-// Interface for a single part
 interface Part {
   id: string;
   partNumber: string;
@@ -1733,7 +1732,554 @@ export default function VehicleSearch() {
         ],
       },
     ],
-    // ... You can add other manufacturers here in the same format
+    Mahindra: [
+      {
+        name: "ALTURAS G4",
+        carr_life_span: [2018, 2019, 2020, 2021, 2022],
+        engines: [{ name: "2.2L mHawk Diesel", launchYear: 2018 }],
+      },
+      {
+        name: "BOLERO",
+        carr_life_span: [
+          2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+          2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
+          2022, 2023, 2024, 2025,
+        ],
+        engines: [
+          { name: "2.5L m2DICR Diesel", launchYear: 2000 },
+          { name: "1.5L mHawk75 Diesel", launchYear: 2018 },
+        ],
+      },
+      {
+        name: "THAR",
+        carr_life_span: [
+          2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020, 2021, 2022,
+          2023, 2024, 2025,
+        ],
+        engines: [
+          { name: "2.5L CRDe Diesel", launchYear: 2010 },
+          { name: "2.0L mStallion Petrol", launchYear: 2020 },
+          { name: "2.2L mHawk Diesel", launchYear: 2020 },
+        ],
+      },
+      {
+        name: "SCORPIO",
+        carr_life_span: [
+          2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012,
+          2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023,
+          2024, 2025,
+        ],
+        engines: [
+          { name: "2.6L Turbo Diesel", launchYear: 2002 },
+          { name: "2.2L mHawk Diesel", launchYear: 2006 },
+          { name: "2.0L mStallion Petrol", launchYear: 2022 },
+        ],
+      },
+      {
+        name: "XUV 700",
+        carr_life_span: [2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "2.0L mStallion Turbo Petrol", launchYear: 2021 },
+          { name: "2.2L mHawk Diesel", launchYear: 2021 },
+        ],
+      },
+      {
+        name: "XUV 300",
+        carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "1.2L Turbo Petrol", launchYear: 2019 },
+          { name: "1.5L Diesel", launchYear: 2019 },
+        ],
+      },
+      {
+        name: "XUV 400",
+        carr_life_span: [2023, 2024, 2025],
+        engines: [
+          { name: "Electric Motor (39.4 & 34.5 kWh)", launchYear: 2023 },
+        ],
+      },
+      {
+        name: "MARAZZO",
+        carr_life_span: [2018, 2019, 2020, 2021, 2022, 2023],
+        engines: [{ name: "1.5L D15 Diesel", launchYear: 2018 }],
+      },
+      {
+        name: "KUV 100",
+        carr_life_span: [2016, 2017, 2018, 2019, 2020, 2021],
+        engines: [
+          { name: "1.2L mFalcon G80 Petrol", launchYear: 2016 },
+          { name: "1.2L mFalcon D75 Diesel", launchYear: 2016 },
+        ],
+      },
+      // Add more if you want full range
+    ],
+
+    Hyundai: [
+      {
+        name: "ACCENT",
+        carr_life_span: [
+          1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+          2010, 2011, 2012, 2013,
+        ],
+        engines: [{ name: "1.5 L petrol", launchYear: 1999 }],
+      },
+      {
+        name: "ALCAZAR",
+        carr_life_span: [2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "2.0 L Nu Petrol", launchYear: 2021 },
+          { name: "1.5 L VGT Diesel", launchYear: 2021 },
+        ],
+      },
+      {
+        name: "AURA",
+        carr_life_span: [2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "1.2 L Kappa Petrol", launchYear: 2020 },
+          { name: "1.2 L U2 CRDi Diesel", launchYear: 2020 },
+          { name: "1.0 L Turbo GDI Petrol", launchYear: 2020 },
+        ],
+      },
+      {
+        name: "CRETA",
+        carr_life_span: [
+          2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
+        ],
+        engines: [
+          { name: "1.5 L Petrol", launchYear: 2015 },
+          { name: "1.5 L Diesel", launchYear: 2015 },
+          { name: "1.4 L Turbo Petrol", launchYear: 2024 },
+        ],
+      },
+      {
+        name: "ELANTRA",
+        carr_life_span: [
+          2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
+          2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        ],
+        engines: [
+          { name: "1.6 L Petrol", launchYear: 2004 },
+          { name: "2.0 L Petrol", launchYear: 2015 },
+          { name: "1.6 L Diesel", launchYear: 2006 },
+        ],
+      },
+      {
+        name: "EON",
+        carr_life_span: [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+        engines: [{ name: "0.8 L Petrol", launchYear: 2011 }],
+      },
+      {
+        name: "EXTER",
+        carr_life_span: [2023, 2024, 2025],
+        engines: [{ name: "1.2 L Kappa Petrol", launchYear: 2023 }],
+      },
+      {
+        name: "GETZ",
+        carr_life_span: [2004, 2005, 2006, 2007, 2008, 2009],
+        engines: [
+          { name: "1.3 L Petrol", launchYear: 2004 },
+          { name: "1.5 L CRDi Diesel", launchYear: 2004 },
+        ],
+      },
+      {
+        name: "GRAND I10",
+        carr_life_span: [
+          2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+          2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
+        ],
+        engines: [{ name: "1.2 L Petrol", launchYear: 2007 }],
+      },
+      {
+        name: "I10",
+        carr_life_span: [
+          2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
+          2021, 2022, 2023, 2024, 2025,
+        ],
+        engines: [{ name: "1.2 L Petrol", launchYear: 2010 }],
+      },
+      {
+        name: "I20",
+        carr_life_span: [
+          2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+          2019, 2020, 2021, 2022, 2023, 2024, 2025,
+        ],
+        engines: [
+          { name: "1.2 L Petrol", launchYear: 2008 },
+          { name: "1.4 L Diesel", launchYear: 2009 },
+          { name: "1.0 L Turbo Petrol", launchYear: 2020 },
+        ],
+      },
+      {
+        name: "IONIQ 5",
+        carr_life_span: [2023, 2024, 2025],
+        engines: [{ name: "Electric (E-GMP, 72 kWh)", launchYear: 2023 }],
+      },
+      {
+        name: "KONA",
+        carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "1.4 L Turbo Petrol", launchYear: 2019 },
+          { name: "Electric EV", launchYear: 2021 },
+        ],
+      },
+      {
+        name: "SANTA FE",
+        carr_life_span: [
+          2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
+          2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
+        ],
+        engines: [
+          { name: "2.0 L Diesel", launchYear: 2005 },
+          { name: "2.4 L Petrol", launchYear: 2005 },
+          { name: "1.6 L Hybrid", launchYear: 2019 },
+        ],
+      },
+      {
+        name: "SANTRO",
+        carr_life_span: [
+          1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
+          2009, 2010, 2011, 2012, 2013, 2014, 2015, 2018, 2019, 2020, 2021,
+          2022,
+        ],
+        engines: [
+          { name: "1.1 L Petrol", launchYear: 1998 },
+          { name: "1.1 L CNG", launchYear: 2018 },
+        ],
+      },
+      {
+        name: "SONATA",
+        carr_life_span: [
+          2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
+          2012, 2013, 2014,
+        ],
+        engines: [
+          { name: "2.0 L Petrol", launchYear: 2001 },
+          { name: "2.4 L Petrol", launchYear: 2001 },
+          { name: "2.0 L Hybrid", launchYear: 2006 },
+        ],
+      },
+      {
+        name: "TERRACAN",
+        carr_life_span: [2003, 2004, 2005, 2006, 2007],
+        engines: [{ name: "2.9 L Diesel", launchYear: 2003 }],
+      },
+      {
+        name: "TUCSON",
+        carr_life_span: [
+          2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
+          2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
+        ],
+        engines: [
+          { name: "2.0 L Diesel", launchYear: 2005 },
+          { name: "2.0 L Petrol", launchYear: 2005 },
+          { name: "1.6 L Turbo Petrol", launchYear: 2022 },
+        ],
+      },
+      {
+        name: "VENUE",
+        carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "1.2 L Turbo Petrol", launchYear: 2019 },
+          { name: "1.5 L Diesel", launchYear: 2019 },
+        ],
+      },
+      {
+        name: "VERNA",
+        carr_life_span: [
+          2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
+          2017, 2020, 2021, 2022, 2023, 2024, 2025,
+        ],
+        engines: [
+          { name: "1.4 L Petrol", launchYear: 2006 },
+          { name: "1.6 L Petrol", launchYear: 2016 },
+          { name: "1.5 L Diesel", launchYear: 2006 },
+        ],
+      },
+      {
+        name: "XCENT",
+        carr_life_span: [2014, 2015, 2016, 2017, 2018, 2019, 2020],
+        engines: [
+          { name: "1.2 L Petrol", launchYear: 2014 },
+          { name: "1.1 L Diesel", launchYear: 2014 },
+        ],
+      },
+    ],
+
+    Nissan: [
+      {
+        name: "350Z",
+        carr_life_span: [2003, 2004, 2005, 2006, 2007, 2008, 2009],
+        engines: [{ name: "3.5 L V6 Petrol", launchYear: 2003 }],
+      },
+      {
+        name: "370Z",
+        carr_life_span: [
+          2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+          2020,
+        ],
+        engines: [{ name: "3.7 L V6 Petrol", launchYear: 2009 }],
+      },
+      {
+        name: "EVALIA",
+        carr_life_span: [2012, 2013, 2014, 2015, 2016],
+        engines: [{ name: "1.5 L dCi Diesel", launchYear: 2012 }],
+      },
+      {
+        name: "GT-R",
+        carr_life_span: [
+          2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+          2018, 2019, 2020, 2021,
+        ],
+        engines: [{ name: "3.8 L Twin Turbo V6", launchYear: 2007 }],
+      },
+      {
+        name: "KICKS",
+        carr_life_span: [2019, 2020, 2021, 2022, 2023],
+        engines: [
+          { name: "1.5 L Petrol", launchYear: 2019 },
+          { name: "1.3 L Turbo Petrol", launchYear: 2020 },
+          { name: "1.5 L dCi Diesel", launchYear: 2019 },
+        ],
+      },
+      {
+        name: "MAGNITE",
+        carr_life_span: [2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "1.0 L Petrol", launchYear: 2020 },
+          { name: "1.0 L Turbo Petrol", launchYear: 2020 },
+        ],
+      },
+      {
+        name: "MICRA",
+        carr_life_span: [
+          2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
+        ],
+        engines: [
+          { name: "1.2 L Petrol", launchYear: 2010 },
+          { name: "1.5 L dCi Diesel", launchYear: 2010 },
+        ],
+      },
+      {
+        name: "SUNNY",
+        carr_life_span: [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+        engines: [
+          { name: "1.5 L Petrol", launchYear: 2011 },
+          { name: "1.5 L dCi Diesel", launchYear: 2011 },
+        ],
+      },
+      {
+        name: "TEANA",
+        carr_life_span: [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+        engines: [
+          { name: "2.0 L Petrol", launchYear: 2007 },
+          { name: "2.5 L Petrol", launchYear: 2007 },
+        ],
+      },
+      {
+        name: "TERRANO",
+        carr_life_span: [2013, 2014, 2015, 2016, 2017, 2018, 2019],
+        engines: [
+          { name: "1.6 L Petrol", launchYear: 2013 },
+          { name: "1.5 L dCi Diesel", launchYear: 2013 },
+        ],
+      },
+      {
+        name: "X-TRAIL",
+        carr_life_span: [
+          2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
+        ],
+        engines: [
+          { name: "2.0 L Petrol", launchYear: 2004 },
+          { name: "2.2 L Diesel", launchYear: 2005 },
+        ],
+      },
+    ],
+
+    Tata: [
+      {
+        name: "ALTROZ",
+        carr_life_span: [2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "1.2L Revotron I3 Petrol", launchYear: 2020 },
+          { name: "1.5L Revotorq I4 Turbo Diesel", launchYear: 2020 },
+          { name: "1.2L Revotron I3 Turbo Petrol (iTurbo)", launchYear: 2021 },
+        ],
+      },
+      {
+        name: "ARIA",
+        carr_life_span: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017],
+        engines: [{ name: "2.2L Dicor Turbo Diesel I4", launchYear: 2010 }],
+      },
+      {
+        name: "BOLT",
+        carr_life_span: [2015, 2016, 2017, 2018, 2019],
+        engines: [
+          { name: "1.2L Revotron Turbocharged Petrol", launchYear: 2015 },
+          { name: "1.3L Quadrajet Turbo Diesel", launchYear: 2015 },
+        ],
+      },
+      {
+        name: "CURVV",
+        carr_life_span: [2024, 2025],
+        engines: [
+          { name: "1.2L Hyperion I3 Turbo Petrol", launchYear: 2024 },
+          { name: "1.5L Revotorq I4 Turbo Diesel", launchYear: 2024 },
+          {
+            name: "Permanent Magnet Synchronous Motor (Curvv EV)",
+            launchYear: 2024,
+          },
+        ],
+      },
+      {
+        name: "ESTATE",
+        carr_life_span: [1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000],
+        engines: [{ name: "1.9L Peugeot XD88 Diesel I4", launchYear: 1992 }],
+      },
+      {
+        name: "HARRIER",
+        carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          {
+            name: "2.0L Kryotec Diesel (Multijet II sourced)",
+            launchYear: 2019,
+          },
+        ],
+      },
+      {
+        name: "HEXA",
+        carr_life_span: [2016, 2017, 2018, 2019, 2020],
+        engines: [
+          {
+            name: "2.2L Varicor Diesel I4 (150PS & 170PS/156PS variants)",
+            launchYear: 2017,
+          },
+        ],
+      },
+      {
+        name: "INDICA",
+        carr_life_span: [
+          1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
+          2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+        ],
+        engines: [
+          { name: "1.4L Petrol I4 (MPI)", launchYear: 1998 },
+          {
+            name: "1.4L Diesel I4 (ID/TD initially, later DiCOR CRDi)",
+            launchYear: 1999,
+          },
+        ],
+      },
+      {
+        name: "INDIGO",
+        carr_life_span: [
+          2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012,
+          2013, 2014, 2015, 2016,
+        ],
+        engines: [
+          { name: "1.4L Petrol (Fiat Safire, rebranded)", launchYear: 2002 },
+          { name: "1.3L Quadrajet Diesel", launchYear: 2002 },
+        ],
+      },
+      {
+        name: "INDIGO MARINA",
+        carr_life_span: [2006, 2007, 2008, 2009],
+        engines: [
+          { name: "1.4L Petrol MPI", launchYear: 2006 },
+          { name: "1.4L Diesel (CR4/TDi)", launchYear: 2006 },
+        ],
+      },
+      {
+        name: "MOVUS",
+        carr_life_span: [2014, 2015, 2016],
+        engines: [
+          {
+            name: "2.2L Varicor Diesel I4 (rebadged Sumo Grande)",
+            launchYear: 2014,
+          },
+        ],
+      },
+      {
+        name: "NANO",
+        carr_life_span: [
+          2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+        ],
+        engines: [{ name: "0.624L I2 SOHC MPI Petrol", launchYear: 2008 }],
+      },
+      {
+        name: "NEXON",
+        carr_life_span: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "1.2L Revotron Turbocharged Petrol", launchYear: 2017 },
+          { name: "1.5L Revotorq Diesel", launchYear: 2017 },
+          {
+            name: "Permanent Magnet Synchronous Motor (Nexon EV)",
+            launchYear: 2020,
+          },
+        ],
+      },
+      {
+        name: "PUNCH",
+        carr_life_span: [2021, 2022, 2023, 2024, 2025],
+        engines: [{ name: "1.2L Revotron Petrol MPI", launchYear: 2021 }],
+      },
+      {
+        name: "SAFARI",
+        carr_life_span: [2021, 2022, 2023, 2024, 2025],
+        engines: [{ name: "2.0L Kryotec Diesel", launchYear: 2021 }],
+      },
+      {
+        name: "SIERRA",
+        carr_life_span: [
+          1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001,
+          2002, 2003,
+        ],
+        engines: [
+          {
+            name: "2.0L Diesel I4 (483 DL / DLTC Turbocharged)",
+            launchYear: 1991,
+          },
+        ],
+      },
+      {
+        name: "SUMO",
+        carr_life_span: [
+          1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004,
+          2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
+          2016, 2017, 2018, 2019,
+        ],
+        engines: [{ name: "2.0L Dicor Diesel I4", launchYear: 1994 }],
+      },
+      {
+        name: "TIAGO",
+        carr_life_span: [
+          2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
+        ],
+        engines: [{ name: "1.2L Revotron Petrol MPI", launchYear: 2016 }],
+      },
+      {
+        name: "TIGOR",
+        carr_life_span: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+        engines: [
+          { name: "1.2L Revotron Petrol MPI", launchYear: 2017 },
+          { name: "1.2L Revotron Petrol CNG", launchYear: 2020 },
+        ],
+      },
+      {
+        name: "XENON",
+        carr_life_span: [
+          2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+        ],
+        engines: [{ name: "2.2L Dicor Diesel I4", launchYear: 2009 }],
+      },
+      {
+        name: "ZEST",
+        carr_life_span: [2014, 2015, 2016, 2017, 2018, 2019],
+        engines: [
+          { name: "1.2L Revotron Petrol MPI", launchYear: 2014 },
+          { name: "1.3L Quadrajet Diesel", launchYear: 2014 },
+        ],
+      },
+    ],
   };
   // --- USE EFFECT HOOKS ---
 
@@ -1798,15 +2344,17 @@ export default function VehicleSearch() {
 
     try {
       // Example filter using mock parts data
-      const compatibleParts = mockParts.filter(
-        (part) =>
-          part.compatibleMakes.includes(selectedMaker) &&
-          part.compatibleModels.includes(selectedModel) &&
-          part.engineType === selectedEngineName &&
-          part.compatibleYears.includes(selectedYear)
-      );
-
-      setFoundParts(compatibleParts);
+      // const compatibleParts = await fetch("/api/searchBar", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     model: "Ciaz 1st Gen 1.3L VDI MT",
+      //     engine_type: "D13A",
+      //     fuel_type: "Diesel",
+      //     year: 2015,
+      //   }),
+      // });
+      console.log(setFoundParts([]));
     } catch (error) {
       console.error("Error searching parts:", error);
     } finally {
@@ -1942,38 +2490,3 @@ export default function VehicleSearch() {
     </form>
   );
 }
-
-// --- UPDATED MOCK PARTS DATA ---
-// The compatibleYears for a part should now match the engine's launch year
-const mockParts: Part[] = [
-  {
-    id: "1",
-    partNumber: "SWF-123-Z12E",
-    name: "Air Filter",
-    price: 29.99,
-    compatibleMakes: ["Maruti"],
-    compatibleModels: ["Swift"],
-    compatibleYears: [2024], // This part is for the 2024 engine launch
-    engineType: "1.2L Z12E Petrol",
-  },
-  {
-    id: "2",
-    partNumber: "SWF-456-K12M",
-    name: "Oil Filter",
-    price: 19.99,
-    compatibleMakes: ["Maruti"],
-    compatibleModels: ["Swift"],
-    compatibleYears: [2017], // This part is for the 2017 engine launch
-    engineType: "1.2L K12M Petrol",
-  },
-  {
-    id: "3",
-    partNumber: "NEX-789-PET",
-    name: "Brake Pads",
-    price: 45.5,
-    compatibleMakes: ["Tata-Motors"],
-    compatibleModels: ["NEXON"],
-    compatibleYears: [2017],
-    engineType: "1.2 L Revotron I3 turbo petrol",
-  },
-];
