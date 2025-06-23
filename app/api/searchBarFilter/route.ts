@@ -16,15 +16,9 @@ interface PartResult {
   name: string;
   partNumber: string;
   price: number;
-  // You may include other fields if desired:
-  // description?: string;
-  // manufacturer?: string;
-  // stockQty?: number;
-  // imageURL?: string;
 }
 
 export async function POST(request: NextRequest) {
-  // Only allow JSON
   let body: SearchRequestBody;
   try {
     body = await request.json();
@@ -33,18 +27,22 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const { maker, model, year, engineName } = body;
+  //const { maker, model, year, engineName } = body;
+  const maker = "Mahindra";
+  const model = "XUV 300";
+  const year = 2019;
+  const engineName = "1.2L Turbo Petrol";
 
-  // Validate required fields
   if (
+    !maker ||
     typeof maker !== "string" ||
-    maker.trim() === "" ||
+    !model ||
     typeof model !== "string" ||
-    model.trim() === "" ||
+    !year ||
     typeof year !== "number" ||
     isNaN(year) ||
-    typeof engineName !== "string" ||
-    engineName.trim() === ""
+    !engineName ||
+    typeof engineName !== "string"
   ) {
     return NextResponse.json(
       {
@@ -55,24 +53,33 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Build the combined key exactly as stored in Firestore
-  const combinedKey = `${maker}|${model}|${year}|${engineName}`;
+  // --- CHANGE FOR CASE-INSENSITIVITY ---
+  // Convert search inputs to lowercase before building the key.
+  const combinedKey = `${maker.toLowerCase()}|${model.toLowerCase()}|${year}|${engineName.toLowerCase()}`;
 
   try {
-    // Query Firestore: parts collection, where compatibilityKeys array-contains the combinedKey
     const partsRef = db.collection("New");
+
+    // --- CHANGE FOR CASE-INSENSITIVITY ---
+    // Query the new `compatibilityKeys_lowercase` field.
     const querySnapshot = await partsRef
-      .where("compatibilityKeys", "array-contains", combinedKey)
+      .where("compatibilityKeys_lowercase", "array-contains", combinedKey)
       .get();
+
+    if (querySnapshot.empty) {
+      // Return empty array if no documents found
+      return NextResponse.json([], { status: 200 });
+    }
 
     const results: PartResult[] = [];
     querySnapshot.forEach((docSnap) => {
       const data = docSnap.data();
-      // Ensure required fields exist and types are correct
+      // We still return the original, properly cased data
       const name = typeof data.name === "string" ? data.name : null;
       const partNumber =
         typeof data.partNumber === "string" ? data.partNumber : null;
       const price = typeof data.price === "number" ? data.price : null;
+
       if (name && partNumber && price !== null) {
         results.push({
           id: docSnap.id,
@@ -81,14 +88,12 @@ export async function POST(request: NextRequest) {
           price,
         });
       } else {
-        // If some part doc is missing these fields, we skip or could include with defaults
         console.warn(
           `Part doc ${docSnap.id} missing required fields (name/partNumber/price). Skipping.`
         );
       }
     });
-
-    // Return JSON array of parts
+    console.log(results, "-----");
     return NextResponse.json(results, { status: 200 });
   } catch (error) {
     console.error("Error querying Firestore in searchBarFilter:", error);
