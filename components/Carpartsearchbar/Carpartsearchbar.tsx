@@ -741,7 +741,7 @@ export default function VehicleSearch() {
     Tata: [
       {
         name: "ALTROZ",
-        carr_life_span: [2020, 2021, 2022, 2023, 2024, 2025],
+        carr_life_span: [2019, 2020, 2021, 2022, 2023, 2024, 2025],
         engines: [
           { name: "1.2L Revotron I3 Petrol", launchYear: 2020 },
           { name: "1.5L Revotorq I4 Turbo Diesel", launchYear: 2020 },

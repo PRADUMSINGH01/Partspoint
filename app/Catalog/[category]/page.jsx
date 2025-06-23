@@ -231,14 +231,18 @@ export default function CarPartsPage() {
       {GetFilter && (
         <div className="fixed inset-0 z-50">
           <div className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-md" />
-          <div className="relative z-10 flex justify-center items-center h-full">
+
+          <div className="relative z-10 flex justify-center items-center h-full w-full p-4">
             <button
-              className="absolute top-4 right-4 text-white text-2xl"
+              className="absolute top-4 right-4 text-white text-2xl md:text-3xl hover:text-gray-200 transition-colors"
               onClick={() => SetFilter(false)}
             >
               &times;
             </button>
-            <SearchBar />
+
+            <div className="w-full max-w-2xl">
+              <SearchBar className="w-full" />
+            </div>
           </div>
         </div>
       )}
