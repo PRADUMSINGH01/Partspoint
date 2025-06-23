@@ -3,6 +3,8 @@ import ExampleReviewsPage from "@/components/Review/Review";
 import FaqSection from "@/components/FANDQ/FANDQ";
 import PartsCategories from "@/components/ProductCate/ProductCate";
 import ProductSlider from "@/components/ProductSlider /ProductSlider";
+import FreeDeliveryBanner from "@/components/Banner/FreeDeliveryBanner";
+import WaveMarqueeBanner from "@/components/Banner/WaveMarqueeBanner";
 export default async function Home() {
   return (
     <>
@@ -31,6 +33,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
+      <FreeDeliveryBanner />
 
       <div className="bg-light py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,7 +52,7 @@ export default async function Home() {
       </div> */}
 
       <ProductSlider />
-
+      <WaveMarqueeBanner />
       <ExampleReviewsPage />
 
       <div className="" id="faq">

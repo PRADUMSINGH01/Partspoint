@@ -1,4 +1,5 @@
 "use client";
+import SearchBar from "@/components/Carpartsearchbar/Carpartsearchbar";
 import { fetchData } from "@/lib/fetchall";
 import ProductCatalogPage from "@/components/ProductCatalog/ProductCatalog";
 import React, { useState, useEffect, useMemo } from "react";
@@ -87,13 +88,15 @@ export default function CarPartsPage() {
   const [totalPages, setTotalPages] = useState(0);
   const [totalResults, setTotalResults] = useState(0);
   const PRODUCTS_PER_PAGE = 12; // Define pagination limit
+  const [GetFilter, SetFilter] = useState(true);
 
-  // Effect to simulate initial data loading
   useEffect(() => {
     setLoading(true);
     setError(null);
     try {
-      // Simulate network delay for loading mock data
+      if (filters.brands && filters.categories === null) {
+        SetFilter(true);
+      }
       const simulateLoad = async () => {
         const res = await fetchData();
         setAllParts(res); // Load all mock data into state
@@ -224,6 +227,22 @@ export default function CarPartsPage() {
   return (
     <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start px-4 md:px-8 py-6 bg-slate-50 min-h-screen mt-20 ">
       {/* Mobile Filter Header */}
+
+      {GetFilter && (
+        <div className="fixed inset-0 z-50">
+          <div className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-md" />
+          <div className="relative z-10 flex justify-center items-center h-full">
+            <button
+              className="absolute top-4 right-4 text-white text-2xl"
+              onClick={() => SetFilter(false)}
+            >
+              &times;
+            </button>
+            <SearchBar />
+          </div>
+        </div>
+      )}
+
       <div className="w-full md:hidden flex justify-between items-center mb-4">
         <button
           onClick={() => setIsFilterVisible(true)}

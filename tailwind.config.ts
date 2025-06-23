@@ -38,6 +38,19 @@ export default {
         scrollBehavior: ["hover", "focus"],
       },
     },
+
+    boxShadow: {
+      // Light mode "outer" raised
+      "neu-light": "8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff",
+      // Dark mode "outer" raised
+      "neu-dark": "8px 8px 16px #1a1a1a, -8px -8px 16px #2c2c2c",
+      // Light mode "inner" inset
+      "neu-light-inner":
+        "inset 4px 4px 8px #c1c9d6, inset -4px -4px 8px #ffffff",
+      // Dark mode "inner" inset
+      "neu-dark-inner":
+        "inset 4px 4px 8px #131313, inset -4px -4px 8px #2f2f2f",
+    },
   },
   plugins: [],
 } satisfies Config;
