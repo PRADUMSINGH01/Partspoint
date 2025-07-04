@@ -2,18 +2,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // for App Router (Next.js 13/14+)
 
-interface Part {
-  id: string;
-  partNumber: string;
-  name: string;
-  price: number;
-  compatibleMakes: string[];
-  compatibleModels: string[];
-  compatibleYears: number[];
-  engineType?: string;
-  compatibleEngineNames?: string[];
-}
-
 interface Engine {
   name: string;
   launchYear: number;
@@ -42,7 +30,6 @@ export default function VehicleSearch() {
   const [yearOptions, setYearOptions] = useState<number[]>([]);
   const [engines, setEngines] = useState<Engine[]>([]);
 
-  const [searchPerformed, setSearchPerformed] = useState(false);
   const carData: CarData = {
     Maruti: [
       {
