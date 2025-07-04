@@ -40,7 +40,7 @@ const categories = [
     id: 2,
     name: "Air Conditioning",
     icon: FiWind,
-    url: "Maintenance-Service-Parts",
+    url: "Air Conditioning",
   },
   {
     id: 3,
@@ -211,7 +211,10 @@ export default function PartsCategories() {
                 key={category.id}
                 className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:border-primary transition-all group"
               >
-                <Link href={`Catalog/${category.url}`} className="hover">
+                <Link
+                  href={`Catalog/product?category=${category.name}`}
+                  className="hover"
+                >
                   <div className="flex items-center gap-4 overflow-hidden">
                     <div className="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary/20 transition">
                       <Icon className="w-6 h-6" />
