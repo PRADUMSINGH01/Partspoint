@@ -41,7 +41,6 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
   const [name, setCustomerName] = useState("");
   const [phone, setCustomerNumber] = useState("");
   const [isMobile, setIsMobile] = useState(false);
-  const [Alert, setAlert] = useState(false);
 
   useEffect(() => {
     // Check if mobile device
