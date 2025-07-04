@@ -116,17 +116,22 @@ export default function CarPartsPage() {
         }
         if (categoryParam) qs.set("category", categoryParam);
         qs.set("limit", "500");
+
         const res = await fetch(`/api/searchBarFilter?${qs}`);
         const data = await res.json();
+
         if (!data.success) throw new Error(data.message || "API error");
         setAllProducts(data.products);
-      } catch (e: any) {
-        setError(e.message || "Failed to load parts");
+      } catch (e: unknown) {
+        const errorMessage =
+          e instanceof Error ? e.message : "Failed to load parts";
+        setError(errorMessage);
         setAllProducts([]);
       } finally {
         setLoading(false);
       }
     }
+
     fetchAllParts();
   }, [compatibilityFilter, categoryParam]);
 
