@@ -5,6 +5,7 @@ import CompatibilityTable from "@/components/CompatibilityTable/CompatibilityTab
 import { FaWhatsapp } from "react-icons/fa";
 import { fetchPartsBySKU } from "@/lib/FetchBYSku";
 import { addInquiryToFirestore } from "@/lib/MakeQ";
+import { useAlert } from "../Alert/Alert";
 
 interface Product {
   brand: string;
@@ -21,6 +22,8 @@ interface Product {
 }
 
 const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
+  const { showAlert, AlertComponent } = useAlert();
+
   const [data, setData] = useState<Product>();
   const [selectedImage, setSelectedImage] = useState<string>("");
   const [pincode, setPincode] = useState("");
@@ -38,6 +41,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
   const [name, setCustomerName] = useState("");
   const [phone, setCustomerNumber] = useState("");
   const [isMobile, setIsMobile] = useState(false);
+  const [Alert, setAlert] = useState(false);
 
   useEffect(() => {
     // Check if mobile device
@@ -113,10 +117,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
   }, [selectedImage, zoomPosition.x, zoomPosition.y, zoomStyle.backgroundSize]);
 
   const handleFormSubmit = () => {
-    console.log("Customer Name:", name);
-    console.log("Customer Number:", phone);
-    console.log("Product SKU:", data?.sku);
-    console.log("Product Name:", data?.name);
+    showAlert("Your inquiry has been submitted successfully!", "success");
     addInquiryToFirestore(data, { name, phone });
     setShowForm(false);
   };
@@ -352,6 +353,8 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
           </div>
         </div>
       )}
+
+      <AlertComponent />
     </div>
   );
 };
