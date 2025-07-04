@@ -155,7 +155,7 @@ const ProductCatalogPage = ({ products }) => {
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
               >
                 {/* Image wrapper with relative + aspect ratio */}
-                <Link href={`/products/${product.sku || product.id}`}>
+                <Link href={`/Catalog/Fullview/${product.sku || product.id}`}>
                   <div className="relative w-full aspect-square bg-gray-100">
                     <Image
                       src={imageUrl}
