@@ -82,7 +82,7 @@ export default function CarPartsPage() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
+  const compatibility = searchParams.get("compatibility");
   const categoryParam = searchParams.get("category") || "";
   const makerParam = searchParams.get("maker") || "";
   const modelParam = searchParams.get("model") || "";
@@ -111,8 +111,8 @@ export default function CarPartsPage() {
       try {
         const qs = new URLSearchParams();
         const { maker, model, year, engineType } = compatibilityFilter;
-        if (maker && model && year && engineType) {
-          qs.set("compatibility", `${maker}|${model}|${year}|${engineType}`);
+        if (compatibility) {
+          qs.set("compatibility", `${compatibility}`);
         }
         if (categoryParam) qs.set("category", categoryParam);
         qs.set("limit", "500");

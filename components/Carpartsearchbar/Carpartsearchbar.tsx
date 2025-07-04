@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation"; // for App Router (Next.js 13/14+)
 
 interface Part {
   id: string;
@@ -29,6 +30,8 @@ interface CarData {
 }
 
 export default function VehicleSearch() {
+  const router = useRouter(); // Initialize router
+
   const [selectedMaker, setSelectedMaker] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | "">("");
@@ -983,48 +986,27 @@ export default function VehicleSearch() {
     setSelectedEngineName("");
   }, [selectedMaker, selectedModel, selectedYear]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (
       !selectedMaker ||
       !selectedModel ||
       selectedYear === "" ||
       !selectedEngineName
     ) {
-      // Optionally show a message to choose all fields
+      // Optionally show validation error
       return;
     }
 
-    setLoading(true);
-    setSearchPerformed(true);
-    setFoundParts([]);
+    const compatibility = `${selectedMaker}|${selectedModel}|${selectedYear}|${selectedEngineName}`;
 
-    try {
-      const res = await fetch("/api/searchBarFilter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          maker: selectedMaker,
-          model: selectedModel,
-          year: selectedYear,
-          engineName: selectedEngineName,
-        }),
-      });
-      if (!res.ok) {
-        console.error("Server error:", res.statusText);
-        setFoundParts([]);
-      } else {
-        const data: Part[] = await res.json();
-        setFoundParts(data);
-      }
-    } catch (err) {
-      console.error("Error calling API:", err);
-      setFoundParts([]);
-    } finally {
-      setLoading(false);
-    }
+    const queryString = new URLSearchParams({
+      compatibility, // no = sign here
+    }).toString();
+
+    router.push(`/Catalog/product?${queryString}`);
   };
-
   return (
     <form
       onSubmit={handleSubmit}

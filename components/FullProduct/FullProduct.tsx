@@ -4,6 +4,7 @@ import Image from "next/image";
 import CompatibilityTable from "@/components/CompatibilityTable/CompatibilityTable";
 import { FaWhatsapp } from "react-icons/fa";
 import { fetchPartsBySKU } from "@/lib/FetchBYSku";
+import { addInquiryToFirestore } from "@/lib/MakeQ";
 
 interface Product {
   brand: string;
@@ -34,8 +35,20 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
   const zoomRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
-  const [customerName, setCustomerName] = useState("");
-  const [customerNumber, setCustomerNumber] = useState("");
+  const [name, setCustomerName] = useState("");
+  const [phone, setCustomerNumber] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if mobile device
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
 
   const hasDiscount = typeof data?.discount === "number";
   const discountedPrice = hasDiscount
@@ -49,6 +62,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
       setDeliveryMessage("Please enter a valid 6-digit pincode.");
     }
   };
+
   useEffect(() => {
     const fetchDataById = async () => {
       try {
@@ -56,7 +70,6 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
         if (Array.isArray(response) && response.length > 0) {
           const prod = response[0];
           setData(prod);
-          // Initialize selectedImage properly
           if (prod.galleryImages && prod.galleryImages.length > 0) {
             setSelectedImage(prod.galleryImages[0]);
           }
@@ -70,9 +83,9 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
 
     if (Id) fetchDataById();
   }, [Id]);
-  console.log(data);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || isMobile) return;
 
     const container = containerRef.current;
     const { left, top, width, height } = container.getBoundingClientRect();
@@ -100,42 +113,61 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
   }, [selectedImage, zoomPosition.x, zoomPosition.y, zoomStyle.backgroundSize]);
 
   const handleFormSubmit = () => {
-    console.log("Customer Name:", customerName);
-    console.log("Customer Number:", customerNumber);
+    console.log("Customer Name:", name);
+    console.log("Customer Number:", phone);
     console.log("Product SKU:", data?.sku);
     console.log("Product Name:", data?.name);
+    addInquiryToFirestore(data, { name, phone });
     setShowForm(false);
   };
 
-  if (loading) return <>Loading...</>;
-  if (!data) return <>No data found</>;
+  if (loading)
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-light">
+        Loading...
+      </div>
+    );
+  if (!data)
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-light">
+        No data found
+      </div>
+    );
 
   const WHATSAPP_NUMBER = "9468929392";
 
   return (
-    <div className="bg-light min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-body md:mt-10">
-      <div className="w-full mx-auto bg-white rounded-lg shadow">
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 p-6">
-          <div className="sm:col-span-2">
-            <div className="flex gap-4 mb-4">
+    <div className="min-h-screen py-4 px-3 sm:px-6 lg:px-8 font-body bg-light">
+      <div className="w-full mx-auto bg-white rounded-lg shadow-sm">
+        <div className="flex flex-col md:flex-row gap-4 p-3 sm:p-6">
+          {/* Image Gallery - Mobile First Column */}
+          <div className="w-full md:w-1/2">
+            <div className="mb-3 relative">
+              {/* Main image container with improved aspect ratio */}
               <div
                 ref={containerRef}
-                className="relative w-full aspect-[5/2] overflow-hidden rounded-lg"
-                onMouseEnter={() => setShowZoomPreview(true)}
+                className={`relative w-full overflow-hidden rounded-lg border border-gray-200 ${
+                  isMobile ? "aspect-square" : "aspect-[4/3] max-h-[500px]"
+                }`}
+                onMouseEnter={() => !isMobile && setShowZoomPreview(true)}
                 onMouseMove={handleMouseMove}
-                onMouseLeave={() => setShowZoomPreview(false)}
+                onMouseLeave={() => !isMobile && setShowZoomPreview(false)}
               >
                 <Image
                   src={selectedImage}
                   alt={data.name}
                   fill
-                  className="object-cover cursor-pointer"
+                  className="object-contain cursor-pointer"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
                 />
               </div>
-              {showZoomPreview && (
+
+              {/* Zoom preview with improved positioning and sizing */}
+              {showZoomPreview && !isMobile && (
                 <div
                   ref={zoomRef}
-                  className="absolute w-[50rem] h-[40rem] top-10 right-20 rounded-lg overflow-hidden shadow-lg"
+                  className="hidden md:block absolute top-0 left-[calc(100%+20px)] w-[700px] h-[405px] rounded-lg overflow-hidden shadow-lg z-10 border border-gray-300"
                   style={{
                     backgroundImage: `url(${selectedImage})`,
                     backgroundRepeat: "no-repeat",
@@ -145,12 +177,15 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
               )}
             </div>
 
-            <div className="flex space-x-2 overflow-x-auto pb-2">
+            {/* Thumbnail gallery with improved spacing */}
+            <div className="flex gap-2 overflow-x-auto py-2 px-1">
               {data.galleryImages.map((img, idx) => (
                 <div
                   key={idx}
                   onClick={() => setSelectedImage(img)}
-                  className={`relative flex-shrink-0 w-16 h-20 border-2 rounded cursor-pointer transition-all ${
+                  className={`relative flex-shrink-0 ${
+                    isMobile ? "w-14 h-14" : "w-16 h-16"
+                  } border-2 rounded-lg cursor-pointer transition-all ${
                     selectedImage === img ? "border-primary" : "border-gray-200"
                   }`}
                 >
@@ -159,39 +194,40 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
                     alt={`thumb-${idx}`}
                     fill
                     className="object-contain rounded"
+                    sizes="(max-width: 640px) 50px, 70px"
                   />
                 </div>
               ))}
             </div>
           </div>
+          {/* Product Details - Mobile Second Column */}
+          <div className="w-full md:w-1/2">
+            <div className="mb-3">
+              <h2 className="text-sm text-secondary font-medium">
+                {data.brand}
+              </h2>
+              <h1 className="text-xl sm:text-2xl font-bold text-primary mt-1">
+                {data.name}
+              </h1>
 
-          <div className="sm:col-span-3">
-            <h1 className="text-xl font-heading text-secondary mb-2">
-              {data.brand}
-            </h1>
-            <h1 className="text-3xl font-heading text-primary mb-2">
-              {data.name}
-            </h1>
-            <div className="text-gray-500">
-              Part type :
-              {data?.New ? (
-                <>
-                  {" "}
-                  <span className=" bg-secondary text-white p-1 m-2 rounded">
+              <div className="flex items-center mt-2">
+                <span className="text-gray-500 text-sm">Part type:</span>
+                {data?.New ? (
+                  <span className="bg-secondary text-white text-xs px-2 py-1 ml-2 rounded">
                     New
                   </span>
-                </>
-              ) : (
-                <>
-                  <span className=" bg-red-500 text-white p-1 m-2 rounded">
+                ) : (
+                  <span className="bg-red-500 text-white text-xs px-2 py-1 ml-2 rounded">
                     Refurb
                   </span>
-                </>
-              )}
+                )}
+              </div>
+
+              <p className="text-gray-500 text-sm mt-1">Part #: {data.sku}</p>
             </div>
-            <p className="text-sm text-gray-500 mb-2">Part #: {data.sku}</p>
-            <div className="flex items-baseline space-x-3 mb-4">
-              <span className="text-3xl font-bold text-secondary">
+
+            <div className="flex flex-wrap items-baseline gap-2 my-4">
+              <span className="text-2xl font-bold text-secondary">
                 ₹{discountedPrice}
               </span>
               {hasDiscount && (
@@ -205,28 +241,29 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
                 </>
               )}
             </div>
+
             <div className="space-y-4">
               <div>
                 <h3 className="font-medium text-gray-700 mb-1">Description</h3>
-                <p className="text-gray-600">{data.description}</p>
+                <p className="text-gray-600 text-sm">{data.description}</p>
               </div>
 
               <div>
                 <h3 className="font-medium text-gray-700 mb-2">
-                  Check Delivery Availability
+                  Check Delivery
                 </h3>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="text"
                     maxLength={6}
                     placeholder="Enter 6-digit pincode"
-                    className="w-48 border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-primary"
+                    className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:outline-none"
                     value={pincode}
                     onChange={(e) => setPincode(e.target.value)}
                   />
                   <button
                     onClick={checkPincode}
-                    className="px-4 py-2 bg-primary text-white rounded font-medium hover:bg-secondary transition"
+                    className="px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-secondary transition text-sm"
                   >
                     Check
                   </button>
@@ -238,10 +275,11 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
                 )}
               </div>
             </div>
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => setShowForm(true)}
-                className="block text-center px-4 py-3 bg-primary text-white font-medium rounded hover:bg-secondary transition"
+                className="px-4 py-3 bg-primary text-white font-medium rounded-lg hover:bg-secondary transition text-sm sm:text-base"
               >
                 Send Inquiry
               </button>
@@ -252,58 +290,67 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 border text-green-700 text-sm font-medium rounded-md hover:border-green-500 hover:border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-3 border border-green-500 text-green-700 font-medium rounded-lg hover:bg-green-50 text-sm sm:text-base"
               >
-                <FaWhatsapp className="text-base" />
+                <FaWhatsapp className="text-lg" />
                 WhatsApp
               </a>
             </div>
-            {showForm && (
-              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                <div className="w-full max-w-sm bg-white rounded-xl shadow-2xl p-6 relative">
-                  <button
-                    onClick={() => setShowForm(false)}
-                    className="absolute top-3 right-3 text-gray-500 hover:text-black"
-                  >
-                    ✕
-                  </button>
-                  <h2 className="text-xl font-semibold mb-4 text-center text-gray-800">
-                    Submit Your Inquiry
-                  </h2>
-
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={customerName}
-                    onChange={(e) => setCustomerName(e.target.value)}
-                    className="w-full border border-gray-300 rounded px-3 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Your Number"
-                    value={customerNumber}
-                    onChange={(e) => setCustomerNumber(e.target.value)}
-                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                  <button
-                    onClick={handleFormSubmit}
-                    className="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition"
-                  >
-                    Submit Inquiry
-                  </button>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
 
-      {data.Compatibility?.length > 0 ? (
-        <CompatibilityTable data={data.Compatibility} />
-      ) : (
-        <p className="text-center text-gray-500 mt-8">
-          No compatibility information available.
-        </p>
+      {/* Compatibility Section */}
+      <div className="mt-6 mx-3 sm:mx-0">
+        {data.Compatibility?.length > 0 ? (
+          <div className="overflow-x-auto">
+            <CompatibilityTable data={data.Compatibility} />
+          </div>
+        ) : (
+          <p className="text-center text-gray-500 py-4 bg-white rounded-lg mx-3 sm:mx-0">
+            No compatibility information available.
+          </p>
+        )}
+      </div>
+
+      {/* Inquiry Modal */}
+      {showForm && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
+          <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-6 relative">
+            <button
+              onClick={() => setShowForm(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl"
+            >
+              &times;
+            </button>
+            <h2 className="text-xl font-semibold mb-4 text-center text-gray-800">
+              Submit Your Inquiry
+            </h2>
+
+            <div className="space-y-3">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setCustomerName(e.target.value)}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <input
+                type="tel"
+                placeholder="Your Number"
+                value={phone}
+                onChange={(e) => setCustomerNumber(e.target.value)}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <button
+                onClick={handleFormSubmit}
+                className="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition mt-2"
+              >
+                Submit Inquiry
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
