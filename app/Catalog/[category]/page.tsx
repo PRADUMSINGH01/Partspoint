@@ -110,7 +110,6 @@ export default function CarPartsPage() {
       setError(null);
       try {
         const qs = new URLSearchParams();
-        const { maker, model, year, engineType } = compatibilityFilter;
         if (compatibility) {
           qs.set("compatibility", `${compatibility}`);
         }

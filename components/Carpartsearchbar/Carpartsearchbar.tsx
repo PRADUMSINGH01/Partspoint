@@ -42,8 +42,6 @@ export default function VehicleSearch() {
   const [yearOptions, setYearOptions] = useState<number[]>([]);
   const [engines, setEngines] = useState<Engine[]>([]);
 
-  const [loading, setLoading] = useState(false);
-  const [foundParts, setFoundParts] = useState<Part[]>([]);
   const [searchPerformed, setSearchPerformed] = useState(false);
   const carData: CarData = {
     Maruti: [
@@ -1099,42 +1097,11 @@ export default function VehicleSearch() {
         <button
           type="submit"
           className="bg-primary hover:bg-secondary w-full text-white px-8 py-3 rounded-lg font-heading font-semibold transition-all"
-          disabled={loading || !selectedEngineName}
+          disabled={!selectedEngineName}
         >
-          {loading ? "Finding Parts..." : "Find Parts"}
+          {"Find Parts"}
         </button>
       </div>
-
-      {/* Results */}
-      {searchPerformed && (
-        <div className="mt-8">
-          {loading ? (
-            <div className="text-center text-gray-500">
-              Searching for compatible parts...
-            </div>
-          ) : foundParts.length > 0 ? (
-            <>
-              <h2 className="text-xl font-semibold mb-4">Found Parts:</h2>
-              <ul>
-                {foundParts.map((part) => (
-                  <li key={part.id} className="mb-2 border-b pb-2">
-                    <strong>{part.name}</strong> ({part.partNumber}) - ₹
-                    {part.price.toFixed(2)}
-                    <p className="text-sm text-gray-600">
-                      Compatible with: {selectedMaker} {selectedModel} (
-                      {selectedYear}) - {selectedEngineName}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <div className="text-center text-gray-500">
-              No compatible parts found for the selected vehicle and engine.
-            </div>
-          )}
-        </div>
-      )}
     </form>
   );
 }
