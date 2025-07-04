@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 // helper to build the same key your front‑end uses
 function makeCompatibilityKey(brand, model, year, engine) {
-  return [c.brand, c.model, c.year, c.engine]
+  return [brand, model, year, engine]
     .map((p) => encodeURIComponent(p))
     .join("|");
 }

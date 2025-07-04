@@ -493,8 +493,8 @@ export default function CarPartsPage() {
               No Matching Products Found
             </h3>
             <p className="text-gray-500 max-w-md mx-auto mb-6">
-              Try adjusting your filters or search terms to find what you're
-              looking for.
+              Try adjusting your filters or search terms to find what you&lsquo;
+              re looking for.
             </p>
             <button
               onClick={resetFilters}
