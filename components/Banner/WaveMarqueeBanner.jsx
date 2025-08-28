@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const NeumorphicBanner = () => {
   return (
-    <div className="w-full h-24 bg-gray-100 dark:bg-gray-800 flex items-center justify-center px-4">
+    <div className="w-full h-24 bg-gray-100 dark:bg-gray-800 flex items-center justify-center px-4 mt-3">
       {/* Neumorphic panel */}
       <div
         className="flex items-center gap-3 px-6 py-3 bg-gray-100 dark:bg-gray-800
