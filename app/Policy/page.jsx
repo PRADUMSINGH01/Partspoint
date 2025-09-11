@@ -38,6 +38,9 @@ const page = () => {
           >
             Read our full Privacy Policy
           </a>
+          Third-Party Ads & Cookies We use Google AdSense and other advertising
+          networks that may place cookies to serve personalized ads. You can
+          disable cookies in your browser settings.
         </section>
 
         {/* Terms of Service Section */}
