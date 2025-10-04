@@ -11,10 +11,9 @@ const CompatibilityTable = ({ data = [] }) => {
       <table className="w-full text-sm text-left border border-gray-300 text-black">
         <thead className="text-xs uppercase bg-black text-white font-heading">
           <tr>
+            <th className="px-4 py-3 border border-gray-300">Brand</th>
             <th className="px-4 py-3 border border-gray-300">Model</th>
-            <th className="px-4 py-3 border border-gray-300">Fuel</th>
             <th className="px-4 py-3 border border-gray-300">Engine</th>
-            <th className="px-4 py-3 border border-gray-300">Engine Type</th>
             <th className="px-4 py-3 border border-gray-300">Year</th>
           </tr>
         </thead>
@@ -24,16 +23,12 @@ const CompatibilityTable = ({ data = [] }) => {
               key={idx}
               className="bg-white border-b border-gray-300 hover:bg-gray-100 transition"
             >
+              <td className="px-4 py-2 border border-gray-200">{item.brand}</td>
               <td className="px-4 py-2 border border-gray-200">{item.model}</td>
-              <td className="px-4 py-2 border border-gray-200">
-                {item.fuel_type}
-              </td>
               <td className="px-4 py-2 border border-gray-200">
                 {item.engine}
               </td>
-              <td className="px-4 py-2 border border-gray-200">
-                {item.power_hp ?? "-"}
-              </td>
+
               <td className="px-4 py-2 border border-gray-200">
                 {item.year || "-"}
               </td>

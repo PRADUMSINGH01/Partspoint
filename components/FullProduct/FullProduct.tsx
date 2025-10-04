@@ -16,7 +16,7 @@ interface Product {
   discount: number;
   galleryImages: string[];
   description: string;
-  Compatibility: [];
+  compatibility: [];
   sku: string;
   New: boolean;
 }
@@ -137,7 +137,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
   const WHATSAPP_NUMBER = "9468929392";
 
   return (
-    <div className="min-h-screen py-4 px-3 sm:px-6 lg:px-8 font-body bg-light">
+    <div className="min-h-screen py-4 px-3 sm:px-6 lg:px-8 font-body bg-light mt-10">
       <div className="w-full mx-auto bg-white rounded-lg shadow-sm">
         <div className="flex flex-col md:flex-row gap-4 p-3 sm:p-6">
           {/* Image Gallery - Mobile First Column */}
@@ -167,7 +167,7 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
               {showZoomPreview && !isMobile && (
                 <div
                   ref={zoomRef}
-                  className="hidden md:block absolute top-0 left-[calc(100%+20px)] w-[700px] h-[405px] rounded-lg overflow-hidden shadow-lg z-10 border border-gray-300"
+                  className="hidden md:block absolute top-0 left-[calc(90%+20px)] w-[700px] h-[405px] rounded-lg overflow-hidden shadow-lg z-10 border border-gray-300"
                   style={{
                     backgroundImage: `url(${selectedImage})`,
                     backgroundRepeat: "no-repeat",
@@ -302,9 +302,9 @@ const ProductReviewPage: React.FC<{ Id: string }> = ({ Id }) => {
 
       {/* Compatibility Section */}
       <div className="mt-6 mx-3 sm:mx-0">
-        {data.Compatibility?.length > 0 ? (
+        {data.compatibility?.length > 0 ? (
           <div className="overflow-x-auto">
-            <CompatibilityTable data={data.Compatibility} />
+            <CompatibilityTable data={data.compatibility} />
           </div>
         ) : (
           <p className="text-center text-gray-500 py-4 bg-white rounded-lg mx-3 sm:mx-0">
