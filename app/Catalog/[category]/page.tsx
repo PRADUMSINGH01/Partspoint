@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import ProductCatalogPage from "@/components/ProductCatalog/ProductCatalog";
-
+import { searchfilter } from "@/lib/searchfilter";
 interface Part {
   id: string;
   name: string;
@@ -116,7 +116,8 @@ export default function CarPartsPage() {
         if (categoryParam) qs.set("category", categoryParam);
         qs.set("limit", "500");
 
-        const res = await fetch(`/api/searchBarFilter?${qs}`);
+        const res = await searchfilter();
+        //const res = await fetch(`/api/searchBarFilter?${qs}`);
         const data = await res.json();
 
         if (!data.success) throw new Error(data.message || "API error");
