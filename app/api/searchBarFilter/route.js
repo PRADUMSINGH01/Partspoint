@@ -22,7 +22,7 @@ export async function GET(request) {
     const lastId = searchParams.get("lastId");
 
     // 2. build base Firestore query (without compatibility)
-    let query = db.collection("Part");
+    let query = db.collection("Products");
 
     if (categories.length && !categories.includes("all")) {
       query =
@@ -39,7 +39,7 @@ export async function GET(request) {
 
     // 3. apply cursor pagination before fetch
     if (lastId) {
-      const lastSnap = await db.collection("Part").doc(lastId).get();
+      const lastSnap = await db.collection("Products").doc(lastId).get();
       if (lastSnap.exists) {
         query = query.startAfter(lastSnap);
       }
